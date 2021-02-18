@@ -1,0 +1,444 @@
+#+SETUPFILE: ./setup.org
+#+STARTUP: customtime
+#+HUGO_SECTION: assignment
+# #+HUGO_MENU: :menu main :parent slides
+#+HUGO_AUTO_SET_LASTMOD: t
+
+* COMMENT Hugo Instructions
+- Every exportable entry must have the ~EXPORT_FILE_NAME~    [ State ]: EDITED, shown value does not take effect until you set or save it.
+ffect until you set or save it.
+ould write some code to shunt this stuff to ox-huveal instead of ox-hugo.  This is a project for another time.
+- interestingly, I probably don't want to set ox-hugo-auto-export-on-save for this file, because my most urgent need is going to be to export local reveal files.  Exporting to hugo -- or huveal if I can figure that out -- will be difficult.
+- so, maybe I want to repurpose some of the auto-export code for use with my lectures!
+
+
+** Check out this elisp code if you're having trouble
+
+#+begin_src emacs-lisp
+(use-package ox-hugo-auto-export)
+
+#+end_src
+
+#+RESULTS:
+
+
+* DH: Maps, Truth, and Data
+:PROPERTIES:
+:EXPORT_FILE_NAME: 01-intro
+:END:
+** Today
+- What is a map?
+- Do maps tell the truth?
+- How maps became *data*
+- A tiny GIS exercise
+- (also, note re: assignments)
+** This week's readings
+ - Krygier, J., & Wood, Donald, "[[http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595: ][Ce N'est Pas Le Monde]]", In M. Dodge, R. Kitchin, & C. Perkins (Eds.), /Rethinking Maps: New Frontiers in Cartographic Theory/ . (London, UK: Routledge, 2009).
+- Daniel Rueck, [[https://books-scholarsportal-info.myaccess.library.utoronto.ca/en/read?id=/ebooks/ebooks3/upress/2014-03-15/1/9781552387443#page=150]["'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land."]], in Bonnell & Fortin, /Historical GIS Research in Canada/. (Calgary: University of Calgary Press, 2014)
+   
+** What is a map?
+#+begin_quote
+Maps... are more readily exemplified than defined. cite:WoodMaps2009
+#+end_quote
+** What is a map?
+#+ATTR_REVEAL: :frag (appear)
+- "Representation" of a territory and also "Proposition" about it
+   - (alternatively, "a picture", and "an argument")
+- in this class: Double Vision
+  - maps as *cultural objects* (i.e., primary sources)
+  - maps as *tools for arguing* (i.e., rhetorical methods)
+#+ATTR_REVEAL: :frag appear
+#+begin_quote
+Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power.  cite:WoodMaps2009
+#+end_quote
+
+** La Carte n'est pas le Monde
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Magritte's /Treachery of Images/ (1929)
+[[https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg][https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg]]
+#+end_slideblock
+#+begin_slideblock
+#+CAPTION: Illustration from [[https://ebookcentral-proquest-com.myaccess.library.utoronto.ca/lib/utoronto/detail.action?docID=446595][Krygier, Ce n'est pas le Monde]]
+[[./Images/cenestpas.png][./Images/cenestpas.png]]
+#+end_slideblock
+** Defining By Example
+#+begin_quote
+Maps... are more readily exemplified than defined. cite:WoodMaps2009
+#+end_quote
+*** A map with a *very specific purpose*
+:PROPERTIES:
+:CUSTOM_ID: hamburg-3e8e
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Allied War Command map of Hamburg, 1944 ([[https://www.bbc.com/news/uk-34467543][Imperial War Museum via BBC]])
+[[https://ichef.bbci.co.uk/news/976/cpsprodpb/1193B/production/_85959917_hamburgfire_976.jpg][https://ichef.bbci.co.uk/news/976/cpsprodpb/1193B/production/_85959917_hamburgfire_976.jpg]]
+#+end_slideblock
+#+begin_slideblock
+#+ATTR_REVEAL: :frag (appear)
+- major arteries only (suitable for night navigation)
+- Red for flammable, pink for maybe, purple for industry
+- great for bombing; maybe not much use for other purposes!
+#+end_slideblock
+
+*** A map with a *very specific argument*
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: John Snow's 1854 Map of Broad Street, London
+https://media.nationalgeographic.org/assets/photos/000/276/27636.jpg
+#+end_slideblock
+#+begin_slideblock
+#+ATTR_REVEAL: :frag (appear)
+- 1854 cholera outbreak
+- commonly considered to travel through the air ("miasmatically")
+- Snow argues here that it travels through water (around the pump)
+#+end_slideblock
+
+*** A very different map of *the "same" place*
+#+CAPTION: Another view of London
+https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif
+
+*** An angry and satirical map
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Mark Twain's Map of Paris, 1870
+[[file:./Images/mark-twain-paris.jpg][file:./Images/mark-twain-paris.jpg]]
+#+end_slideblock
+
+#+begin_slideblock
+#+ATTR_REVEAL: :frag (none appear appear)
+- parody of maps like the one below
+- 1870: Franco-Prussian War & siege of Paris
+- 
+#+ATTR_REVEAL: :frag (appear)
+#+CAPTION: New York Tribute, Sept. 13, 1870, via cite:EdneyMatthewH.SelfExplanatoryMapCome2018
+[[https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w][https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w]]
+#+ATTR_REVEAL: :frag (appear)
+
+#+end_slideblock
+
+*** A map that is a metaphor
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Humboldt's Chimborazo (the "/Naturgemälde/")
+[[https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg][https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg]]
+#+end_slideblock
+#+begin_slideblock
+- Alexander von Humboldt (1769-1859) naturalist and "explorer"
+- Darwin's hero
+- climbed partway up Chimborazo (Andean peak in Ecuador) & made his map into a parable about life on Earth
+#+end_slideblock
+
+#+begin_notes
+*Journey*
+- archetype of the "scientific adventure"
+- 5 years travel by sea and land
+- long overland voyage across the Andes is probably the best-known, culminating in Chimborazo
+*Chimborazo: The Mountain*
+- Andean Peak 150km S of Quito, Ecuador
+- Tallest mountain in the world? 6263m
+#+end_notes
+
+*** A map of space *and* time
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Map of the world from Higden's [[https://www.bl.uk/collection-items/world-map-by-ranulf-higden][Polychornicon]] (~1400)
+[[file:./Images/higden-polychornicon-map.jpg][./Images/higden-polychornicon-map.jpg]]
+#+end_slideblock
+
+#+begin_slideblock
+- taken from a history of the world, written by a Benedictine monk in Chester, England
+- note that East is up
+- the history of the world (as derived largely from Scripture) flows down from the gates of paradise w/ the 4 rivers
+- space and time *are not distinct axes* in this world
+- this map is fundamentally *pedagogical*
+#+end_slideblock
+
+#+begin_notes
+- surviving maps *come from books*
+- but there were definitely other maps, often too big to fit in a book.
+- the textual context of maps was /historical/ and /calendrical/
+#+end_notes
+
+*** Two Maps to Remake a Territory
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via cite:Ruecknotknowboundaries2014  
+[[file:./Images/rueck-survey-existing.png][file:./Images/rueck-survey-existing.png]]
+#+end_slideblock
+#+begin_slideblock
+#+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
+[[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
+#+end_slideblock
+*** A map that is not a map at all
+#+CAPTION: "Mind map" of knowledge from a  [[http://philosophy.talons43.ca/2016/06/15/epistemology-synthesis/][high school philoosphy course]] 
+http://philosophy.talons43.ca/files/2016/06/New-Mind-Map_5c9bm4ud-2.jpg
+** Some ways that maps make arguments (and "lie")
+*** ACTION Projection
+
+needs work here! turn into a proper slide!
+[[file:Images/chicago-distance-azimuthal.png]]
+*** Google Hedges its bets
+:PROPERTIES:
+:reveal_extra_attr: class="twobytwo"
+:END:
+
+#+begin_slideblock
+[[./Images/google-india-east-0.gif]]
+#+end_slideblock
+#+begin_slideblock
+[[./Images/google-india-east-1.gif]]
+#+end_slideblock
+#+begin_slideblock
+[[./Images/google-india-east-2.gif]]
+#+end_slideblock
+#+begin_slideblock
+- Boundaries are social & cultural objects
+- often they are *largely settled*, as e.g., in the border between US and Canada
+- sometimes they are *not quite entirely respected*, as e.g. when your neighbour builds a corner of their garage on your side of the property line
+- occasionally they are *hotly contested*
+- there are [[https://personalization.ccs.neu.edu/Projects/MapWatch/][interesting]] [[http://metrocosm.com/disputed-territories-map.html][projects]] and even [[https://patents.google.com/patent/US8341192B2/en][patents]] that try to keep track of these disputed borders
+#+end_slideblock
+
+*** About "Truth"
+- remember back to "objectivity"
+- visualizing *requires* simplification
+  - selection
+  - displacement
+  - smoothing
+  - enhancement
+  - aggregation
+- simplification *guarantees* non-universality, and
+  - psychology of perception *guarantees* 
+
+*** "Lies": Choropleths
+:PROPERTIES:
+:reveal_extra_attr: class="twobytwo"
+:END:
+
+#+begin_slideblock
+[[./Images/to-income-choro-nat-brk.png]]
+#+end_slideblock
+#+ATTR_REVEAL: :frag appear
+#+begin_slideblock
+[[./Images/to-income-choro-eql-intvl.png]]
+#+end_slideblock
+
+#+ATTR_REVEAL: :frag appear
+#+begin_slideblock
+[[./Images/to-income-choro-quantile.png]]
+#+end_slideblock
+
+#+ATTR_REVEAL: :frag appear
+#+begin_slideblock
+[[./Images/to-income-choro-std.png]]
+#+end_slideblock
+
+** ACTION Empire and Imperialism 
+- "empire" has broad extent, but
+- "imperialism" \rarr (mostly) European Empires of the c. 18-20
+- Huge expansion of European powers to the rest of the globe
+- British Empire largest in world history
+*** Some Features of European Imperialism
+- doctrine of discovery
+- racial theories
+- economic extraction
+- relations of dependence
+- expansion of science
+- valorization of "exploration"
+**  Finally: the digital part. what is a GIS?
+:PROPERTIES:
+:CUSTOM_ID: what-is-a-gis?-12ec
+:reveal_extra_attr: class="twoc"
+:END:
+
+#+begin_slideblock
+
+https://web.archive.org/web/20190105210746/http://iolandarch.com/wp-content/uploads/2014/09/overlay-analysis.jpg
+
+#+end_slideblock
+
+#+begin_slideblock
+
+- all data is "geo-tagged" (has location info = latitude-longitude co-ords)
+- layered data (like photoshop)
+  - "layering" a non-trivial taxonomic decision 
+- managed by a database, often quite complex, sophisticated
+- more on this next week, when we start thinking about the final assignment
+#+end_slideblock
+
+#+BEGIN_NOTES 
+GIS is just a name for any system that tries to capture, manipulate, and represent geographical data. There are many GIS tools; the history department uses [[http://www.arcgis.com/features/][ArcGIS]], which is expensive and something of an industry standard, while many independent scholars use [[http://www.qgis.org/en/site/][QGIS]], which is free, open source, and not quite as powerful as Arc.
+
+The data in a GIS is all [[https://en.wikipedia.org/wiki/Geotagging][geotagged]], that is, assigned a set of geographical co-ordinates. This sounds simple but it is actually quite complex, since any co-ordinate system is a /simplified projection/ of real, disordered, 3-dimensional space.  Many of the frustrations of working with GIS comes from the difficulty of rendering (say) historical map images /commensurate/ with modern, satellite-derived maps.
+
+Within a GIS, information is generally accessed as a set of *layers*.  Data of specific types is /stratified/ in layers, in much the same way that one creates image layers in photoshop. This image gives a typical example.  Note that the creation of layers is itself an intellectual decision, relying on judgments about the relationships between individual bits of data.
+#+END_NOTES
+
+*** Point and Area Overlays
+:PROPERTIES:
+:reveal_extra_attr: class="twobytwo"
+:END:
+#+begin_slideblock
+[[file:Images/point-overlay-sid-smith.png]]
+#+end_slideblock
+#+begin_slideblock
+[[file:Images/ontario-county-map-zoomed.jpg]]
+#+end_slideblock
+
+**** 
+[[file:Images/ontario-county-map-trinity.png]]
+**** Raster Images
+- area overlays are generally *raster* images with *color value defined for every point* (some other layers will be *vector* images, e.g. lines & shapes, and sometimes marker icons)
+- Most *baselayers* are rasters (though terrain images can be vectors)
+  - baselayers are also almost always *tiled*. Why? 
+**** Tiling in Satellite Raster
+[[file:Images/google-maps-satellite.jpg]]
+**** Historical Map Rasters 
+[[file:Images/rumsey-map-overlay.jpg]]
+#+begin_notes
+- note distortion, border. 
+#+end_notes
+*** Georeferencing Basics
+- Historical Maps are cool!
+- Almost never perfect conformance to the default web projection (WGS 84, a modified Mercator!)
+- They need to be *stretched and squeezed* to fit (like Procrustes)
+- Georeferencing tools *match points* on two representations and *distort* the non-standard one till it fits. 
+*** davidrumsey.georeferencer.com 
+- largest online collection of historical maps
+- georeferencing crowdsourced by users
+- simple online interface. Let's try it out. 
+** Bibliography
+[[bibliography:~/MappingCourse/MapsandCartography.bib]]
+** COMMENT An alternate medieval map.  
+:PROPERTIES:
+:EXPORT_FILE_NAME: 02-medieval-maps
+:END:
+*** Maps as Education
+https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Psalter_World_Map%2C_c.1265.jpg/1024px-Psalter_World_Map%2C_c.1265.jpg
+#+begin_notes
+psalter map, ca. 1250
+what do we see now? 
+- east to west
+  - Medieval Maps are complex objects
+- Temporal as well as spatial
+- /Mappaemundi/ in particular have a pedagogical function which is also /spiritual/
+- to understand them, we need to read them as much as possible /in context/
+#+end_notes
+
+
+
+** ACTION do I still lwant this stuff? Knowledge and Possession
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+
+- "doctrine of discovery" \rarr a display of "knowing" the land \rarr claim to possession
+- hence urgency of mapping new world territories
+#+end_slideblock
+
+#+begin_slideblock
+https://tile.loc.gov/image-services/iiif/service:gmd:gmd388:g3880:g3880:ct000377/full/pct:25/0/default.jpg
+#+end_slideblock
+
+*** Some complexities
+- where does the "knowledge" come from?
+- how are names assigned?
+- what traces do we see? what traces are lost? How should we undertake knowledge claims? 
+ 
+** Inventing "Canada"
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+[[file:Images/alexander-new-england.png]]
+#+end_slideblock
+
+
+** Claiming and Erasing
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+- note European names
+#+end_slideblock
+#+begin_slideblock
+https://assets.atlasobscura.com/media/W1siZiIsInVwbG9hZHMvYXNzZXRzLzc3MWY2YThiZjI1NWU3ZmFlZF9icm0wOTYzLXNtaXRoLW5ldy1lbmdsYW5kLTE2MTZfMTYzNS1oaS1yZXMtMjAwMHgxNjk3LmpwZyJdLFsicCIsImNvbnZlcnQiLCIiXSxbInAiLCJjb252ZXJ0IiwiLXF1YWxpdHkgODEgLWF1dG8tb3JpZW50Il0sWyJwIiwidGh1bWIiLCIxMjgweD4iXV0/brm0963-smith-new-england-1616_1635-hi-res-2000x1697.jpg
+#+end_slideblock
+** Map as Ideology and Rhetoric
+https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/1870_Index_Chart_to_GTS_India-1.jpg/1280px-1870_Index_Chart_to_GTS_India-1.jpg
+
+*** 
+
+* Week 8 (or 9): Deep Maps
+** Lopez's Warning
+#+begin_quote
+I would like to tell you how to get there so that you may see all this for
+yourself. But first a warning: you may already have come across a set of
+detailed instructions, a map with every bush and stone clearly marked, the
+meandering courses of dry rivers and other geographical features noted,
+with dotted lines put down to represent the very faintest of trails. Perhaps
+there were also warnings printed in tiny red letters along the margin,
+about the lack of water, the strength of the wind and the swiftness of the
+rattlesnakes. Your confidence in these finely etched maps is understand-
+able, for at first glance they may seem excellent, the best a man is capable
+of; but your confidence is misplaced. Throw them out. They are the wrong
+sort of map. They are too thin. They are not the sort of map that can be
+followed by a man who knows what he is doing. The coyote, even the crow,
+would regard them with suspicion. (Barry Lopez, /Desert Notes/ 1975, p.85)
+#+end_quote
+** Mapping Slavery
+- race among the earliest social categories to be visualized on US maps
+- ideological grounds on both sides
+*** Maps of the Territory
+http://www.mappingthenation.com/img/jpg/Reynolds_s_political_Map_of_the_United_States.jpg
+#+begin_notes
+1856, cf http://www.mappingthenation.com/index.php/viewer/index/4/5
+
+#+end_notes
+*** John Jay's 1856 Map of Slavery
+http://www.mappingthenation.com/img/jpg/Freedom_Slavery.jpg
+*** Petermann's 1855 Map of Slavery
+http://www.mappingthenation.com/img/jpg/Petermann_Slavery.jpg
+*** Lincoln's Favourite map of Slavery (1861)
+http://www.mappingthenation.com/img/jpg/Coast_Survey_Slave_Map.jpg
+** Wealth and Illiteracy
+http://www.mappingthenation.com/img/jpg/n1872_Illiteracy.jpg
+*** Wealth
+http://www.mappingthenation.com/img/jpg/Statistical_Wealth_Map.jpg
+** Mapping Empire
+http://www.mappingthenation.com/img/jpg/Walker_Indian.jpg
+** Story of the HOLC and American Cities
+- Housing becomes a concern of government *briefly* in 1918 but substantively only in 1933 w/ establishment of *Home Owners Loan Corporation* (HOLC) and Federal Housing Administration (FHA)
+*** HOLC: standardizing assessment
+- granted many low-interest loans
+- assessed properties on a national, standardized grid system A-D
+- wrote into law a series of judgments that explicitly included racial characteristics of homeowners -- no A classification for e.g. Jewish or Negro neighbourhoods
+- often characterized as d"contagion
+- 
+*** FHA: spreading prejudice
+- not a lender, but a *guarntor* of loans
+- much, much more widespread than HOLD
+- required that *value* of home always larger than value of mortgage
+- lower-grade neighbourhoods always of lower value, os loans harder to secure
+- provided cover through the 1950's for many other practices by banks, covenants, etc.
+- effects still felt today
+
+* COMMENT Local Variables                          
+# Local Variables:
+# org-reveal-auto-export-on-save: t
+# End:
