@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>DH: Maps, Truth, and Data</title>
+<meta name="author" content="Matt Price"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/matt.css" id="theme"/>
+
+<link rel="stylesheet" href="file:///home/matt/src/org-reveal/local.css"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2.0em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>DH: Maps, Truth, and Data</h1><h2>A teaching talk @UTSC HCS</h2><h3> Matt Price</h3><p>View online: <a href="https://utsc-talk.hackinghistory.ca/Talk.html">https://utsc-talk.hackinghistory.ca/Talk.html</a></p><p>License: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0<img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
+</section>
+
+
+
+<section>
+<section id="slide-org119463c">
+<h2 id="org119463c">Background/Scene Setting</h2>
+<form><ul>
+<li>about 2/3 of the way through a third-year Digital History class</li>
+<li>students have learned <b>very</b> basic web dev skills, including
+<form><ul>
+<li>intro to HTML</li>
+<li>basic CSS</li>
+<li>extremely basic JavaScript fundamentals &amp; DOM manipulation</li>
+
+</ul></form></li>
+<li>readings have included some classics in Digital History, as well as historiographical essays, most notably around Habermas&rsquo;s conception of the Public Sphere, as well as &ldquo;objectivity&rdquo; as an organizing principle in historical study.</li>
+<li>about to start a block on &ldquo;Spatial History&rdquo;, which will take about 2 weeks</li>
+<li>in a typical online class I would monitor a Slack channel for communications - I tend to encourage interruptions in this class</li>
+
+</ul></form>
+</section>
+</section>
+<section>
+<section id="slide-orge05ccab">
+<h2 id="orge05ccab">Today</h2>
+<form><ul>
+<li>What is a map?</li>
+<li>Do maps tell the truth?</li>
+<li>How maps became <b>data</b></li>
+<li>A tiny GIS exercise</li>
+<li>(also, note re: assignments)</li>
+
+</ul></form>
+</section>
+</section>
+<section>
+<section id="slide-org0832f26">
+<h2 id="org0832f26">This week&rsquo;s readings</h2>
+<form><ul>
+<li>Krygier, J., &amp; Wood, Donald, &ldquo;<a href="http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595:%20">Ce N&rsquo;est Pas Le Monde</a>&rdquo;, In M. Dodge, R. Kitchin, &amp; C. Perkins (Eds.), <i>Rethinking Maps: New Frontiers in Cartographic Theory</i> . (London, UK: Routledge, 2009).</li>
+
+</ul></form>
+<form><ul>
+<li><p>
+Daniel Rueck, <a href="https://books-scholarsportal-info.myaccess.library.utoronto.ca/en/read?id=/ebooks/ebooks3/upress/2014-03-15/1/9781552387443#page=150">&ldquo;&lsquo;I do not know the boundaries of this land, but I know the land which I worked&rsquo;: Historical GIS and Mohawk Land.&rdquo;</a>, in Bonnell &amp; Fortin, <i>Historical GIS Research in Canada</i>. (Calgary: University of Calgary Press, 2014)
+</p>
+<aside class="notes">
+<p>
+We&rsquo;ll be talking quite a bit about Rueck&rsquo;s arguments!
+</p>
+
+</aside></li>
+
+</ul></form>
+</section>
+</section>
+<section>
+<section id="slide-org0c6124c">
+<h2 id="org0c6124c">What is a map?</h2>
+<div class="outline-text-2" id="text-org0c6124c">
+</div>
+</section>
+<section id="slide-orgeb6a1f6" class="twoc">
+<h3 id="orgeb6a1f6">La Carte n&rsquo;est pas le Monde</h3>
+<div class="slideblock" id="orgc72b1a5">
+
+<figure id="org93843a8">
+<a href="https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg"><img src="https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg" alt="MagrittePipe.jpg"></a>
+
+<figcaption><span class="figure-number">Figure 1: </span>Magritte&rsquo;s <i>Treachery of Images</i> (1929)</figcaption>
+</figure>
+
+</div>
+<div class="slideblock" id="org9856900">
+
+<figure id="orgf6c7dc1">
+<a href="./Images/cenestpas.png"><img src="./Images/cenestpas.png" alt="cenestpas.png"></a>
+
+<figcaption><span class="figure-number">Figure 2: </span>Illustration from <a href="https://ebookcentral-proquest-com.myaccess.library.utoronto.ca/lib/utoronto/detail.action?docID=446595">Krygier, Ce n&rsquo;est pas le Monde</a></figcaption>
+</figure>
+
+</div>
+
+</section>
+<section id="slide-orged774b6">
+<h3 id="orged774b6">What is a map?</h3>
+<form><ul>
+<li>&ldquo;Representation&rdquo; of a territory and also &ldquo;Proposition&rdquo; about it
+<form><ul>
+<li>(alternatively, &ldquo;a picture&rdquo;, and &ldquo;an argument&rdquo;)</li>
+
+</ul></form></li>
+<li class="fragment appear">as historians, we need a &ldquo;Double Vision&rdquo;:
+<form><ul>
+<li>maps as <b>cultural objects</b> (i.e., primary sources)</li>
+<li>maps as <b>tools for arguing</b> (i.e., rhetorical methods)</li>
+
+</ul></form></li>
+
+</ul></form>
+<blockquote class="fragment appear">
+<p>
+Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power.  <a class="org-ref-reference" href="#/slide-bibliography">[WoodMaps2009]</a>
+</p>
+</blockquote>
+
+</section>
+</section>
+<section>
+<section id="slide-org5559f6f">
+<h2 id="org5559f6f">Defining By Example</h2>
+<blockquote>
+<p>
+Maps&#x2026; are more readily exemplified than defined. <a class="org-ref-reference" href="#/slide-bibliography">[WoodMaps2009]</a>
+</p>
+</blockquote>
+<form><ul>
+<li>let&rsquo;s look at some maps and see how we can relate <b>function</b> to <b>appearance</b></li>
+
+</ul></form>
+</section>
+<section id="slide-hamburg-3e8e" class="twoc">
+<h3 id="hamburg-3e8e">A map with a <b>very specific purpose</b></h3>
+<div class="slideblock" id="orge031205">
+
+<figure id="org0ca8bbb">
+<a href="https://ichef.bbci.co.uk/news/976/cpsprodpb/1193B/production/_85959917_hamburgfire_976.jpg"><img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/1193B/production/_85959917_hamburgfire_976.jpg" alt="_85959917_hamburgfire_976.jpg"></a>
+
+<figcaption><span class="figure-number">Figure 3: </span>Allied War Command map of Hamburg, 1944 (<a href="https://www.bbc.com/news/uk-34467543">Imperial War Museum via BBC</a>)</figcaption>
+</figure>
+
+</div>
+<div class="slideblock" id="org4e1a83d">
+<form><ul>
+<li class="fragment appear">major arteries only (suitable for night navigation)</li>
+<li class="fragment appear">Red for flammable, pink for maybe, purple for industry</li>
+<li class="fragment appear">great for bombing; maybe not much use for other purposes!</li>
+
+</ul></form>
+
+</div>
+
+</section>
+<section id="slide-orga56b9f1" class="twoc">
+<h3 id="orga56b9f1">A map with a <b>very specific argument</b></h3>
+<div class="slideblock" id="org43ead97">
+
+<figure id="org0af58a4">
+<a href="./Images/john-snow-broad-street.jpg"><img src="./Images/john-snow-broad-street.jpg" alt="john-snow-broad-street.jpg"></a>
+
+<figcaption><span class="figure-number">Figure 4: </span>John Snow&rsquo;s 1854 Map of Broad Street, London</figcaption>
+</figure>
+
+</div>
+<div class="slideblock" id="orgca98ec4">
+<form><ul>
+<li class="fragment appear">1854 cholera outbreak</li>
+<li class="fragment appear">commonly considered to travel through the air (&ldquo;miasmatically&rdquo;)</li>
+<li class="fragment appear">Snow argues here that it travels through water (around the pump)</li>
+<li class="fragment appear">sometimes thought of as the earlist &ldquo;data map&rdquo;</li>
+
+</ul></form>
+
+</div>
+
+</section>
+<section id="slide-org0153f58">
+<h3 id="org0153f58">A very different map of <b>the &ldquo;same&rdquo; place</b></h3>
+
+<figure id="orgf10b63c">
+<img src="https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif" alt="tube-map.gif">
+
+<figcaption><span class="figure-number">Figure 5: </span>Another view of London</figcaption>
+</figure>
+
+</section>
+<section id="slide-orgb3804d3" class="twoc">
+<h3 id="orgb3804d3">An angry and satirical map</h3>
+<div class="slideblock" id="orga7b5bdd">
+
+<figure id="orgf044b9f">
+<a href="./Images/mark-twain-paris.jpg"><img src="./Images/mark-twain-paris.jpg" alt="mark-twain-paris.jpg"></a>
+
+<figcaption><span class="figure-number">Figure 6: </span>Mark Twain&rsquo;s Map of Paris, 1870</figcaption>
+</figure>
+
+</div>
+
+<div class="slideblock" id="orgaac35a3">
+<form><ul>
+<li>parody of maps like the one below</li>
+<li class="fragment appear">1870: Franco-Prussian War &amp; siege of Paris</li>
+<li class="fragment appear">Also difficult personal circumstances for Twain</li>
+<li class="fragment appear">A ruthless attack on journalists, Europeans, mapmakers, war, truth</li>
+
+</ul></form>
+
+
+<figure id="orgaec5855">
+<a href="https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w"><img src="https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w" alt="013+image+5+%28tribune%29.jpg?format=1000w"></a>
+
+<figcaption><span class="figure-number">Figure 7: </span>New York Tribute, Sept. 13, 1870, via <a class="org-ref-reference" href="#/slide-bibliography">[EdneyMatthewH.SelfExplanatoryMapCome2018]</a></figcaption>
+</figure>
+
+</div>
+
+</section>
+<section id="slide-orgbe175b5" class="twoc">
+<h3 id="orgbe175b5">A map that is a metaphor</h3>
+<div class="slideblock" id="orgeac3115">
+
+<figure id="orga6b3b98">
+<a href="https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg" alt="Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg"></a>
+
+<figcaption><span class="figure-number">Figure 8: </span>Humboldt&rsquo;s Chimborazo (the &ldquo;<i>Naturgemälde</i>&rdquo;)</figcaption>
+</figure>
+
+</div>
+<div class="slideblock" id="orgc02a04a">
+<form><ul>
+<li>Alexander von Humboldt (1769-1859) naturalist and &ldquo;explorer&rdquo;</li>
+<li>Darwin&rsquo;s hero</li>
+<li>climbed partway up Chimborazo (Andean peak in Ecuador) &amp; made his map into a parable about life on Earth</li>
+
+</ul></form>
+
+</div>
+
+<aside class="notes">
+<p>
+<b>Journey</b>
+</p>
+<form><ul>
+<li>archetype of the &ldquo;scientific adventure&rdquo;</li>
+<li>5 years travel by sea and land</li>
+<li>long overland voyage across the Andes is probably the best-known, culminating in Chimborazo</li>
+
+</ul></form>
+<p>
+<b>Chimborazo: The Mountain</b>
+</p>
+<form><ul>
+<li>Andean Peak 150km S of Quito, Ecuador</li>
+<li>Tallest mountain in the world? 6263m</li>
+
+</ul></form>
+
+</aside>
+
+</section>
+<section id="slide-org895a86a" class="twoc">
+<h3 id="org895a86a">A map of space <b>and</b> time</h3>
+<div class="slideblock" id="org2d1dbf7">
+
+<figure id="org7b98f28">
+<a href="./Images/higden-polychornicon-map.jpg"><img src="./Images/higden-polychornicon-map.jpg" alt="higden-polychornicon-map.jpg"></a>
+
+<figcaption><span class="figure-number">Figure 9: </span>Map of the world from Higden&rsquo;s <a href="https://www.bl.uk/collection-items/world-map-by-ranulf-higden">Polychornicon</a> (~1400)</figcaption>
+</figure>
+
+</div>
+
+<div class="slideblock" id="org5b1e659">
+<form><ul>
+<li>taken from a history of the world, written by a Benedictine monk in Chester, England</li>
+<li>note that East is up</li>
+<li>the history of the world (as derived largely from Scripture) flows down from the gates of paradise w/ the  rivers</li>
+<li>space and time <b>are not distinct axes</b> in this world</li>
+<li>this map is fundamentally <b>pedagogical</b></li>
+
+</ul></form>
+
+</div>
+
+<aside class="notes">
+<form><ul>
+<li>surviving maps <b>come from books</b></li>
+<li>but there were definitely other maps, often too big to fit in a book.</li>
+<li>the textual context of maps was <i>historical</i> and <i>calendrical</i></li>
+
+</ul></form>
+
+</aside>
+
+</section>
+<section id="slide-org1832e70" class="splitc">
+<h3 id="org1832e70">Two Maps to Remake a Territory</h3>
+<div class="slideblock" id="org9208023">
+<form><ul>
+<li>finally, the maps of Kahnawá:ke from Rueck</li>
+<li>note these are reconstructions (we&rsquo;ll come back to that)</li>
+<li>the maps articulate a vision for the exercise of state power</li>
+<li>and at the same time are a tool for making that vision real</li>
+
+</ul></form>
+
+</div>
+
+<div class="slideblock" id="orgcfa0a3e">
+
+<figure id="orga47d105">
+<a href="./Images/rueck-survey-existing.png"><img src="./Images/rueck-survey-existing.png" alt="rueck-survey-existing.png"></a>
+
+<figcaption><span class="figure-number">Figure 10: </span>Walbank&rsquo;s &ldquo;existing&rdquo; lots in Kahnawá:ke community, 1885, via <a class="org-ref-reference" href="#/slide-bibliography">[Ruecknotknowboundaries2014]</a></figcaption>
+</figure>
+
+</div>
+<div class="slideblock" id="org3fb30d4">
+
+<figure id="orgf7b85d3">
+<a href="./Images/rueck-survey-plan.png"><img src="./Images/rueck-survey-plan.png" alt="rueck-survey-plan.png"></a>
+
+<figcaption><span class="figure-number">Figure 11: </span>Walbank&rsquo;s plan to sell lots &amp; &rsquo;enfranchise&rsquo; the Mohawk</figcaption>
+</figure>
+
+</div>
+</section>
+</section>
+<section>
+<section id="slide-org6f293a6" class="splitc">
+<h2 id="org6f293a6">About &ldquo;Truth&rdquo;</h2>
+<div class="slideblock" id="org7ba3a20">
+<form><ul>
+<li>remember back to &ldquo;objectivity&rdquo;</li>
+<li class="fragment appear">visualizing <b>requires</b> simplification
+<form><ul>
+<li>selection</li>
+<li>displacement</li>
+<li>smoothing</li>
+<li>enhancement</li>
+<li>aggregation</li>
+
+</ul></form></li>
+<li class="fragment appear">simplification <b>guarantees</b> non-universality, <b>and</b>
+<form><ul>
+<li>opens the door to the exercise of power</li>
+
+</ul></form></li>
+<li class="fragment appear">in Kahnawá:ke, the Walbank&rsquo;s maps were produced to <b>enforce a settler conception of land</b> organized around <b>individual ownership</b>.</li>
+
+</ul></form>
+
+</div>
+
+<div class="slideblock" id="orgf44e2f6">
+
+<figure id="orgd97e7ea">
+<a href="./Images/rueck-survey-existing.png"><img src="./Images/rueck-survey-existing.png" alt="rueck-survey-existing.png"></a>
+
+<figcaption><span class="figure-number">Figure 12: </span>Walbank&rsquo;s &ldquo;existing&rdquo; lots in Kahnawá:ke community, 1885, via <a class="org-ref-reference" href="#/slide-bibliography">[Ruecknotknowboundaries2014]</a></figcaption>
+</figure>
+
+</div>
+<div class="slideblock" id="orgf1305b8">
+
+<figure id="org887ba05">
+<a href="./Images/rueck-survey-plan.png"><img src="./Images/rueck-survey-plan.png" alt="rueck-survey-plan.png"></a>
+
+<figcaption><span class="figure-number">Figure 13: </span>Walbank&rsquo;s plan to sell lots &amp; &rsquo;enfranchise&rsquo; the Mohawk</figcaption>
+</figure>
+
+</div>
+
+</section>
+</section>
+<section>
+<section id="slide-org6dbcd85">
+<h2 id="org6dbcd85"><span class="todo ACTION">ACTION</span> Wait: Indigenous Land Practices help us understand Geographical Information Systems?</h2>
+<div class="slideblock" id="org9a1134f">
+<form><ul>
+<li>&ldquo;ownership&rdquo; is neither <b>self-evident</b> nor <b>universal</b></li>
+<li>in indigenous land practices, <b>rights to land</b> were context-dependent and overlapping; hunting rights, farming rights, rights to the use of trees, rights to passage, had distinct referents</li>
+<li>map&rsquo;s like Alexander&rsquo;s (right) have been imposing European property systems on land for 400 years!
+<form><ul>
+<li>doctrine of discovery</li>
+<li>racial theories</li>
+<li>economic extraction</li>
+<li>relations of dependence</li>
+
+</ul></form></li>
+<li>our GIS systems are not built to accommodate other systems!</li>
+
+</ul></form>
+
+</div>
+<div class="fragment appear slideblock" id="orgfca4c7d">
+
+<figure id="org62d1ccf">
+<a href="./Images/alexander-new-englande-1624.png"><img src="./Images/alexander-new-englande-1624.png" alt="alexander-new-englande-1624.png"></a>
+
+<figcaption><span class="figure-number">Figure 14: </span>Colonist&rsquo;s map of Atlantic coast, 1624, from <a class="org-ref-reference" href="#/slide-bibliography">[Stirlingencouragementcolonies1624]</a></figcaption>
+</figure>
+
+</div>
+
+<p>
+ADD Jon J&rsquo;s drawing here
+</p>
+
+</section>
+</section>
+<section>
+<section id="slide-org58c68b8">
+<h2 id="org58c68b8">From Maps in General to Digital Maps</h2>
+<form><ul>
+<li>maps make <b>arguments</b></li>
+<li>maps <i>intrinsically</i> &ldquo;lie&rdquo;</li>
+<li>maps <b>are linked to relations of power</b></li>
+
+</ul></form>
+<p>
+<b>Digital Maps</b>
+</p>
+<form><ul>
+<li>Digital Maps <b>write their assumptions into code</b></li>
+<li>Linked to data, they are more powerful, and more dangerous, than paper maps</li>
+
+</ul></form>
+</section>
+<section id="slide-orgb1e3fad" class="twobytwo">
+<h3 id="orgb1e3fad">Google Hedges its bets</h3>
+<div class="slideblock" id="org841a5aa">
+
+<figure id="org4d926d3">
+<img src="./Images/google-india-east-0.gif" alt="google-india-east-0.gif">
+
+</figure>
+
+</div>
+<div class="slideblock" id="orgb2bc524">
+
+<figure id="org68cb21c">
+<img src="./Images/google-india-east-1.gif" alt="google-india-east-1.gif">
+
+</figure>
+
+</div>
+<div class="slideblock" id="orgeb24a25">
+
+<figure id="orgaded9ae">
+<img src="./Images/google-india-east-2.gif" alt="google-india-east-2.gif">
+
+</figure>
+
+</div>
+<div class="slideblock" id="orgdb03d33">
+<form><ul>
+<li>Boundaries are social &amp; cultural objects</li>
+<li>often they are <b>largely settled</b>, as e.g., in the border between US and Canada</li>
+<li>sometimes they are <b>not quite entirely respected</b>, as e.g. when your neighbour builds a corner of their garage on your side of the property line</li>
+<li>occasionally they are <b>hotly contested</b></li>
+<li>there are <a href="https://personalization.ccs.neu.edu/Projects/MapWatch/">interesting</a> <a href="http://metrocosm.com/disputed-territories-map.html">projects</a> and even <a href="https://patents.google.com/patent/US8341192B2/en">patents</a> that try to keep track of these disputed borders</li>
+
+</ul></form>
+
+</div>
+
+</section>
+<section id="slide-orgdd1f36a" class="twobytwo">
+<h3 id="orgdd1f36a">&ldquo;Lies&rdquo;: Choropleths</h3>
+<div class="slideblock" id="org029cd77">
+
+<figure id="org15ed011">
+<img src="./Images/to-income-choro-nat-brk.png" alt="to-income-choro-nat-brk.png">
+
+</figure>
+
+</div>
+<div class="fragment appear slideblock" id="org0b73c90">
+
+<figure id="org5a8d787">
+<img src="./Images/to-income-choro-eql-intvl.png" alt="to-income-choro-eql-intvl.png">
+
+</figure>
+
+</div>
+
+<div class="fragment appear slideblock" id="orgcfc55de">
+
+<figure id="org8dedfb6">
+<img src="./Images/to-income-choro-quantile.png" alt="to-income-choro-quantile.png">
+
+</figure>
+
+</div>
+
+<div class="fragment appear slideblock" id="org113f0e9">
+
+<figure id="orgf3d8fe1">
+<img src="./Images/to-income-choro-std.png" alt="to-income-choro-std.png">
+
+</figure>
+
+</div>
+
+</section>
+<section id="slide-what-is-a-gis?-12ec" class="twoc">
+<h3 id="what-is-a-gis?-12ec">Now Finally: let&rsquo;s talk GIS?</h3>
+<div class="slideblock" id="org46a6a96">
+<p>
+
+</p>
+
+
+<figure id="orgefedc15">
+<img src="https://web.archive.org/web/20190105210746/http://iolandarch.com/wp-content/uploads/2014/09/overlay-analysis.jpg" alt="overlay-analysis.jpg">
+
+</figure>
+
+</div>
+
+<div class="slideblock" id="org22f38d7">
+<p>
+
+</p>
+
+<form><ul>
+<li>all data is &ldquo;geo-tagged&rdquo; (has location info = latitude-longitude co-ords)</li>
+<li>layered data (like photoshop)
+<form><ul>
+<li>&ldquo;layering&rdquo; a non-trivial taxonomic decision</li>
+
+</ul></form></li>
+<li>managed by a database, often quite complex, sophisticated</li>
+
+</ul></form>
+
+</div>
+
+<aside class="notes">
+<p>
+GIS is just a name for any system that tries to capture, manipulate, and represent geographical data. There are many GIS tools; the history department uses <a href="http://www.arcgis.com/features/">ArcGIS</a>, which is expensive and something of an industry standard, while many independent scholars use <a href="http://www.qgis.org/en/site/">QGIS</a>, which is free, open source, and not quite as powerful as Arc.
+</p>
+
+<p>
+The data in a GIS is all <a href="https://en.wikipedia.org/wiki/Geotagging">geotagged</a>, that is, assigned a set of geographical co-ordinates. This sounds simple but it is actually quite complex, since any co-ordinate system is a <i>simplified projection</i> of real, disordered, 3-dimensional space.  Many of the frustrations of working with GIS comes from the difficulty of rendering (say) historical map images <i>commensurate</i> with modern, satellite-derived maps.
+</p>
+
+<p>
+Within a GIS, information is generally accessed as a set of <b>layers</b>.  Data of specific types is <i>stratified</i> in layers, in much the same way that one creates image layers in photoshop. This image gives a typical example.  Note that the creation of layers is itself an intellectual decision, relying on judgments about the relationships between individual bits of data.
+</p>
+
+</aside>
+
+</section>
+<section id="slide-org2693d95" class="twobytwo">
+<h4 id="org2693d95">Point and Area Overlays</h4>
+<div class="slideblock" id="org4970697">
+
+<figure id="orgaacf89b">
+<img src="Images/point-overlay-sid-smith.png" alt="point-overlay-sid-smith.png">
+
+</figure>
+
+</div>
+<div class="slideblock" id="orgc19458b">
+
+<figure id="org94fca50">
+<img src="Images/ontario-county-map-zoomed.jpg" alt="ontario-county-map-zoomed.jpg">
+
+</figure>
+
+</div>
+
+<ul class="org-ul">
+<li><a id="org74c7bdf"></a><br>
+<figure id="org778eaa3">
+<img src="Images/ontario-county-map-trinity.png" alt="ontario-county-map-trinity.png">
+
+</figure>
+</li>
+<li><a id="orgfeb19b3"></a>Raster Images<br>
+<form><ul>
+<li>area overlays are generally <b>raster</b> images with <b>color value defined for every point</b> (some other layers will be <b>vector</b> images, e.g. lines &amp; shapes, and sometimes marker icons)</li>
+<li>Most <b>baselayers</b> are rasters (though terrain images can be vectors)
+<form><ul>
+<li>baselayers are also almost always <b>tiled</b>. Why?</li>
+
+</ul></form></li>
+
+</ul></form>
+</li>
+<li><a id="org0eb0565"></a>Tiling in Satellite Raster<br>
+<figure id="org529ce64">
+<img src="Images/google-maps-satellite.jpg" alt="google-maps-satellite.jpg">
+
+</figure>
+</li>
+<li><a id="org4bd0c42"></a>Historical Map Rasters<br>
+<figure id="org19b56a4">
+<img src="Images/rumsey-map-overlay.jpg" alt="rumsey-map-overlay.jpg">
+
+</figure>
+<aside class="notes">
+<form><ul>
+<li>note distortion, border.</li>
+
+</ul></form>
+
+</aside>
+</li>
+</ul>
+</section>
+<section id="slide-orga758cbb">
+<h3 id="orga758cbb">Let&rsquo;s Try It Ourselves!</h3>
+
+
+</section>
+<section id="slide-bibliography">
+<h3 id="bibliography">Bibliography</h3>
+<ul class='org-ref-bib'><li><a id="EdneyMatthewH.SelfExplanatoryMapCome2018">[EdneyMatthewH.SelfExplanatoryMapCome2018]</a> <a name="EdneyMatthewH.SelfExplanatoryMapCome2018"></a>@miscEdneyMatthewH.SelfExplanatoryMapCome2018,
+  title = A Self-Explanatory Map? Come for the Satire, Stay for the Fun,
+  shorttitle = A Self-Explanatory Map?,
+  author = Edney, Matthew H.,,
+  year = 2018,
+  url = https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun,
+  urldate = 2021-02-17,
+  abstract = Mark Twain—known for his writing—also made this absurdist map of Paris in 1870.,
+  file = /home/matt/Zotero/storage/3V4JCQU7/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun.html,
+  journal = Mapping as Process,
+  language = en-US
+</li>
+<li><a id="Ruecknotknowboundaries2014">[Ruecknotknowboundaries2014]</a> <a name="Ruecknotknowboundaries2014"></a>@incollectionRuecknotknowboundaries2014,
+  title = 'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land.,
+  booktitle = Historical GIS research in Canada,
+  author = Rueck, Daniel,
+  editor = Fortin, Marcel and Bonnell, Jennifer,
+  year = 2014,
+  publisher = University of Calgary Press,
+  address = Calgary,
+  url = http://dspace.ucalgary.ca/bitstream/1880/49926/1/UofCPress_HistoricalGIS_2014.pdf,
+  urldate = 2020-01-07,
+  isbn = 978-1-55238-708-5 978-1-55238-756-6 978-1-55238-744-3 978-1-55238-750-4 978-1-55238-751-1,
+  keywords = Canada,Data processing,Historical geographic information systems,Historical geography,History,
+  lccn = G70.217.H57 H57 2014,
+  number = 2,
+  series = Canadian history and environment series
+</li>
+<li><a id="Stirlingencouragementcolonies1624">[Stirlingencouragementcolonies1624]</a> <a name="Stirlingencouragementcolonies1624"></a>Stirling, An encouragement to colonies, WStansby (1624).</li>
+<li><a id="WoodMaps2009">[WoodMaps2009]</a> <a name="WoodMaps2009"></a>@incollectionWoodMaps2009,
+  title = Maps,
+  booktitle = International Encyclopedia of Human Geography,
+  author = Wood, D. and Krygier, J.,
+  editor = Kitchin, Rob and Thrift, Nigel,
+  year = 2009,
+  month = jan,
+  pages = 421-430,
+  publisher = Elsevier,
+  address = Oxford,
+  doi = 10.1016/B978-008044910-4.00049-3,
+  url = http://www.sciencedirect.com/science/article/pii/B9780080449104000493,
+  urldate = 2020-01-07,
+  abstract = Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power, and therefore are more readily exemplified than defined. Maps have become important comparatively recently, almost all of them having been made in the past hundred years, and their growing use parallels the rise of the modern state. Although maps were made before the rise of the modern state, they were only rarely made, appearing sparsely in cultural records everywhere in the world, and generally as facets of small-scale cosmological speculation and large-scale property control functions (a military mapping function appears uniquely early in China, and a coastal sailing function in the late middle ages in the Mediterranean basin). Maps as a way of advancing propositions about an open variety of spatial relations, at any scale, begin appearing only in the fifteenth century (in the twelfth century in China), and do not become common until the sixteenth century, when map production explodes around the world, and indigenous traditions from Japan, China, Europe, the New World, and elsewhere fuse into the synthesis we recognize today. The map’s ability to embody the abstraction of the modern state is salient.,
+  file = /home/matt/Zotero/storage/PX44N5J5/wood_krygier-maps-2009.pdf;/home/matt/Zotero/storage/58XTPR6H/B9780080449104000493.html,
+  isbn = 978-0-08-044910-4,
+  keywords = Early modern state,History of cartography,Map discourse function,Mapmaking,Maps,National identity,Property control function,Propositional character of the map,
+  language = en
+</li>
+</ul>
+<ul class='org-ref-bib'><li><a id="EdneyMatthewH.SelfExplanatoryMapCome2018">[EdneyMatthewH.SelfExplanatoryMapCome2018]</a> <a name="EdneyMatthewH.SelfExplanatoryMapCome2018"></a>@miscEdneyMatthewH.SelfExplanatoryMapCome2018,
+  title = A Self-Explanatory Map? Come for the Satire, Stay for the Fun,
+  shorttitle = A Self-Explanatory Map?,
+  author = Edney, Matthew H.,,
+  year = 2018,
+  url = https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun,
+  urldate = 2021-02-17,
+  abstract = Mark Twain—known for his writing—also made this absurdist map of Paris in 1870.,
+  file = /home/matt/Zotero/storage/3V4JCQU7/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun.html,
+  journal = Mapping as Process,
+  language = en-US
+</li>
+<li><a id="Ruecknotknowboundaries2014">[Ruecknotknowboundaries2014]</a> <a name="Ruecknotknowboundaries2014"></a>@incollectionRuecknotknowboundaries2014,
+  title = 'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land.,
+  booktitle = Historical GIS research in Canada,
+  author = Rueck, Daniel,
+  editor = Fortin, Marcel and Bonnell, Jennifer,
+  year = 2014,
+  publisher = University of Calgary Press,
+  address = Calgary,
+  url = http://dspace.ucalgary.ca/bitstream/1880/49926/1/UofCPress_HistoricalGIS_2014.pdf,
+  urldate = 2020-01-07,
+  isbn = 978-1-55238-708-5 978-1-55238-756-6 978-1-55238-744-3 978-1-55238-750-4 978-1-55238-751-1,
+  keywords = Canada,Data processing,Historical geographic information systems,Historical geography,History,
+  lccn = G70.217.H57 H57 2014,
+  number = 2,
+  series = Canadian history and environment series
+</li>
+<li><a id="Stirlingencouragementcolonies1624">[Stirlingencouragementcolonies1624]</a> <a name="Stirlingencouragementcolonies1624"></a>Stirling, An encouragement to colonies, WStansby (1624).</li>
+<li><a id="WoodMaps2009">[WoodMaps2009]</a> <a name="WoodMaps2009"></a>@incollectionWoodMaps2009,
+  title = Maps,
+  booktitle = International Encyclopedia of Human Geography,
+  author = Wood, D. and Krygier, J.,
+  editor = Kitchin, Rob and Thrift, Nigel,
+  year = 2009,
+  month = jan,
+  pages = 421-430,
+  publisher = Elsevier,
+  address = Oxford,
+  doi = 10.1016/B978-008044910-4.00049-3,
+  url = http://www.sciencedirect.com/science/article/pii/B9780080449104000493,
+  urldate = 2020-01-07,
+  abstract = Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power, and therefore are more readily exemplified than defined. Maps have become important comparatively recently, almost all of them having been made in the past hundred years, and their growing use parallels the rise of the modern state. Although maps were made before the rise of the modern state, they were only rarely made, appearing sparsely in cultural records everywhere in the world, and generally as facets of small-scale cosmological speculation and large-scale property control functions (a military mapping function appears uniquely early in China, and a coastal sailing function in the late middle ages in the Mediterranean basin). Maps as a way of advancing propositions about an open variety of spatial relations, at any scale, begin appearing only in the fifteenth century (in the twelfth century in China), and do not become common until the sixteenth century, when map production explodes around the world, and indigenous traditions from Japan, China, Europe, the New World, and elsewhere fuse into the synthesis we recognize today. The map’s ability to embody the abstraction of the modern state is salient.,
+  file = /home/matt/Zotero/storage/PX44N5J5/wood_krygier-maps-2009.pdf;/home/matt/Zotero/storage/58XTPR6H/B9780080449104000493.html,
+  isbn = 978-0-08-044910-4,
+  keywords = Early modern state,History of cartography,Map discourse function,Mapmaking,Maps,National identity,Property control function,Propositional character of the map,
+  language = en
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: false,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: false,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+
+overview: true,
+width: "100%",
+height: "100%",
+margin: 0.10,
+minScale: 1.00,
+maxScale: 1.00,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ , RevealMarkdown, RevealHighlight, RevealZoom, RevealNotes ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{src: './reveal.js/plugin/klipse_reveal.js'}]
+
+});
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
+</script>
+</body>
+</html>
