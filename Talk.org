@@ -231,7 +231,40 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 [[./Images/to-income-choro-std.png]]
 #+end_slideblock
 
-**  Now Finally: let's talk GIS?
+* Indigenous Land Practices & and the Map Problem
+:PROPERTIES:
+:reveal_extra_attr: class="splitc"
+:END:
+#+begin_slideblock
+#+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4)
+- "ownership" is neither *self-evident* nor *universal*
+- in indigenous land practices, *rights to land* were context-dependent and overlapping; hunting rights, farming rights, rights to the use of trees, rights to passage, had distinct referents
+- map's like Alexander's (right) have been imposing European property systems on land for 400 years!
+  - doctrine of discovery
+  - racial theories
+  - economic extraction
+  - relations of dependence
+- our GIS systems are not built to accommodate other systems!
+  - so we have to tweak them
+#+end_slideblock
+#+ATTR_REVEAL: :frag appear :frag_idx 3
+#+begin_slideblock
+# #+ATTR_REVEAL: :frag appear :frag_idx 1 :class fade-out
+# #+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via cite:Ruecknotknowboundaries2014  
+# [[file:./Images/rueck-survey-existing.png][file:./Images/rueck-survey-existing.png]]
+
+#+ATTR_REVEAL: :frag appear :frag_idx 3
+#+CAPTION: Colonist's map of Atlantic coast, 1624, from cite:Stirlingencouragementcolonies1624
+[[file:./Images/alexander-new-englande-1624.png][file:./Images/alexander-new-englande-1624.png]]
+#+end_slideblock
+
+#+ATTR_REVEAL: :frag appear :frag_idx 4
+#+begin_slideblock
+#+CAPTION: Indigenous Tkaronto, by Jon Johnson (2021)
+[[file:Images/jon-johnson-tkaronto.jpg][file:./Images/jon-johnson-tkaronto.jpg]]
+#+end_slideblock
+
+* GIS: data-centric maps
 :PROPERTIES:
 :CUSTOM_ID: what-is-a-gis?-12ec
 :reveal_extra_attr: class="twoc"
@@ -247,7 +280,8 @@ https://web.archive.org/web/20190105210746/http://iolandarch.com/wp-content/uplo
 
 - all data is "geo-tagged" (has location info = latitude-longitude co-ords)
 - layered data (like photoshop)
-  - "layering" a non-trivial taxonomic decision 
+  - "layering" a non-trivial taxonomic decision
+  - usually "baselayer" + "data layers" 
 - managed by a database, often quite complex, sophisticated
 #+end_slideblock
 
@@ -259,9 +293,9 @@ The data in a GIS is all [[https://en.wikipedia.org/wiki/Geotagging][geotagged]]
 Within a GIS, information is generally accessed as a set of *layers*.  Data of specific types is /stratified/ in layers, in much the same way that one creates image layers in photoshop. This image gives a typical example.  Note that the creation of layers is itself an intellectual decision, relying on judgments about the relationships between individual bits of data.
 #+END_NOTES
 
-*** Point and Area Overlays
+** Point and Area Overlays
 :PROPERTIES:
-:reveal_extra_attr: class="twobytwo"
+:reveal_extra_attr: class="splitc"
 :END:
 #+begin_slideblock
 [[file:Images/point-overlay-sid-smith.png]]
@@ -270,68 +304,62 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 [[file:Images/ontario-county-map-zoomed.jpg]]
 #+end_slideblock
 
-**** 
+#+begin_slideblock
 [[file:Images/ontario-county-map-trinity.png]]
-**** Raster Images
+#+end_slideblock
+
+*** Raster Images
+:PROPERTIES:
+:reveal_extra_attr: class="splitc"
+:END:
+#+begin_slideblock
+
 - area overlays are generally *raster* images with *color value defined for every point* (some other layers will be *vector* images, e.g. lines & shapes, and sometimes marker icons)
 - Most *baselayers* are rasters (though terrain images can be vectors)
-  - baselayers are also almost always *tiled*. Why? 
-**** Tiling in Satellite Raster
+  - baselayers are also almost always *tiled*. (Why?)
+
+#+end_slideblock
+
+#+begin_slideblock
+#+CAPTION: Google Maps Satellite Capture showing Tile borders
 [[file:Images/google-maps-satellite.jpg]]
-**** Historical Map Rasters 
+#+end_slideblock
+
+
+#+begin_slideblock
+#+CAPTION: Georeferenced Historical Map as raster layer (via [[https://www.davidrumsey.com/home][Rumsey Collection]])
 [[file:Images/rumsey-map-overlay.jpg]]
+#+end_slideblock
+
 #+begin_notes
 - note distortion, border. 
 #+end_notes
-** Let's Try It Ourselves!
+* GIS Frameworks
+- all online maps rely on very large datasets. Impractical to build your own from scratch
+- Corporate Players:
+  - [[https://www.google.com/maps][Google Maps]]
+  - [[https://maps.arcgis.com/index.html][ArcGIS Online]]
+  - [[https://www.mapbox.com/][Mapbox]]
+- we use [[https://leafletjs.com/][Leaflet Maps]], an open-source JavaScript mapping framework
+- Remember: Incantations and Exhortations
+* hi
+** Using Leaflet
+#+BEGIN_SRC html
+<!-- Leaflet Libraries! CSS first -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+      integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+      crossorigin=""/>
+<!-- Leaflet also requires JS -->
+<!-- Must be loaded AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+#+END_SRC
 
-
-** Bibliography
+* Bibliography
 :PROPERTIES:
 :CUSTOM_ID: bibliography
 :END:
 
 [[bibliography:~/MappingCourse/MapsandCartography.bib]]
 printbibliography:~/Mappingcourse/MapsandCartography.bib
-* COMMENT Week 8 (or 9): Deep Maps
-** Mapping Slavery
-- race among the earliest social categories to be visualized on US maps
-- ideological grounds on both sides
-*** Maps of the Territory
-http://www.mappingthenation.com/img/jpg/Reynolds_s_political_Map_of_the_United_States.jpg
-#+begin_notes
-1856, cf http://www.mappingthenation.com/index.php/viewer/index/4/5
-
-#+end_notes
-*** John Jay's 1856 Map of Slavery
-http://www.mappingthenation.com/img/jpg/Freedom_Slavery.jpg
-*** Petermann's 1855 Map of Slavery
-http://www.mappingthenation.com/img/jpg/Petermann_Slavery.jpg
-*** Lincoln's Favourite map of Slavery (1861)
-http://www.mappingthenation.com/img/jpg/Coast_Survey_Slave_Map.jpg
-** Wealth and Illiteracy
-http://www.mappingthenation.com/img/jpg/n1872_Illiteracy.jpg
-*** Wealth
-http://www.mappingthenation.com/img/jpg/Statistical_Wealth_Map.jpg
-** Mapping Empire
-http://www.mappingthenation.com/img/jpg/Walker_Indian.jpg
-** Story of the HOLC and American Cities
-- Housing becomes a concern of government *briefly* in 1918 but substantively only in 1933 w/ establishment of *Home Owners Loan Corporation* (HOLC) and Federal Housing Administration (FHA)
-*** HOLC: standardizing assessment
-- granted many low-interest loans
-- assessed properties on a national, standardized grid system A-D
-- wrote into law a series of judgments that explicitly included racial characteristics of homeowners -- no A classification for e.g. Jewish or Negro neighbourhoods
-- often characterized as d"contagion
-- 
-*** FHA: spreading prejudice
-- not a lender, but a *guarntor* of loans
-- much, much more widespread than HOLD
-- required that *value* of home always larger than value of mortgage
-- lower-grade neighbourhoods always of lower value, os loans harder to secure
-- provided cover through the 1950's for many other practices by banks, covenants, etc.
-- effects still felt today
-
-* COMMENT Local Variables                          
-# Local Variables:
-# org-reveal-auto-export-on-save: t
-# End:
