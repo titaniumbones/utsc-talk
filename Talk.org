@@ -30,6 +30,7 @@
   - basic CSS
   - extremely basic JavaScript fundamentals & DOM manipulation
 - readings have included some classics in Digital History, as well as historiographical essays, most notably around Habermas's conception of the Public Sphere, as well as "objectivity" as an organizing principle in historical study.
+  - importantly, they have also learned to use fundamental tools such as [[https://code.visualstudio.com/][the VSCode text editor]] and [[https://nodejs.org/][Nodejs]]
 - about to start a block on "Spatial History", which will take about 2 weeks
 - in a typical online class I would monitor a Slack channel for communications - I tend to encourage interruptions in this class
 * Today
@@ -342,8 +343,15 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
   - [[https://www.mapbox.com/][Mapbox]]
 - we use [[https://leafletjs.com/][Leaflet Maps]], an open-source JavaScript mapping framework
 - Remember: Incantations and Exhortations
-* hi
+
 ** Using Leaflet
+
+#+ATTR_REVEAL: :frag (appear appear appear appear) :frag_idx (1 2 3 4)
+- first, load Leaflet libraries in ~index.html~
+- then, "instantiate" the Leaflet Map Object in maps-setup.js
+- then... do a whole lot of work!
+- let's [[https://utsc-exercise.hackinghistory.ca/spatial-history/][take a sneak peek at the live demo]] and then look at [[https://github.com/titaniumbones/UTSC-map-exercise][the repository]]
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 #+BEGIN_SRC html
 <!-- Leaflet Libraries! CSS first -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -355,7 +363,10 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
 #+END_SRC
-
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+#+begin_src js
+    const map = L.map(element, {renderer:L.canvas(), preferCanvas: true}).setView(myCenter, myZoom);
+#+end_src
 * Bibliography
 :PROPERTIES:
 :CUSTOM_ID: bibliography
