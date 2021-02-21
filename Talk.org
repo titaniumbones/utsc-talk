@@ -74,7 +74,31 @@ Maps are artifacts that selectively link places to other kinds of things for the
 #+begin_quote
 Maps... are more readily exemplified than defined. cite:WoodMaps2009
 #+end_quote
-- let's look at some maps and see how we can relate *function* to *appearance*
+- let's look at some maps and see how we can relate *function* to *appearance*, and both to *conditions of production*
+- that is, let's look at maps *as historical source material*
+** A map of space *and* time
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Map of the world from Higden's [[https://www.bl.uk/collection-items/world-map-by-ranulf-higden][Polychornicon]] (~1400)
+[[file:./Images/higden-polychornicon-map.jpg][file:./Images/higden-polychornicon-map.jpg]]
+#+end_slideblock
+
+#+begin_slideblock
+- taken from a history of the world, written by a Benedictine monk in Chester, England
+- note that East is up
+- the history of the world (as derived largely from Scripture) flows down from the gates of paradise w/ the  rivers
+- space and time *are not distinct axes* in this world
+- this map is fundamentally *pedagogical*
+#+end_slideblock
+
+#+begin_notes
+- surviving maps *come from books*
+- but there were definitely other maps, often too big to fit in a book.
+- the textual context of maps was /historical/ and /calendrical/
+#+end_notes
+
 ** A map with a *very specific purpose*
 :PROPERTIES:
 :CUSTOM_ID: hamburg-3e8e
@@ -106,78 +130,6 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 - Snow argues here that it travels through water (around the pump)
 - sometimes thought of as the earlist "data map"
 #+end_slideblock
-
-** A very different map of *the "same" place*
-#+CAPTION: Another view of London
-https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif
-
-** An angry and satirical map
-:PROPERTIES:
-:reveal_extra_attr: class="twoc"
-:END:
-#+begin_slideblock
-#+CAPTION: Mark Twain's Map of Paris, 1870
-[[file:./Images/mark-twain-paris.jpg][file:./Images/mark-twain-paris.jpg]]
-#+end_slideblock
-
-#+begin_slideblock
-#+ATTR_REVEAL: :frag (none appear appear)
-- parody of maps like the one below
-- 1870: Franco-Prussian War & siege of Paris
-- Also difficult personal circumstances for Twain
-- A ruthless attack on journalists, Europeans, mapmakers, war, truth
-
-#+CAPTION: New York Tribute, Sept. 13, 1870, via cite:EdneyMatthewH.SelfExplanatoryMapCome2018
-[[https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w][https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w]]
-#+ATTR_REVEAL: :frag (appear)
-#+end_slideblock
-
-** A map that is a metaphor
-:PROPERTIES:
-:reveal_extra_attr: class="twoc"
-:END:
-#+begin_slideblock
-#+CAPTION: Humboldt's Chimborazo (the "/Naturgemälde/")
-[[https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg][https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg]]
-#+end_slideblock
-#+begin_slideblock
-- Alexander von Humboldt (1769-1859) naturalist and "explorer"
-- Darwin's hero
-- climbed partway up Chimborazo (Andean peak in Ecuador) & made his map into a parable about life on Earth
-#+end_slideblock
-
-#+begin_notes
-*Journey*
-- archetype of the "scientific adventure"
-- 5 years travel by sea and land
-- long overland voyage across the Andes is probably the best-known, culminating in Chimborazo
-*Chimborazo: The Mountain*
-- Andean Peak 150km S of Quito, Ecuador
-- Tallest mountain in the world? 6263m
-#+end_notes
-
-** A map of space *and* time
-:PROPERTIES:
-:reveal_extra_attr: class="twoc"
-:END:
-#+begin_slideblock
-#+CAPTION: Map of the world from Higden's [[https://www.bl.uk/collection-items/world-map-by-ranulf-higden][Polychornicon]] (~1400)
-[[file:./Images/higden-polychornicon-map.jpg][file:./Images/higden-polychornicon-map.jpg]]
-#+end_slideblock
-
-#+begin_slideblock
-- taken from a history of the world, written by a Benedictine monk in Chester, England
-- note that East is up
-- the history of the world (as derived largely from Scripture) flows down from the gates of paradise w/ the  rivers
-- space and time *are not distinct axes* in this world
-- this map is fundamentally *pedagogical*
-#+end_slideblock
-
-#+begin_notes
-- surviving maps *come from books*
-- but there were definitely other maps, often too big to fit in a book.
-- the textual context of maps was /historical/ and /calendrical/
-#+end_notes
 
 ** Two Maps to Remake a Territory
 :PROPERTIES:
