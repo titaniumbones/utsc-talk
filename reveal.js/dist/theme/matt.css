@@ -297,6 +297,12 @@ html * {
   .backgrounds {
     background-color: #fdf6e3; } }
 
+.reveal ul ul {
+  list-style-type: circle; }
+
+.todo.ACTION {
+  color: #a11a1a; }
+
 pre.klipse {
   display: grid;
   grid-template-areas: "code result"; }
