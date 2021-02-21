@@ -150,17 +150,14 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 #+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
 [[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
 #+end_slideblock
-** COMMENT A map that is not a map at all
-#+CAPTION: "Mind map" of knowledge from a  [[http://philosophy.talons43.ca/2016/06/15/epistemology-synthesis/][high school philoosphy course]] 
-http://philosophy.talons43.ca/files/2016/06/New-Mind-Map_5c9bm4ud-2.jpg
- 
-* About "Truth"
+* About "Truth" in these Maps
 :PROPERTIES:
 :reveal_extra_attr: class="splitc"
 :END:
 #+begin_slideblock
 #+ATTR_REVEAL: :frag (none appear appear appear)
-- remember back to "objectivity"
+- remember back to "objectivity"?
+  - "truth" is neither simple nor univocal
 - visualizing *requires* simplification
   - selection
   - displacement
@@ -181,33 +178,16 @@ http://philosophy.talons43.ca/files/2016/06/New-Mind-Map_5c9bm4ud-2.jpg
 [[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
 #+end_slideblock
 
-* ACTION Wait: Indigenous Land Practices help us understand Geographical Information Systems?
-#+begin_slideblock
-- "ownership" is neither *self-evident* nor *universal*
-- in indigenous land practices, *rights to land* were context-dependent and overlapping; hunting rights, farming rights, rights to the use of trees, rights to passage, had distinct referents
-- map's like Alexander's (right) have been imposing European property systems on land for 400 years!
-  - doctrine of discovery
-  - racial theories
-  - economic extraction
-  - relations of dependence
-- our GIS systems are not built to accommodate other systems!
-#+end_slideblock
-#+ATTR_REVEAL: :frag appear
-#+begin_slideblock
-#+CAPTION: Colonist's map of Atlantic coast, 1624, from cite:Stirlingencouragementcolonies1624
-[[file:./Images/alexander-new-englande-1624.png][file:./Images/alexander-new-englande-1624.png]]
-#+end_slideblock
-
-ADD Jon J's drawing here
-
 * From Maps in General to Digital Maps
+#+ATTR_REVEAL: :frag (none none none appear)
 - maps make *arguments*
 - maps /intrinsically/ "lie"
 - maps *are linked to relations of power*
-*Digital Maps*
-- Digital Maps *write their assumptions into code*
-- Linked to data, they are more powerful, and more dangerous, than paper maps
-** Google Hedges its bets
+- *Digital Maps* amplify these issues
+  - Digital Maps *write their assumptions into code*. Assumptions are even *less* visible than in paper maps.
+  - Linked to data, they are more powerful, and more dangerous, than paper maps
+    - (remember: "data" = "structured information pre-digested to permit automated computation")
+** "Lies:" Google Hedges its Bets
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
 :END:
@@ -229,7 +209,7 @@ ADD Jon J's drawing here
 - there are [[https://personalization.ccs.neu.edu/Projects/MapWatch/][interesting]] [[http://metrocosm.com/disputed-territories-map.html][projects]] and even [[https://patents.google.com/patent/US8341192B2/en][patents]] that try to keep track of these disputed borders
 #+end_slideblock
 
-** "Lies": Choropleths
+** "Lies:" Choropleths
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
 :END:
