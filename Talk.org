@@ -23,63 +23,87 @@
 
 
 
-* Background/Scene Setting
-- about 2/3 of the way through a third-year Digital History class
-- students have learned *very* basic web dev skills, including
-  - intro to HTML
-  - basic CSS
-  - extremely basic JavaScript fundamentals & DOM manipulation
-  - importantly, they have also learned to use fundamental tools such as [[https://code.visualstudio.com/][the VSCode text editor]] and [[https://nodejs.org/][Nodejs]]
-- readings have included some classics in Digital History, as well as historiographical essays, most notably around Habermas's conception of the Public Sphere, as well as "objectivity" as an organizing principle in historical study.
-- about to start a block on "Spatial History", which will take about 2 weeks
-- in a typical online class I would monitor a Slack channel for communications - I tend to encourage interruptions in this class
-* Today
-- What is a map?
-- Do maps tell the truth?
-- How maps became *data* 
-- A tiny GIS exercise
-- (also, note re: assignments)
-* This week's readings
- - Krygier, J., & Wood, Donald, "[[http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595: ][Ce N'est Pas Le Monde]]", In M. Dodge, R. Kitchin, & C. Perkins (Eds.), /Rethinking Maps: New Frontiers in Cartographic Theory/ . (London, UK: Routledge, 2009).
-- Daniel Rueck, [[https://books-scholarsportal-info.myaccess.library.utoronto.ca/en/read?id=/ebooks/ebooks3/upress/2014-03-15/1/9781552387443#page=150]["'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land."]], in Bonnell & Fortin, /Historical GIS Research in Canada/. (Calgary: University of Calgary Press, 2014)
-  #+begin_notes
-We'll be talking quite a bit about Rueck's arguments!
-  #+end_notes
-* What is a map?
+* COMMENT Treachery
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:EXPORT_FILE_NAME: treachery
+:END:
 ** La Carte n'est pas le Monde
 :PROPERTIES:
 :reveal_extra_attr: class="twoc"
 :END:
 #+begin_slideblock
 #+CAPTION: Magritte's /Treachery of Images/ (1929)
-[[https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg][https://upload.wikimedia.org/wikipedia/en/b/b9/MagrittePipe.jpg]]
+[[file:./Images/magritte-treachery.jpg]]
 #+end_slideblock
+#+ATTR_REVEAL: :frag appear
 #+begin_slideblock
 #+CAPTION: Illustration from [[https://ebookcentral-proquest-com.myaccess.library.utoronto.ca/lib/utoronto/detail.action?docID=446595][Krygier, Ce n'est pas le Monde]]
 [[file:./Images/cenestpas.png][file:./Images/cenestpas.png]]
 #+end_slideblock
 
-** What is a map?
-#+ATTR_REVEAL: :frag (none appear)
+
+* Background/Scene Setting
+:PROPERTIES:
+:CUSTOM_ID: background
+:END:
+- about 2/3 of the way through a hypothetical third-year Digital History class
+- students have learned *very* basic web dev skills, including
+  - intro to [[https://developer.mozilla.org/en-US/docs/Web/HTML][HTML]]
+  - basic [[https://developer.mozilla.org/en-US/docs/Web/CSS][CSS]]
+  - extremely basic [[https://developer.mozilla.org/en-US/docs/Web/JavaScript][JavaScript]] fundamentals & [[https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction][DOM]] manipulation
+  - importantly, they have also learned to use fundamental tools such as [[https://code.visualstudio.com/][the VSCode text editor]], [[https://git-scm.com/][git]] and [[https://nodejs.org/][Nodejs]]
+- readings have included some classics in Digital History, as well as historiographical essays, most notably around Habermas's conception of the [[https://plato.stanford.edu/entries/habermas/#EarDevHabIntPubSphRea][Public Sphere]], as well as "[[https://librarysearch.library.utoronto.ca/discovery/search?query=any,contains,%22that%20noble%20dream%22&tab=Everything&search_scope=UTL_AND_CI&vid=01UTORONTO_INST:UTORONTO&offset=0][objectivity]]" as an organizing principle in historical study.
+- opens a block on "Spatial History", which will take about 2-3 weeks
+- format note:in a typical online class I would monitor a Slack channel for communications - I tend to encourage interruptions in this class
+* This week's readings
+:PROPERTIES:
+:CUSTOM_ID: readings
+:END:
+ - Krygier, J., & Wood, Donald, "[[http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595: ][Ce N'est Pas Le Monde]]", In M. Dodge, R. Kitchin, & C. Perkins (Eds.), /Rethinking Maps: New Frontiers in Cartographic Theory/ . (London, UK: Routledge, 2009).
+- Daniel Rueck, [[https://books-scholarsportal-info.myaccess.library.utoronto.ca/en/read?id=/ebooks/ebooks3/upress/2014-03-15/1/9781552387443#page=150]["'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land."]], in Bonnell & Fortin, /Historical GIS Research in Canada/. (Calgary: University of Calgary Press, 2014)
+  #+begin_notes
+In both cases I'm expecting you to read *critically*. We'll be talking quite a bit about Rueck's arguments! 
+  #+end_notes
+* Today
+:PROPERTIES:
+:CUSTOM_ID: today
+:END:
+- What is a map?
+- Do maps tell the truth?
+- Digital History and  *data-centric* Maps
+- Mapping Kahnawá:ke 
+- Using Leafletjs as a GIS Interface
+- (also, note re: assignments)
+* What is a map? Answers and Strategies
+:PROPERTIES:
+:CUSTOM_ID: what-is-a-map
+:END:
+#+ATTR_REVEAL: :frag appear
+#+begin_quote
+Maps... are more readily exemplified than defined. cite:WoodMaps2009
+#+end_quote
+#+ATTR_REVEAL: :frag appear
+#+begin_quote
+Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power.  cite:WoodMaps2009
+#+end_quote
+#+ATTR_REVEAL: :frag (appear appear)
 - "Representation" of a territory and also "Proposition" about it
    - (alternatively, "a picture", and "an argument")
 - as historians, we need a "Double Vision":
   - maps as *cultural objects* (i.e., primary sources)
   - maps as *tools for arguing* (i.e., rhetorical methods)
-#+ATTR_REVEAL: :frag appear
-#+begin_quote
-Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power.  cite:WoodMaps2009
-#+end_quote
 
 * Defining By Example
-#+begin_quote
-Maps... are more readily exemplified than defined. cite:WoodMaps2009
-#+end_quote
+:PROPERTIES:
+:CUSTOM_ID: examples
+:END:
 - let's look at some maps and see how we can relate *function* to *appearance*, and both to *conditions of production*
 - that is, let's look at maps *as historical source material*
 ** A map of space *and* time
 :PROPERTIES:
 :reveal_extra_attr: class="twoc"
+:CUSTOM_ID: higden
 :END:
 #+begin_slideblock
 #+CAPTION: Map of the world from Higden's [[https://www.bl.uk/collection-items/world-map-by-ranulf-higden][Polychornicon]] (~1400)
@@ -91,7 +115,8 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 - note that East is up
 - the history of the world (as derived largely from Scripture) flows down from the gates of paradise w/ the  rivers
 - space and time *are not distinct axes* in this world
-- this map is fundamentally *pedagogical*
+- map *makes sense in its context*
+  - same is true of our maps!
 #+end_slideblock
 
 #+begin_notes
@@ -119,6 +144,7 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 ** A map with a *very specific argument*
 :PROPERTIES:
 :reveal_extra_attr: class="twoc"
+:CUSTOM_ID: snow-map
 :END:
 #+begin_slideblock
 #+CAPTION: John Snow's 1854 Map of Broad Street, London
@@ -129,68 +155,99 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 - 1854 cholera outbreak
 - commonly considered to travel through the air ("miasmatically")
 - Snow argues here that it travels through water (around the pump)
-- sometimes thought of as the earlist "data map"
+- sometimes thought of as the earliest "data map"
 #+end_slideblock
 
-** Two Maps to Remake a Territory
+** [SKIP] A very different map of *the "same" place*
 :PROPERTIES:
-:reveal_extra_attr: class="splitc"
+:CUSTOM_ID: london-tube
+:END:
+#+CAPTION: Another view of London
+https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif
+
+** [SKIP] An angry and satirical map
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:CUSTOM_ID: twain-paris
 :END:
 #+begin_slideblock
-- finally, the maps of Kahnawá:ke from Rueck
-- note these are reconstructions (we'll come back to that)
-- the maps articulate a vision for the exercise of state power
-- and at the same time are a tool for making that vision real
+#+CAPTION: Mark Twain's Map of Paris, 1870
+file:./Images/mark-twain-paris.jpg]]
 #+end_slideblock
 
 #+begin_slideblock
-#+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via cite:Ruecknotknowboundaries2014  
-[[file:./Images/rueck-survey-existing.png][file:./Images/rueck-survey-existing.png]]
+# #+ATTR_REVEAL: :frag (none appear appear appear)
+- parody of maps like the one below
+- 1870: Franco-Prussian War & siege of Paris
+- Also difficult personal circumstances for Twain
+- A ruthless attack on journalists, Europeans, mapmakers, war, truth
+
+#+CAPTION: New York Tribute, Sept. 13, 1870, via [[https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun][Edney 2018]] 
+https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/1518824539942-0XC15AMMWXB0XE9NOO2J/ke17ZwdGBToddI8pDm48kG7xqXg2l54LNDVXLMbBdEN7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0kMlYkjvFlctRdmAM11rxFR2lYmzn0DiPOpfqH577DBmXlYEItmcMGh6pWqMqOBJtw/013+image+5+%28tribune%29.jpg?format=1000w]]
+# #+ATTR_REVEAL: :frag (appear)
 #+end_slideblock
-#+begin_slideblock
-#+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
-[[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
-#+end_slideblock
-* About "Truth" in these Maps
+
+** [SKIP] A map that is a metaphor (or at lest metonymy)
 :PROPERTIES:
-:reveal_extra_attr: class="splitc"
+:reveal_extra_attr: class="twoc"
+:CUSTOM_ID: humboldt-chimborozo
 :END:
 #+begin_slideblock
+#+CAPTION: Humboldt's Chimborazo (the "/Naturgemälde/")
+https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg]]
+#+end_slideblock
+#+begin_slideblock
+- Alexander von Humboldt (1769-1859) naturalist and "explorer"
+- Darwin's hero
+- climbed partway up Chimborazo (Andean peak in Ecuador) & made his map into a parable about life on Earth
+#+end_slideblock
+
+#+begin_notes
+*Journey*
+- archetype of the "scientific adventure"
+- 5 years travel by sea and land
+- long overland voyage across the Andes is probably the best-known, culminating in Chimborazo
+*Chimborazo: The Mountain*
+- Andean Peak 150km S of Quito, Ecuador
+- Tallest mountain in the world? 6263m
+#+end_notes
+
+* About "Truth" and "Lies" in these Maps
+:PROPERTIES:
+:CUSTOM_ID: truth-lies
+:END:
 #+ATTR_REVEAL: :frag (none appear appear appear)
 - remember back to "objectivity"?
   - "truth" is neither simple nor univocal
-- visualizing *requires* simplification
+- interpretation takes place in a context
+- visualizing *requires* simplification ("[[https://librarysearch.library.utoronto.ca/discovery/fulldisplay?docid=alma991106042659506196&context=L&vid=01UTORONTO_INST:UTORONTO&lang=en&search_scope=UTL_AND_CI&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,monmonier%20how%20to%20lie%20with%20maps&offset=0][lying]]"), e.g.
   - selection
   - displacement
   - smoothing
-  - enhancement
   - aggregation
 - simplification *guarantees* non-universality, *and*
-  - opens the door to the exercise of power
-- in Kahnawá:ke, the Walbank's maps were produced to *enforce a settler conception of land* organized around *individual ownership*.
-#+end_slideblock
-
-#+begin_slideblock
-#+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via cite:Ruecknotknowboundaries2014  
-[[file:./Images/rueck-survey-existing.png][file:./Images/rueck-survey-existing.png]]
-#+end_slideblock
-#+begin_slideblock
-#+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
-[[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
-#+end_slideblock
-
+  - opens the door to the exercise of power, and therefore oppresison
 * From Maps in General to Digital Maps
-#+ATTR_REVEAL: :frag (none none none appear)
-- maps make *arguments*
-- maps /intrinsically/ "lie"
-- maps *are linked to relations of power*
+:PROPERTIES:
+:CUSTOM_ID: towards-digital-maps
+:END:
+#+ATTR_REVEAL: :frag (none appear)
+- Summing Up So Far
+  #+ATTR_REVEAL: :frag (none appear appear)
+  - maps make *arguments*
+  - maps /intrinsically/ "lie"
+  - maps *are linked to relations of power*
 - *Digital Maps* amplify these issues
-  - Digital Maps *write their assumptions into code*. Assumptions are even *less* visible than in paper maps.
+  #+ATTR_REVEAL: :frag (appear)
+  - Digital Maps *write their assumptions into code*. Assumptions are even *less* visible than in paper maps, and they *propagate easily*
   - Linked to data, they are more powerful, and more dangerous, than paper maps
     - (remember: "data" = "structured information pre-digested to permit automated computation")
-** "Lies:" Google Hedges its Bets
+  - However, they also open up new possibilities
+  - let's explore the dangers, and the possibilities
+* Digital "Lies:" Google Hedges its Bets
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
+:CUSTOM_ID: google-hedges
 :END:
 
 #+begin_slideblock
@@ -210,56 +267,112 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 - there are [[https://personalization.ccs.neu.edu/Projects/MapWatch/][interesting]] [[http://metrocosm.com/disputed-territories-map.html][projects]] and even [[https://patents.google.com/patent/US8341192B2/en][patents]] that try to keep track of these disputed borders
 #+end_slideblock
 
-** "Lies:" Choropleths
+* Digital "Lies:" Choropleths
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
+:CUSTOM_ID: choropleths
 :END:
 #+begin_slideblock
 [[./Images/to-income-choro-nat-brk.png]]
 #+end_slideblock
-#+ATTR_REVEAL: :frag appear
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 #+begin_slideblock
 [[./Images/to-income-choro-eql-intvl.png]]
 #+end_slideblock
 
-#+ATTR_REVEAL: :frag appear
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 #+begin_slideblock
 [[./Images/to-income-choro-quantile.png]]
 #+end_slideblock
 
-#+ATTR_REVEAL: :frag appear
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 #+begin_slideblock
 [[./Images/to-income-choro-std.png]]
+#+end_slideblock
+
+* Indigenous Land Practices and the Map Problem
+:PROPERTIES:
+:CUSTOM_ID: stirling-map
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Colonist's map of Atlantic coast, from [[https://archive-org.myaccess.library.utoronto.ca/details/cihm_13904/page/n19/mode/2up][Stirling 1624]]
+[[file:./Images/alexander-new-englande-1624.png][file:./Images/alexander-new-englande-1624.png]]
+#+end_slideblock
+
+#+begin_slideblock
+#+begin_quote
+To [settler] outsiders, it appeared that Mohawk land ownership was no different from standard individual free-hold tenure, except that Mohawks lacked a standardized system of land titles and *appeared not to respect others' property* [my emphasis]. But the Kahnawá:ke system of land ownership had its own logic and was in many respects similar to the practices in other Haudenosaunee... communities at the time. Kahnawakehró:non considered their entire territory to be owned collectively, but small pieces could be claimed by individuals as long as they were cultivated. Land left uncultivated became available to others. An individual could not claim more land than he or she could work. Standing trees could not be owned by individuals... (Rueck, . 132)
+#+end_quote
 #+end_slideblock
 
 * Indigenous Land Practices & and the Map Problem
 :PROPERTIES:
 :reveal_extra_attr: class="splitc"
+:CUSTOM_ID: map-problem
 :END:
 #+begin_slideblock
-#+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4)
-- "ownership" is neither *self-evident* nor *universal*
-- in indigenous land practices, *rights to land* were context-dependent and overlapping; hunting rights, farming rights, rights to the use of trees, rights to passage, had distinct referents
-- map's like Alexander's (right) have been imposing European property systems on land for 400 years!
-  - doctrine of discovery
-  - racial theories
-  - economic extraction
-  - relations of dependence
-- our GIS systems are not built to accommodate other systems!
-  - so we have to tweak them
+#+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4 5)
+- Walbank's maps intended to *enforce a settler conception of land* organized around *individual ownership*.
+- but "ownership" is neither *self-evident* nor *universal*
+- in indigenous practice, *rights to land* were context-dependent and overlapping: hunting rights, farming rights, wood harvesting rights, rights to passage, were distinct
+- The "lots" Walbank drew *missed the point* of the Haudenosaunee land relation 
+- our GIS tools are not built to accommodate other understandings!
+  - so we have to tweak them!
+# - maps like the one we just saw have been imposing European property systems on land for 400 years!
 #+end_slideblock
-#+ATTR_REVEAL: :frag appear :frag_idx 3
+#+ATTR_REVEAL: :frag appear :frag_idx 1 
 #+begin_slideblock
-# #+ATTR_REVEAL: :frag appear :frag_idx 1 :class fade-out
-# #+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via cite:Ruecknotknowboundaries2014  
-# [[file:./Images/rueck-survey-existing.png][file:./Images/rueck-survey-existing.png]]
-
-#+ATTR_REVEAL: :frag appear :frag_idx 3
-#+CAPTION: Colonist's map of Atlantic coast, 1624, from cite:Stirlingencouragementcolonies1624
-[[file:./Images/alexander-new-englande-1624.png][file:./Images/alexander-new-englande-1624.png]]
+#+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via [[https://press.ucalgary.ca/books/9781552387085/][Rueck 2014]]
+[[file:./Images/rueck-survey-existing.png]]
+#+end_slideblock
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+begin_slideblock
+#+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
+[[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
 #+end_slideblock
 
-#+ATTR_REVEAL: :frag appear :frag_idx 4
+
+* COMMENT Two Maps to Remake a Territory
+:PROPERTIES:
+:reveal_extra_attr: class="splitc"
+:END:
+#+begin_slideblock
+- finally, the maps of Kahnawá:ke from Rueck
+- note these are reconstructions (we'll come back to that)
+- the maps articulate a vision for the exercise of state power
+- and at the same time are a tool for making that vision real
+#+end_slideblock
+
+#+begin_slideblock
+#+CAPTION: Walbank's "existing" lots in Kahnawá:ke community, 1885, via cite:Ruecknotknowboundaries2014  
+[[file:./Images/rueck-survey-existing.png][file:./Images/rueck-survey-existing.png]]
+#+end_slideblock
+#+begin_slideblock
+#+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
+[[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
+#+end_slideblock
+* GIS: from state-power to "counter-maps"
+:PROPERTIES:
+:reveal_extra_attr: class="splitc"
+:CUSTOM_ID: counter-maps
+:END:
+#+begin_slideblock
+
+#+begin_quote
+Another way to counter the colonialist effect of state-produced historical maps is to place them in context. Creating historical maps of Kahnawá:ke land practices using Walbank data and situating these maps in the context of Mohawk narratives of land and territory is a step in turning the Walbank Survey against itself. ... Reinterpreted and placed in historial and cultural context, it can take on new meanings. (Rueck, p.145) 
+#+end_quote
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+- That is, GIS can be a "[[http://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-8330.1995.tb00286.x][counter-mapping practice]]"
+#+end_slideblock
+#+ATTR_REVEAL: :frag appear :frag_idx 1
+#+begin_slideblock
+#+CAPTION: Indigenous Tkaronto, by Jon Johnson (2021)
+file:./Images/johnson-tkaronto-2.jpg
+
+#+end_slideblock
+
+#+ATTR_REVEAL: :frag appear :frag_idx 1
 #+begin_slideblock
 #+CAPTION: Indigenous Tkaronto, by Jon Johnson (2021)
 [[file:Images/jon-johnson-tkaronto.jpg][file:./Images/jon-johnson-tkaronto.jpg]]
@@ -267,7 +380,7 @@ Maps... are more readily exemplified than defined. cite:WoodMaps2009
 
 * GIS: data-centric maps
 :PROPERTIES:
-:CUSTOM_ID: what-is-a-gis?-12ec
+:CUSTOM_ID: data-centric-maps
 :reveal_extra_attr: class="twoc"
 :END:
 
@@ -278,7 +391,7 @@ https://web.archive.org/web/20190105210746/http://iolandarch.com/wp-content/uplo
 #+end_slideblock
 
 #+begin_slideblock
-
+- but first, we need to understand how they work
 - all data is "geo-tagged" (has location info = latitude-longitude co-ords)
 - layered data (like photoshop)
   - "layering" a non-trivial taxonomic decision
@@ -309,7 +422,7 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 [[file:Images/ontario-county-map-trinity.png]]
 #+end_slideblock
 
-*** Raster Images
+*** [SKIP] Raster Images
 :PROPERTIES:
 :reveal_extra_attr: class="splitc"
 :END:
@@ -336,6 +449,9 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 - note distortion, border. 
 #+end_notes
 * GIS Frameworks
+:PROPERTIES:
+:CUSTOM_ID: gis-frameworks
+:END:
 - all online maps rely on very large datasets. Impractical to build your own from scratch
 - Corporate Players:
   - [[https://www.google.com/maps][Google Maps]]
@@ -345,11 +461,15 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 - Remember: Incantations and Exhortations
 
 ** Using Leaflet
+:PROPERTIES:
+:CUSTOM_ID: leaflet-intro
+:END:
 
-#+ATTR_REVEAL: :frag (appear appear appear appear) :frag_idx (1 2 3 4)
+#+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4 5)
 - first, load Leaflet libraries in ~index.html~
 - then, "instantiate" the Leaflet Map Object in maps-setup.js
 - then... do a whole lot of work!
+- your assignment: an *essay* linked to a *map* that explores *spatial history topic*
 - let's [[https://utsc-exercise.hackinghistory.ca/spatial-history/][take a sneak peek at the live demo]] and then look at [[https://github.com/titaniumbones/UTSC-map-exercise][the repository]]
 #+ATTR_REVEAL: :frag appear :frag_idx 1
 #+BEGIN_SRC html
