@@ -418,6 +418,9 @@ section.twoc, section.splitc, section.threec, section.twobytwo {
       section.twoc .slideblock figure img, section.splitc .slideblock figure img, section.threec .slideblock figure img, section.twobytwo .slideblock figure img {
         object-fit: cover;
         object-position: 50% 50%; }
+    section.twoc .slideblock blockquote, section.splitc .slideblock blockquote, section.threec .slideblock blockquote, section.twobytwo .slideblock blockquote {
+      font-size: 0.9em;
+      width: 95%; }
   section.twoc .slideblock:nth-of-type(1), section.twoc .paired:nth-of-type(1), section.splitc .slideblock:nth-of-type(1), section.splitc .paired:nth-of-type(1), section.threec .slideblock:nth-of-type(1), section.threec .paired:nth-of-type(1), section.twobytwo .slideblock:nth-of-type(1), section.twobytwo .paired:nth-of-type(1) {
     background-color: #fcf4d9;
     grid-area: a; }
