@@ -322,6 +322,12 @@ pre.klipse {
   padding: 6px;
   border-radius: 3px; }
 
+.reveal li > code {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px black solid;
+  padding: 1px; }
+
 .reveal pre .CodeMirror {
   font-size: 0.55rem; }
 
