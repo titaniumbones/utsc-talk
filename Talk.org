@@ -78,7 +78,7 @@
 - Using Leafletjs as a GIS Interface
   - [[https://github.com/titaniumbones/UTSC-map-exercise][Code here]]; as usual
     #+begin_src sh
-    git clone
+    git clone https://github.com/titaniumbones/UTSC-map-exercise.git
     cd ./UTSC-map-exercise
     npm install
     npm run watch
@@ -242,18 +242,18 @@ https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCric
 :CUSTOM_ID: towards-digital-maps
 :END:
 #+ATTR_REVEAL: :frag (none appear)
-- Summing Up So Far
+- Taking Stock So Far
   #+ATTR_REVEAL: :frag (none appear appear)
   - maps make *arguments*
   - maps /intrinsically/ "lie"
   - maps *are linked to relations of power*
-- *Digital Maps* amplify these issues
+- *Digital maps* amplify these issues
   #+ATTR_REVEAL: :frag (appear)
-  - Digital Maps *write their assumptions into code*. Assumptions are even *less* visible than in paper maps, and they *propagate easily*
+  - Digital maps *write their assumptions into code*. Assumptions are even *less* visible than in paper maps, and they *propagate easily*
   - Linked to data, they are more powerful, and more dangerous, than paper maps
     - (remember: "data" = "structured information pre-digested to permit automated computation")
   - However, they also open up new possibilities
-  - let's explore the dangers, and the possibilities
+  - let's explore both the dangers and the opportunities
 ** Digital "Lies:" Google Hedges its Bets
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
@@ -322,9 +322,9 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 :CUSTOM_ID: map-problem
 :END:
 #+begin_slideblock
-#+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4 5)
+#+ATTR_REVEAL: :frag (appear) :frag_idx (1 1 2 3 4)
+- "ownership" is neither *self-evident* nor *universal*
 - Walbank's maps intended to *enforce a settler conception of land* organized around *individual ownership*.
-- but "ownership" is neither *self-evident* nor *universal*
 - in indigenous practice, *rights to land* were context-dependent and overlapping: hunting rights, farming rights, wood harvesting rights, rights to passage, were distinct
 - The "lots" Walbank drew *missed the point* of the Haudenosaunee land relation 
 - our GIS tools are not built to accommodate other understandings!
@@ -477,7 +477,7 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 
 #+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4 5)
 - first, load Leaflet libraries in ~index.html~
-- then, "instantiate" the Leaflet Map Object in maps-setup.js
+- then, "instantiate" the Leaflet Map Object (~L~) in maps-setup.js with ~L.map()~
 - then... do a whole lot of work!
 - your assignment: an *essay* linked to a *map* that explores *spatial history topic*
 - let's [[https://utsc-exercise.hackinghistory.ca/spatial-history/][take a sneak peek at the live demo]] and then look at [[https://github.com/titaniumbones/UTSC-map-exercise][the repository]]
