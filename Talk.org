@@ -62,8 +62,10 @@
 :END:
  - Krygier, J., & Wood, Donald, "[[http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595: ][Ce N'est Pas Le Monde]]", In M. Dodge, R. Kitchin, & C. Perkins (Eds.), /Rethinking Maps: New Frontiers in Cartographic Theory/ . (London, UK: Routledge, 2009).
 - Daniel Rueck, [[https://books-scholarsportal-info.myaccess.library.utoronto.ca/en/read?id=/ebooks/ebooks3/upress/2014-03-15/1/9781552387443#page=150]["'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land."]], in Bonnell & Fortin, /Historical GIS Research in Canada/. (Calgary: University of Calgary Press, 2014)
+- In both cases I'm expecting you to read *critically*. We'll be talking quite a bit about Rueck's arguments!
+  
   #+begin_notes
-In both cases I'm expecting you to read *critically*. We'll be talking quite a bit about Rueck's arguments! 
+
   #+end_notes
 * Today
 :PROPERTIES:
@@ -74,6 +76,14 @@ In both cases I'm expecting you to read *critically*. We'll be talking quite a b
 - Digital History and  *data-centric* Maps
 - Mapping Kahnawá:ke 
 - Using Leafletjs as a GIS Interface
+  - [[https://github.com/titaniumbones/UTSC-map-exercise][Code here]]; as usual
+    #+begin_src sh
+    git clone
+    cd ./UTSC-map-exercise
+    npm install
+    npm run watch
+    #+end_src
+    Then open in VSCode
 - (also, note re: assignments)
 * What is a map? Answers and Strategies
 :PROPERTIES:
