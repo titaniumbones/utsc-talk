@@ -101,7 +101,7 @@ Maps are artifacts that selectively link places to other kinds of things for the
 - "Representation" of a territory and also "Proposition" about it
    - (alternatively, "a picture", and "an argument")
 - as historians, we need a "Double Vision":
-  - maps as *cultural objects* (i.e., primary sources)
+  - maps as *cultural artifacts* (i.e., primary or secondary sources)
   - maps as *tools for arguing* (i.e., rhetorical methods)
 
 * Defining By Example
@@ -254,7 +254,7 @@ https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCric
     - (remember: "data" = "structured information pre-digested to permit automated computation")
   - However, they also open up new possibilities
   - let's explore the dangers, and the possibilities
-* Digital "Lies:" Google Hedges its Bets
+** Digital "Lies:" Google Hedges its Bets
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
 :CUSTOM_ID: google-hedges
@@ -277,7 +277,7 @@ https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCric
 - there are [[https://personalization.ccs.neu.edu/Projects/MapWatch/][interesting]] [[http://metrocosm.com/disputed-territories-map.html][projects]] and even [[https://patents.google.com/patent/US8341192B2/en][patents]] that try to keep track of these disputed borders
 #+end_slideblock
 
-* Digital "Lies:" Choropleths
+** Digital "Lies:" Choropleths
 :PROPERTIES:
 :reveal_extra_attr: class="twobytwo"
 :CUSTOM_ID: choropleths
@@ -316,7 +316,7 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 #+end_quote
 #+end_slideblock
 
-* Indigenous Land Practices & and the Map Problem
+** Indigenous Land Practices & and the Map Problem
 :PROPERTIES:
 :reveal_extra_attr: class="splitc"
 :CUSTOM_ID: map-problem
@@ -343,7 +343,7 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 #+end_slideblock
 
 
-* COMMENT Two Maps to Remake a Territory
+** COMMENT Two Maps to Remake a Territory
 :PROPERTIES:
 :reveal_extra_attr: class="splitc"
 :END:
@@ -362,7 +362,7 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 #+CAPTION: Walbank's plan to sell lots & 'enfranchise' the Mohawk
 [[file:./Images/rueck-survey-plan.png][file:./Images/rueck-survey-plan.png]]
 #+end_slideblock
-* GIS: from state-power to "counter-maps"
+** GIS: from state-power to "counter-maps"
 :PROPERTIES:
 :reveal_extra_attr: class="splitc"
 :CUSTOM_ID: counter-maps
@@ -370,10 +370,10 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 #+begin_slideblock
 
 #+begin_quote
-Another way to counter the colonialist effect of state-produced historical maps is to place them in context. Creating historical maps of Kahnawá:ke land practices using Walbank data and situating these maps in the context of Mohawk narratives of land and territory is a step in turning the Walbank Survey against itself. ... Reinterpreted and placed in historial and cultural context, it can take on new meanings. (Rueck, p.145) 
+Another way to counter the colonialist effect of state-produced historical maps is to place them in context. Creating historical maps of Kahnawá:ke land practices using Walbank data and situating these maps in the context of Mohawk narratives of land and territory is a step in turning the Walbank Survey against itself. ... Reinterpreted and placed in historical and cultural context, it can take on new meanings. (Rueck, p.145) 
 #+end_quote
 #+ATTR_REVEAL: :frag appear :frag_idx 1
-- That is, GIS can be a "[[http://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-8330.1995.tb00286.x][counter-mapping practice]]"
+- That is, GIS can be a "[[http://onlinelibrary.wiley.com/doi/abs/10.1111/j.1467-8330.1995.tb00286.x][counter-mapping practice]]" *if we learn to use it*
 #+end_slideblock
 #+ATTR_REVEAL: :frag appear :frag_idx 1
 #+begin_slideblock
@@ -401,7 +401,7 @@ https://web.archive.org/web/20190105210746/http://iolandarch.com/wp-content/uplo
 #+end_slideblock
 
 #+begin_slideblock
-- but first, we need to understand how they work
+- so first, we need to understand how GIS works
 - all data is "geo-tagged" (has location info = latitude-longitude co-ords)
 - layered data (like photoshop)
   - "layering" a non-trivial taxonomic decision
@@ -467,7 +467,7 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
   - [[https://www.google.com/maps][Google Maps]]
   - [[https://maps.arcgis.com/index.html][ArcGIS Online]]
   - [[https://www.mapbox.com/][Mapbox]]
-- we use [[https://leafletjs.com/][Leaflet Maps]], an open-source JavaScript mapping framework
+- we use [[https://leafletjs.com/][Leaflet Maps]], an open-source JavaScript mapping framework, and [[https://www.openstreetmap.org/#map=3/71.33/-96.86][Open Street Maps]], and open data set (also some Mapbox styles)
 - Remember: Incantations and Exhortations
 
 ** Using Leaflet
