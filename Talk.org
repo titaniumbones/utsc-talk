@@ -182,7 +182,7 @@ https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif
 :END:
 #+begin_slideblock
 #+CAPTION: Mark Twain's Map of Paris, 1870
-file:./Images/mark-twain-paris.jpg]]
+file:./Images/mark-twain-paris.jpg
 #+end_slideblock
 
 #+begin_slideblock
