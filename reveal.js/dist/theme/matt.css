@@ -471,3 +471,12 @@ figure {
   figure figcaption {
     display: table-caption;
     caption-side: top; }
+
+#slide-bibliography {
+  overflow-y: auto;
+  max-height: 100vh; }
+  #slide-bibliography .csl-bib-body {
+    margin-left: 1em;
+    text-indent: -1em;
+    text-align: left;
+    font-size: 0.8em; }
