@@ -60,7 +60,7 @@
 :PROPERTIES:
 :CUSTOM_ID: readings
 :END:
- - Krygier, J., & Wood, Donald, "[[http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595: ][Ce N'est Pas Le Monde]]", In M. Dodge, R. Kitchin, & C. Perkins (Eds.), /Rethinking Maps: New Frontiers in Cartographic Theory/ . (London, UK: Routledge, 2009).
+ - Krygier, J., & Wood, Donald, "[[https://ebookcentral-proquest-com.myaccess.library.utoronto.ca/lib/utoronto/reader.action?docID=446595][Ce N'est Pas Le Monde]]", In M. Dodge, R. Kitchin, & C. Perkins (Eds.), /Rethinking Maps: New Frontiers in Cartographic Theory/ . (London, UK: Routledge, 2009).
 - Daniel Rueck, [[https://books-scholarsportal-info.myaccess.library.utoronto.ca/en/read?id=/ebooks/ebooks3/upress/2014-03-15/1/9781552387443#page=150]["'I do not know the boundaries of this land, but I know the land which I worked': Historical GIS and Mohawk Land."]], in Bonnell & Fortin, /Historical GIS Research in Canada/. (Calgary: University of Calgary Press, 2014)
 - In both cases I'm expecting you to read *critically*. We'll be talking quite a bit about Rueck's arguments!
   
@@ -227,7 +227,7 @@ https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCric
 - visualizing *requires* simplification ("[[https://librarysearch.library.utoronto.ca/discovery/fulldisplay?docid=alma991106042659506196&context=L&vid=01UTORONTO_INST:UTORONTO&lang=en&search_scope=UTL_AND_CI&adaptor=Local%20Search%20Engine&tab=Everything&query=any,contains,monmonier%20how%20to%20lie%20with%20maps&offset=0][lying]]"), e.g.
   - selection
   - displacement
-  - smoothing
+   - smoothing
   - aggregation
 - simplification *guarantees* non-universality, *and therefore*
   - opens the door to the exercise of power, and therefore oppression

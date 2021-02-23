@@ -13,6 +13,31 @@
 
 <link rel="stylesheet" href="file:///home/matt/src/org-reveal/local.css"/>
 <link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="file:///home/matt/Dropbox/Work/History/DigitalHistory/vendor/klipse/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2.0em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 </head>
 <body>
 <div class="reveal">
@@ -47,7 +72,7 @@
 <section id="slide-readings">
 <h2 id="readings">This week&rsquo;s readings</h2>
 <form><ul>
-<li>Krygier, J., &amp; Wood, Donald, &ldquo;<a href="http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595:%20">Ce N&rsquo;est Pas Le Monde</a>&rdquo;, In M. Dodge, R. Kitchin, &amp; C. Perkins (Eds.), <i>Rethinking Maps: New Frontiers in Cartographic Theory</i> . (London, UK: Routledge, 2009).</li>
+<li>Krygier, J., &amp; Wood, Donald, &ldquo;<a href="https://ebookcentral-proquest-com.myaccess.library.utoronto.ca/lib/utoronto/reader.action?docID=446595">Ce N&rsquo;est Pas Le Monde</a>&rdquo;, In M. Dodge, R. Kitchin, &amp; C. Perkins (Eds.), <i>Rethinking Maps: New Frontiers in Cartographic Theory</i> . (London, UK: Routledge, 2009).</li>
 
 </ul></form>
 <form><ul>
@@ -126,9 +151,9 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-higden" class="twoc">
 <h3 id="higden">A map of space <b>and</b> time</h3>
-<div class="slideblock" id="org96e6733">
+<div class="slideblock" id="orgf69119e">
 
-<figure id="org3ece765">
+<figure id="org7bec5a1">
 <a href="./Images/higden-polychornicon-map.jpg"><img src="./Images/higden-polychornicon-map.jpg" alt="higden-polychornicon-map.jpg"></a>
 
 <figcaption><span class="figure-number">Figure 1: </span>Map of the world from Higden&rsquo;s <a href="https://www.bl.uk/collection-items/world-map-by-ranulf-higden">Polychornicon</a> (~1400)</figcaption>
@@ -136,7 +161,7 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 
 </div>
 
-<div class="slideblock" id="org97c6656">
+<div class="slideblock" id="org40ef1e9">
 <form><ul>
 <li>taken from a history of the world, written by a Benedictine monk in Chester, England</li>
 <li>note that East is up</li>
@@ -165,16 +190,16 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-hamburg-3e8e" class="twoc">
 <h3 id="hamburg-3e8e">A map with a <b>very specific purpose</b></h3>
-<div class="slideblock" id="org1a12e50">
+<div class="slideblock" id="orgbdcf8aa">
 
-<figure id="orgaf53496">
+<figure id="org8a28fee">
 <a href="https://ichef.bbci.co.uk/news/976/cpsprodpb/1193B/production/_85959917_hamburgfire_976.jpg"><img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/1193B/production/_85959917_hamburgfire_976.jpg" alt="_85959917_hamburgfire_976.jpg"></a>
 
 <figcaption><span class="figure-number">Figure 2: </span>Allied War Command map of Hamburg, 1944 (<a href="https://www.bbc.com/news/uk-34467543">Imperial War Museum via BBC</a>)</figcaption>
 </figure>
 
 </div>
-<div class="slideblock" id="org79d2d67">
+<div class="slideblock" id="org64c67fd">
 <form><ul>
 <li class="fragment appear">major arteries only (suitable for night navigation)</li>
 <li class="fragment appear">Red for flammable, pink for maybe, purple for industry</li>
@@ -187,16 +212,16 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-snow-map" class="twoc">
 <h3 id="snow-map">A map with a <b>very specific argument</b></h3>
-<div class="slideblock" id="orgcf88442">
+<div class="slideblock" id="orgae1c5d3">
 
-<figure id="org25edd5a">
+<figure id="org8fe0298">
 <a href="./Images/john-snow-broad-street.jpg"><img src="./Images/john-snow-broad-street.jpg" alt="john-snow-broad-street.jpg"></a>
 
 <figcaption><span class="figure-number">Figure 3: </span>John Snow&rsquo;s 1854 Map of Broad Street, London</figcaption>
 </figure>
 
 </div>
-<div class="slideblock" id="org6740c01">
+<div class="slideblock" id="org35ddc5a">
 <form><ul>
 <li class="fragment appear">1854 cholera outbreak</li>
 <li class="fragment appear">commonly considered to travel through the air (&ldquo;miasmatically&rdquo;)</li>
@@ -211,7 +236,7 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 <section id="slide-london-tube">
 <h3 id="london-tube">[SKIP] A very different map of <b>the &ldquo;same&rdquo; place</b></h3>
 
-<figure id="org916acc7">
+<figure id="org52b2658">
 <img src="https://tfl.gov.uk/cdn/static/cms/images/tube-map.gif" alt="tube-map.gif">
 
 <figcaption><span class="figure-number">Figure 4: </span>Another view of London</figcaption>
@@ -220,9 +245,9 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-twain-paris" class="twoc">
 <h3 id="twain-paris">[SKIP] An angry and satirical map</h3>
-<div class="slideblock" id="org9ff7803">
+<div class="slideblock" id="orgefa66fb">
 
-<figure id="orgb9fad44">
+<figure id="org77e4169">
 <img src="./Images/mark-twain-paris.jpg" alt="mark-twain-paris.jpg">
 
 <figcaption><span class="figure-number">Figure 5: </span>Mark Twain&rsquo;s Map of Paris, 1870</figcaption>
@@ -230,7 +255,7 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 
 </div>
 
-<div class="slideblock" id="org701517f">
+<div class="slideblock" id="orgac885aa">
 <form><ul>
 <li>parody of maps like the one below</li>
 <li>1870: Franco-Prussian War &amp; siege of Paris</li>
@@ -248,16 +273,16 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-humboldt-chimborozo" class="twoc">
 <h3 id="humboldt-chimborozo">[SKIP] A map that is a metaphor (or at least metonymy)</h3>
-<div class="slideblock" id="org63cdb4e">
+<div class="slideblock" id="org1fb9e6e">
 
-<figure id="orgb6e0306">
+<figure id="orga79c9c3">
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg" alt="Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg">
 
 <figcaption><span class="figure-number">Figure 6: </span>Humboldt&rsquo;s Chimborazo (the &ldquo;<i>Naturgemälde</i>&rdquo;)</figcaption>
 </figure>
 
 </div>
-<div class="slideblock" id="org599e0cb">
+<div class="slideblock" id="org88473f9">
 <form><ul>
 <li>Alexander von Humboldt (1769-1859) naturalist and &ldquo;explorer&rdquo;</li>
 <li>Darwin&rsquo;s hero</li>
@@ -303,8 +328,11 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 <li class="fragment appear">visualizing <b>requires</b> simplification (&ldquo;<a href="https://librarysearch.library.utoronto.ca/discovery/fulldisplay?docid=alma991106042659506196&amp;context=L&amp;vid=01UTORONTO_INST:UTORONTO&amp;lang=en&amp;search_scope=UTL_AND_CI&amp;adaptor=Local%20Search%20Engine&amp;tab=Everything&amp;query=any,contains,monmonier%20how%20to%20lie%20with%20maps&amp;offset=0">lying</a>&rdquo;), e.g.
 <form><ul>
 <li>selection</li>
-<li>displacement</li>
+<li>displacement
+<form><ul>
 <li>smoothing</li>
+
+</ul></form></li>
 <li>aggregation</li>
 
 </ul></form></li>
@@ -345,31 +373,31 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-google-hedges" class="twobytwo">
 <h3 id="google-hedges">Digital &ldquo;Lies:&rdquo; Google Hedges its Bets</h3>
-<div class="slideblock" id="org5f697d5">
+<div class="slideblock" id="orgbfb0e79">
 
-<figure id="org522f6b2">
+<figure id="org315ffe6">
 <img src="./Images/google-india-east-0.gif" alt="google-india-east-0.gif">
 
 </figure>
 
 </div>
-<div class="slideblock" id="org6c5c6d1">
+<div class="slideblock" id="org8bf1322">
 
-<figure id="org8c7269f">
+<figure id="org89ce06d">
 <img src="./Images/google-india-east-1.gif" alt="google-india-east-1.gif">
 
 </figure>
 
 </div>
-<div class="slideblock" id="orge1320d8">
+<div class="slideblock" id="org6dd0e82">
 
-<figure id="orgade7bcd">
+<figure id="orgb4d22c8">
 <img src="./Images/google-india-east-2.gif" alt="google-india-east-2.gif">
 
 </figure>
 
 </div>
-<div class="slideblock" id="org8c63800">
+<div class="slideblock" id="org633fd05">
 <form><ul>
 <li>Boundaries are social &amp; cultural objects</li>
 <li>often they are <b>largely settled</b>, as e.g., in the border between US and Canada</li>
@@ -384,35 +412,35 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 </section>
 <section id="slide-choropleths" class="twobytwo">
 <h3 id="choropleths">Digital &ldquo;Lies:&rdquo; Choropleths</h3>
-<div class="slideblock" id="org77febdb">
+<div class="slideblock" id="orgc2a1dd2">
 
-<figure id="org7973686">
+<figure id="orgeb30c56">
 <img src="./Images/to-income-choro-nat-brk.png" alt="to-income-choro-nat-brk.png">
 
 </figure>
 
 </div>
-<div data-fragment-index="1" class="fragment appear slideblock" id="org5115700">
+<div data-fragment-index="1" class="fragment appear slideblock" id="org5576e1d">
 
-<figure id="org1155c9c">
+<figure id="orga39d810">
 <img src="./Images/to-income-choro-eql-intvl.png" alt="to-income-choro-eql-intvl.png">
 
 </figure>
 
 </div>
 
-<div data-fragment-index="1" class="fragment appear slideblock" id="orgad74cf4">
+<div data-fragment-index="1" class="fragment appear slideblock" id="orgc7dd1f0">
 
-<figure id="org315b249">
+<figure id="orgff9e57d">
 <img src="./Images/to-income-choro-quantile.png" alt="to-income-choro-quantile.png">
 
 </figure>
 
 </div>
 
-<div data-fragment-index="1" class="fragment appear slideblock" id="org80f2d81">
+<div data-fragment-index="1" class="fragment appear slideblock" id="org1a9fdad">
 
-<figure id="org41b47f5">
+<figure id="org31e9601">
 <img src="./Images/to-income-choro-std.png" alt="to-income-choro-std.png">
 
 </figure>
@@ -424,16 +452,16 @@ Maps&#x2026; are more readily exemplified than defined. (Wood &amp; Krygier, &ld
 <section>
 <section id="slide-stirling-map" class="twoc">
 <h2 id="stirling-map">Indigenous Land Practices and the Map Problem</h2>
-<div class="slideblock" id="orge2ca528">
+<div class="slideblock" id="orgd57c3a3">
 
-<figure id="org35fe97f">
+<figure id="org1a4516b">
 <a href="./Images/alexander-new-englande-1624.png"><img src="./Images/alexander-new-englande-1624.png" alt="alexander-new-englande-1624.png"></a>
 
 <figcaption><span class="figure-number">Figure 14: </span>Colonist&rsquo;s map of Atlantic coast, from <a href="https://archive-org.myaccess.library.utoronto.ca/details/cihm_13904/page/n19/mode/2up">Stirling 1624</a></figcaption>
 </figure>
 
 </div>
-<div class="fragment appear slideblock" id="org68a1b9d">
+<div class="fragment appear slideblock" id="orgb9507b8">
 <blockquote>
 <p>
 To [settler] outsiders, it appeared that Mohawk land ownership was no different from [Western private land ownership], except that Mohawks lacked a standardized system of land titles and <b>appeared not to respect others&rsquo; property</b> [my emphasis]. But the Kahnawá:ke system of land ownership had its own logic and was in many respects similar to the practices in other Haudenosaunee&#x2026; communities at the time. [The inhabitants] considered their entire territory to be owned collectively, but small pieces could be claimed by individuals as long as they were cultivated. Land left uncultivated became available to others. An individual could not claim more land than he or she could work. Standing trees could not be owned by individuals&#x2026; (Rueck, . 132)
@@ -445,7 +473,7 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 </section>
 <section id="slide-map-problem" class="splitc">
 <h3 id="map-problem">Indigenous Land Practices &amp; and the Map Problem</h3>
-<div class="slideblock" id="orgd17f868">
+<div class="slideblock" id="orgd74d9af">
 <form><ul>
 <li data-fragment-index="1" class="fragment appear">&ldquo;ownership&rdquo; is neither <b>self-evident</b> nor <b>universal</b></li>
 <li data-fragment-index="1" class="fragment appear">Walbank&rsquo;s maps intended to <b>enforce a settler conception of land</b> organized around <b>individual ownership</b>.</li>
@@ -460,18 +488,18 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 </ul></form>
 
 </div>
-<div data-fragment-index="1" class="fragment appear slideblock" id="orgc9dfbab">
+<div data-fragment-index="1" class="fragment appear slideblock" id="org0854481">
 
-<figure id="org1dd366d">
+<figure id="org572f668">
 <img src="./Images/rueck-survey-existing.png" alt="rueck-survey-existing.png">
 
 <figcaption><span class="figure-number">Figure 15: </span>Walbank&rsquo;s &ldquo;existing&rdquo; lots in Kahnawá:ke community, 1885, via <a href="https://press.ucalgary.ca/books/9781552387085/">Rueck 2014</a></figcaption>
 </figure>
 
 </div>
-<div data-fragment-index="1" class="fragment appear slideblock" id="orgf30d92d">
+<div data-fragment-index="1" class="fragment appear slideblock" id="org2dbb83e">
 
-<figure id="org549d208">
+<figure id="org1981ae7">
 <a href="./Images/rueck-survey-plan.png"><img src="./Images/rueck-survey-plan.png" alt="rueck-survey-plan.png"></a>
 
 <figcaption><span class="figure-number">Figure 16: </span>Walbank&rsquo;s plan to sell lots &amp; &rsquo;enfranchise&rsquo; the Mohawk</figcaption>
@@ -483,7 +511,7 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 </section>
 <section id="slide-counter-maps" class="splitc">
 <h3 id="counter-maps">GIS: from state-power to &ldquo;counter-maps&rdquo;</h3>
-<div class="slideblock" id="orgbc4a798">
+<div class="slideblock" id="orgedcd1b2">
 <p>
 
 </p>
@@ -499,9 +527,9 @@ Another way to counter the colonialist effect of state-produced historical maps 
 </ul></form>
 
 </div>
-<div data-fragment-index="1" class="fragment appear slideblock" id="org26c3e85">
+<div data-fragment-index="1" class="fragment appear slideblock" id="org84ec073">
 
-<figure id="orgf21adc9">
+<figure id="org1d17012">
 <img src="./Images/johnson-tkaronto-2.jpg" alt="johnson-tkaronto-2.jpg">
 
 <figcaption><span class="figure-number">Figure 17: </span>Indigenous Tkaronto, by Jon Johnson (2021)</figcaption>
@@ -509,9 +537,9 @@ Another way to counter the colonialist effect of state-produced historical maps 
 
 </div>
 
-<div data-fragment-index="1" class="fragment appear slideblock" id="orgece3704">
+<div data-fragment-index="1" class="fragment appear slideblock" id="org103e9e0">
 
-<figure id="org2b15663">
+<figure id="org4a6c4fa">
 <a href="Images/jon-johnson-tkaronto.jpg"><img src="./Images/jon-johnson-tkaronto.jpg" alt="jon-johnson-tkaronto.jpg"></a>
 
 <figcaption><span class="figure-number">Figure 18: </span>Indigenous Tkaronto, by Jon Johnson (2021)</figcaption>
@@ -524,20 +552,20 @@ Another way to counter the colonialist effect of state-produced historical maps 
 <section>
 <section id="slide-data-centric-maps" class="twoc">
 <h2 id="data-centric-maps">GIS: data-centric maps</h2>
-<div class="slideblock" id="org120e2c4">
+<div class="slideblock" id="org7a8bc5d">
 <p>
 
 </p>
 
 
-<figure id="org6cd5939">
+<figure id="org4207348">
 <img src="https://web.archive.org/web/20190105210746/http://iolandarch.com/wp-content/uploads/2014/09/overlay-analysis.jpg" alt="overlay-analysis.jpg">
 
 </figure>
 
 </div>
 
-<div class="slideblock" id="org3617262">
+<div class="slideblock" id="org7e0d1fa">
 <form><ul>
 <li>so first, we need to understand how GIS works</li>
 <li>all data is &ldquo;geo-tagged&rdquo; (has location info = latitude-longitude co-ords)</li>
@@ -569,28 +597,28 @@ Within a GIS, information is generally accessed as a set of <b>layers</b>.  Data
 </aside>
 
 </section>
-<section id="slide-org2fbf958" class="splitc">
-<h3 id="org2fbf958">Point and Area Overlays</h3>
-<div class="slideblock" id="org1f961a6">
+<section id="slide-org23e3462" class="splitc">
+<h3 id="org23e3462">Point and Area Overlays</h3>
+<div class="slideblock" id="orgf28e8e9">
 
-<figure id="org8a5f5fe">
+<figure id="org8427fdb">
 <img src="Images/point-overlay-sid-smith.png" alt="point-overlay-sid-smith.png">
 
 </figure>
 
 </div>
-<div class="slideblock" id="org1f547c3">
+<div class="slideblock" id="orgd576c79">
 
-<figure id="orgfaf3618">
+<figure id="org0b07a2b">
 <img src="Images/ontario-county-map-zoomed.jpg" alt="ontario-county-map-zoomed.jpg">
 
 </figure>
 
 </div>
 
-<div class="slideblock" id="org1f816a8">
+<div class="slideblock" id="orgade187c">
 
-<figure id="org1a90a93">
+<figure id="org00ca897">
 <img src="Images/ontario-county-map-trinity.png" alt="ontario-county-map-trinity.png">
 
 </figure>
@@ -598,9 +626,9 @@ Within a GIS, information is generally accessed as a set of <b>layers</b>.  Data
 </div>
 
 </section>
-<section id="slide-orgd8d715d" class="splitc">
-<h4 id="orgd8d715d">[SKIP] Raster Images</h4>
-<div class="slideblock" id="org3c60495">
+<section id="slide-org6e78172" class="splitc">
+<h4 id="org6e78172">[SKIP] Raster Images</h4>
+<div class="slideblock" id="orge0ef0db">
 <p>
 
 </p>
@@ -617,9 +645,9 @@ Within a GIS, information is generally accessed as a set of <b>layers</b>.  Data
 
 </div>
 
-<div class="slideblock" id="org8d1c619">
+<div class="slideblock" id="org3bf3c1d">
 
-<figure id="org59bf700">
+<figure id="org18db0ff">
 <img src="Images/google-maps-satellite.jpg" alt="google-maps-satellite.jpg">
 
 <figcaption><span class="figure-number">Figure 23: </span>Google Maps Satellite Capture showing Tile Borders</figcaption>
@@ -628,9 +656,9 @@ Within a GIS, information is generally accessed as a set of <b>layers</b>.  Data
 </div>
 
 
-<div class="slideblock" id="orgc6602f3">
+<div class="slideblock" id="orgbdb9f53">
 
-<figure id="org241f269">
+<figure id="org98e776e">
 <img src="Images/rumsey-map-overlay.jpg" alt="rumsey-map-overlay.jpg">
 
 <figcaption><span class="figure-number">Figure 24: </span>Georeferenced Historical Map as Raster Layer (via <a href="https://www.davidrumsey.com/home">Rumsey Collection</a>)</figcaption>
@@ -674,24 +702,20 @@ Within a GIS, information is generally accessed as a set of <b>layers</b>.  Data
 <li data-fragment-index="5" class="fragment appear">let&rsquo;s <a href="https://utsc-exercise.hackinghistory.ca/spatial-history/">take a sneak peek at the live demo</a> and then look at <a href="https://github.com/titaniumbones/UTSC-map-exercise">the repository</a></li>
 
 </ul></form>
-<div class="org-src-container">
-
-<pre data-fragment-index="1" class="fragment appear"><code class="html" >&lt;!-- Leaflet Libraries! CSS first --&gt;
+<pre data-fragment-index="1" class="fragment appear"><code class="language-klipse-html" >
+&lt;!-- Leaflet Libraries! CSS first --&gt;
 &lt;link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""/&gt;
 &lt;!-- Leaflet also requires JS --&gt;
-&lt;!-- Must be loaded AFTER Leaflet's CSS --&gt;
+&lt;!-- Must be loaded AFTER Leaflet&#39;s CSS --&gt;
 &lt;script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""&gt;&lt;/script&gt;
 </code></pre>
-</div>
-<div class="org-src-container">
-
-<pre data-fragment-index="2" class="fragment appear"><code class="js" >const map = L.map(element, {renderer:L.canvas(), preferCanvas: true}).setView(myCenter, myZoom);
+<pre data-fragment-index="2" class="fragment appear"><code class="language-klipse-js" >
+const map = L.map(element, {renderer:L.canvas(), preferCanvas: true}).setView(myCenter, myZoom);
 </code></pre>
-</div>
 </section>
 </section>
 <section>
@@ -742,7 +766,7 @@ slideNumber: 'c',
 rollingLinks: false,
 keyboard: true,
 mouseWheel: false,
-fragmentInURL: true,
+fragmentInURL: false,
 hashOneBasedIndex: false,
 pdfSeparateFragments: true,
 
@@ -764,6 +788,15 @@ dependencies: [
 {src: './reveal.js/plugin/klipse_reveal.js'}]
 
 });
+</script>
+<script src="file:///home/matt/Dropbox/Work/History/DigitalHistory/vendor/klipse/klipse_plugin.min.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
 </script>
 </body>
 </html>
