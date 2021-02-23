@@ -53,7 +53,7 @@
   - basic [[https://developer.mozilla.org/en-US/docs/Web/CSS][CSS]]
   - extremely basic [[https://developer.mozilla.org/en-US/docs/Web/JavaScript][JavaScript]] fundamentals & [[https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction][DOM]] manipulation
   - importantly, they have also learned to use fundamental tools such as [[https://code.visualstudio.com/][the VSCode text editor]], [[https://git-scm.com/][git]] and [[https://nodejs.org/][Nodejs]]
-- readings have included some classics in Digital History, as well as historiographical essays, most notably around Habermas's conception of the [[https://plato.stanford.edu/entries/habermas/#EarDevHabIntPubSphRea][Public Sphere]], as well as "[[https://librarysearch.library.utoronto.ca/discovery/search?query=any,contains,%22that%20noble%20dream%22&tab=Everything&search_scope=UTL_AND_CI&vid=01UTORONTO_INST:UTORONTO&offset=0][objectivity]]" as an organizing principle in historical study.
+- readings have included some classics in Digital History, as well as historiographical essays; including discussion of "[[https://librarysearch.library.utoronto.ca/discovery/search?query=any,contains,%22that%20noble%20dream%22&tab=Everything&search_scope=UTL_AND_CI&vid=01UTORONTO_INST:UTORONTO&offset=0][objectivity]]" as an organizing principle in historical study.
 - opens a block on "Spatial History", which will take about 2-3 weeks
 - format note:in a typical online class I would monitor a Slack channel for communications - I tend to encourage interruptions in this class
 * This week's readings
@@ -88,15 +88,12 @@
 :END:
 #+ATTR_REVEAL: :frag appear
 #+begin_quote
-Maps... are more readily exemplified than defined. (Wood, "Maps", 2009)
-#+end_quote
-#+ATTR_REVEAL: :frag appear
-#+begin_quote
-Maps are artifacts that selectively link places to other kinds of things for the purpose of underwriting the reproduction (or contestation) of the social relations of power.  (Wood, "Maps", 2009)
+Maps... are more readily exemplified than defined. (Wood 2009)
 #+end_quote
 #+ATTR_REVEAL: :frag (appear appear)
-- "Representation" of a territory and also "Proposition" about it
-   - (alternatively, "a picture", and "an argument")
+- "Representation" of a territory (maybe) *but also* "Proposition" about it (Krygier & Wood 2009)
+  - (alternatively, "a picture", and "an argument")
+- A *tool* for *expressing, propping up, or contesting social relations* by linking *places* to *other things* (Wood 2009)
 - as historians, we need a "Double Vision":
   - maps as *cultural artifacts* (i.e., primary or secondary sources)
   - maps as *tools for arguing* (i.e., rhetorical methods)
