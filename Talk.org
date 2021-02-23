@@ -70,7 +70,7 @@
 :END:
 - What is a map?
 - Do maps tell the truth?
-- Digital History and  *data-centric* Maps
+- Digital History, GIS(Geographical Information System) and  *data-centric* Maps
 - Mapping Kahnawá:ke 
 - Using Leafletjs as a GIS Interface
   - [[https://github.com/titaniumbones/UTSC-map-exercise][Code here]]; as usual
@@ -98,7 +98,7 @@ Maps... are more readily exemplified than defined. (Wood 2009)
   - maps as *cultural artifacts* (i.e., primary or secondary sources)
   - maps as *tools for arguing* (i.e., rhetorical methods)
 
-* Defining By Example
+* Defining by Example
 :PROPERTIES:
 :CUSTOM_ID: examples
 :END:
@@ -230,7 +230,7 @@ https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCric
   - smoothing
   - aggregation
 - simplification *guarantees* non-universality, *and therefore*
-  - opens the door to the exercise of power, and therefore oppresison
+  - opens the door to the exercise of power, and therefore oppression
 * From Maps in General to Digital Maps
 :PROPERTIES:
 :CUSTOM_ID: towards-digital-maps
@@ -319,7 +319,7 @@ To [settler] outsiders, it appeared that Mohawk land ownership was no different 
 #+ATTR_REVEAL: :frag (appear) :frag_idx (1 1 2 3 4)
 - "ownership" is neither *self-evident* nor *universal*
 - Walbank's maps intended to *enforce a settler conception of land* organized around *individual ownership*.
-- in indigenous practice, *rights to land* were context-dependent and overlapping: hunting rights, farming rights, wood harvesting rights, rights to passage, were distinct
+- in Indigenous practice, *rights to land* were context-dependent and overlapping: hunting rights, farming rights, wood harvesting rights, rights to passage, etc., were distinct
 - The "lots" Walbank drew *missed the point* of the Haudenosaunee land relation 
 - our GIS tools are not built to accommodate other understandings!
   - so we have to tweak them!
@@ -452,11 +452,11 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 #+begin_notes
 - note distortion, border. 
 #+end_notes
-* GIS Frameworks and API's
+* GIS Frameworks and APIs
 :PROPERTIES:
 :CUSTOM_ID: gis-frameworks
 :END:
-- we talk to our Gis through an [[https://en.wikipedia.org/wiki/API][API]]. Remember: *Incantations and Supplications*
+- we talk to our GIS through an [[https://en.wikipedia.org/wiki/API][API]]. Remember: *Incantations and Supplications*
 - Big Corporate Players:
   - [[https://www.google.com/maps][Google Maps]]
   - [[https://maps.arcgis.com/index.html][ArcGIS Online]]
@@ -472,7 +472,7 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 - first, load Leaflet libraries in ~index.html~
 - then, "instantiate" the Leaflet Map Object (~L~) in maps-setup.js with ~L.map()~
 - then... do a whole lot of work!
-- your assignment: an *essay* linked to a *map* that explores *spatial history topic*
+- your assignment: an *essay* linked to a *map* that explores a *spatial history topic*
 - let's [[https://utsc-exercise.hackinghistory.ca/spatial-history/][take a sneak peek at the live demo]] and then look at [[https://github.com/titaniumbones/UTSC-map-exercise][the repository]]
 #+ATTR_REVEAL: :frag appear :frag_idx 1
 #+BEGIN_SRC html
@@ -498,7 +498,7 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 <div class="csl-bib-body">
   <div class="csl-entry">Edney, Matthew H. “A Self-Explanatory Map? Come for the Satire, Stay for the Fun.” Mapping as Process, 2018. <a href="https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun">https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun</a>.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=A%20Self-Explanatory%20Map%3F%20Come%20for%20the%20Satire%2C%20Stay%20for%20the%20Fun&amp;rft.description=Mark%20Twain%E2%80%94known%20for%20his%20writing%E2%80%94also%20made%20this%20absurdist%20map%20of%20Paris%20in%201870.&amp;rft.identifier=https%3A%2F%2Fwww.mappingasprocess.net%2Fblog%2F2018%2F2%2F16%2Fa-self-explanatory-map-come-for-the-satire-stay-for-the-fun&amp;rft.aulast=Edney%2C%20Matthew%20H.&amp;rft.au=Edney%2C%20Matthew%20H.&amp;rft.date=2018&amp;rft.language=en-US"></span>
-  <div class="csl-entry">Krygier, John and Wood, Donald. “Ce N’est Pas Le Monde.” In <i>Rethinking Maps: New Frontiers in Cartographic Theory</i>, edited by Martin Dodge, Rob Kitchin, and Chris Perkins. London, UNITED KINGDOM: Routledge, 2009. <a href="http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595">http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595</a>.</div>
+  <div class="csl-entry">Krygier, John and Donalrd Wood. “Ce N’est Pas Le Monde.” In <i>Rethinking Maps: New Frontiers in Cartographic Theory</i>, edited by Martin Dodge, Rob Kitchin, and Chris Perkins. London, UNITED KINGDOM: Routledge, 2009. <a href="http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595">http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595</a>.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-0-203-87684-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Ce%20N'est%20Pas%20Le%20Monde&amp;rft.place=London%2C%20UNITED%20KINGDOM&amp;rft.publisher=Routledge&amp;rft.aufirst=John&amp;rft.aulast=Krygier&amp;rft.au=Martin%20Dodge&amp;rft.au=Rob%20Kitchin&amp;rft.au=Chris%20Perkins&amp;rft.au=John%20Krygier&amp;rft.au=undefined&amp;rft.date=2009&amp;rft.isbn=978-0-203-87684-8"></span>
   <div class="csl-entry">Monmonier, Mark S. <i>How to Lie with Maps</i>. Third edition. Chicago, IL: The University of Chicago Press, 2018.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-0-226-43592-3&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=How%20to%20lie%20with%20maps&amp;rft.place=Chicago%2C%20IL&amp;rft.publisher=The%20University%20of%20Chicago%20Press&amp;rft.edition=Third%20edition&amp;rft.aufirst=Mark%20S.&amp;rft.aulast=Monmonier&amp;rft.au=Mark%20S.%20Monmonier&amp;rft.date=2018&amp;rft.tpages=231&amp;rft.isbn=978-0-226-43592-3"></span>
