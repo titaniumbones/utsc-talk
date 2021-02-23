@@ -474,7 +474,7 @@ figure {
 
 #slide-bibliography {
   overflow-y: auto;
-  max-height: 100vh; }
+  max-height: 90vh; }
   #slide-bibliography .csl-bib-body {
     margin-left: 1em;
     text-indent: -1em;

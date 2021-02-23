@@ -10,7 +10,7 @@
 # #+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p>This could be the file name in the <code>src</code> attribute of an <code>img</code> element for a QR code: %q
 #+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
 
-#+OPTIONS: reveal_fragmentinurl t
+#+OPTIONS: reveal_fragmentinurl t reveal_height 1080 reveal_widt 1920
 # bibliography
 #+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
 #+LATEX_HEADER: \addbibresource{references.bib}
@@ -88,21 +88,21 @@
 :END:
 #+ATTR_REVEAL: :frag appear
 #+begin_quote
-Maps... are more readily exemplified than defined. (Wood 2009)
+Maps... are more readily exemplified than defined. (Wood & Krygier, "Maps" 2009)
 #+end_quote
 #+ATTR_REVEAL: :frag (appear appear)
-- "Representation" of a territory (maybe) *but also* "Proposition" about it (Krygier & Wood 2009)
+- "Representation" of a territory (maybe) *but also* "Proposition" about it (Krygier & Wood, "Ce N'est Pas...", 2009)
   - (alternatively, "a picture", and "an argument")
-- A *tool* for *expressing, propping up, or contesting social relations* by linking *places* to *other things* (Wood 2009)
+- A *tool* for *expressing, propping up, or contesting social relations* by linking *places* to *other things* (Wood & Krygier, "Maps" 2009)
 - as historians, we need a "Double Vision":
   - maps as *cultural artifacts* (i.e., primary or secondary sources)
-  - maps as *tools for arguing* (i.e., rhetorical methods)
+  - maps as *tools for making arguments* (i.e., rhetorical methods)
 
 * Defining by Example
 :PROPERTIES:
 :CUSTOM_ID: examples
 :END:
-- let's look at some maps and see how we can relate *function* to *appearance*, and both to *conditions of production*
+- let's look at some maps and see how we can relate *function* to *appearance*, and both to *conditions of their production*
 - that is, let's look at maps *as historical source material*
 ** A map of space *and* time
 :PROPERTIES:
@@ -117,7 +117,7 @@ Maps... are more readily exemplified than defined. (Wood 2009)
 #+begin_slideblock
 - taken from a history of the world, written by a Benedictine monk in Chester, England
 - note that East is up
-- the history of the world (as derived largely from Scripture) flows down from the gates of paradise w/ the  rivers
+- the history of the world (as derived largely from Scripture) flows down from the gates of Paradise w/ the  rivers
 - space and time *are not distinct axes* in this world
 - map *makes sense in its context*
   - same is true of our maps!
@@ -198,7 +198,7 @@ https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/151882453
 :END:
 #+begin_slideblock
 #+CAPTION: Humboldt's Chimborazo (the "/Naturgemälde/")
-https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg]]
+https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg
 #+end_slideblock
 #+begin_slideblock
 - Alexander von Humboldt (1769-1859) naturalist and "explorer"
@@ -303,10 +303,10 @@ https://upload.wikimedia.org/wikipedia/commons/7/7e/Zentralbibliothek_Z%C3%BCric
 #+CAPTION: Colonist's map of Atlantic coast, from [[https://archive-org.myaccess.library.utoronto.ca/details/cihm_13904/page/n19/mode/2up][Stirling 1624]]
 [[file:./Images/alexander-new-englande-1624.png][file:./Images/alexander-new-englande-1624.png]]
 #+end_slideblock
-
+#+ATTR_REVEAL: :frag appear
 #+begin_slideblock
 #+begin_quote
-To [settler] outsiders, it appeared that Mohawk land ownership was no different from [Western private land ownership], except that Mohawks lacked a standardized system of land titles and *appeared not to respect others' property* [my emphasis]. But the Kahnawá:ke system of land ownership had its own logic and was in many respects similar to the practices in other Haudenosaunee... communities at the time. Kahnawakehró:non considered their entire territory to be owned collectively, but small pieces could be claimed by individuals as long as they were cultivated. Land left uncultivated became available to others. An individual could not claim more land than he or she could work. Standing trees could not be owned by individuals... (Rueck, . 132)
+To [settler] outsiders, it appeared that Mohawk land ownership was no different from [Western private land ownership], except that Mohawks lacked a standardized system of land titles and *appeared not to respect others' property* [my emphasis]. But the Kahnawá:ke system of land ownership had its own logic and was in many respects similar to the practices in other Haudenosaunee... communities at the time. [The inhabitants] considered their entire territory to be owned collectively, but small pieces could be claimed by individuals as long as they were cultivated. Land left uncultivated became available to others. An individual could not claim more land than he or she could work. Standing trees could not be owned by individuals... (Rueck, . 132)
 #+end_quote
 #+end_slideblock
 
@@ -439,13 +439,13 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 #+end_slideblock
 
 #+begin_slideblock
-#+CAPTION: Google Maps Satellite Capture showing Tile borders
+#+CAPTION: Google Maps Satellite Capture showing Tile Borders
 [[file:Images/google-maps-satellite.jpg]]
 #+end_slideblock
 
 
 #+begin_slideblock
-#+CAPTION: Georeferenced Historical Map as raster layer (via [[https://www.davidrumsey.com/home][Rumsey Collection]])
+#+CAPTION: Georeferenced Historical Map as Raster Layer (via [[https://www.davidrumsey.com/home][Rumsey Collection]])
 [[file:Images/rumsey-map-overlay.jpg]]
 #+end_slideblock
 
@@ -469,7 +469,7 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 :END:
 
 #+ATTR_REVEAL: :frag (appear) :frag_idx (1 2 3 4 5)
-- first, load Leaflet libraries in ~index.html~
+- first, load Leaflet libraries in ~spatial-history/index.html~
 - then, "instantiate" the Leaflet Map Object (~L~) in maps-setup.js with ~L.map()~
 - then... do a whole lot of work!
 - your assignment: an *essay* linked to a *map* that explores a *spatial history topic*
@@ -498,11 +498,13 @@ Within a GIS, information is generally accessed as a set of *layers*.  Data of s
 <div class="csl-bib-body">
   <div class="csl-entry">Edney, Matthew H. “A Self-Explanatory Map? Come for the Satire, Stay for the Fun.” Mapping as Process, 2018. <a href="https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun">https://www.mappingasprocess.net/blog/2018/2/16/a-self-explanatory-map-come-for-the-satire-stay-for-the-fun</a>.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Adc&amp;rft.type=webpage&amp;rft.title=A%20Self-Explanatory%20Map%3F%20Come%20for%20the%20Satire%2C%20Stay%20for%20the%20Fun&amp;rft.description=Mark%20Twain%E2%80%94known%20for%20his%20writing%E2%80%94also%20made%20this%20absurdist%20map%20of%20Paris%20in%201870.&amp;rft.identifier=https%3A%2F%2Fwww.mappingasprocess.net%2Fblog%2F2018%2F2%2F16%2Fa-self-explanatory-map-come-for-the-satire-stay-for-the-fun&amp;rft.aulast=Edney%2C%20Matthew%20H.&amp;rft.au=Edney%2C%20Matthew%20H.&amp;rft.date=2018&amp;rft.language=en-US"></span>
-  <div class="csl-entry">Krygier, John and Donalrd Wood. “Ce N’est Pas Le Monde.” In <i>Rethinking Maps: New Frontiers in Cartographic Theory</i>, edited by Martin Dodge, Rob Kitchin, and Chris Perkins. London, UNITED KINGDOM: Routledge, 2009. <a href="http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595">http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595</a>.</div>
+  <div class="csl-entry">Krygier, John and Donald Wood. “Ce N’est Pas Le Monde.” In <i>Rethinking Maps: New Frontiers in Cartographic Theory</i>, edited by Martin Dodge, Rob Kitchin, and Chris Perkins. London, UNITED KINGDOM: Routledge, 2009. <a href="http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595">http://ebookcentral.proquest.com/lib/utoronto/detail.action?docID=446595</a>.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-0-203-87684-8&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle=Ce%20N'est%20Pas%20Le%20Monde&amp;rft.place=London%2C%20UNITED%20KINGDOM&amp;rft.publisher=Routledge&amp;rft.aufirst=John&amp;rft.aulast=Krygier&amp;rft.au=Martin%20Dodge&amp;rft.au=Rob%20Kitchin&amp;rft.au=Chris%20Perkins&amp;rft.au=John%20Krygier&amp;rft.au=undefined&amp;rft.date=2009&amp;rft.isbn=978-0-203-87684-8"></span>
   <div class="csl-entry">Monmonier, Mark S. <i>How to Lie with Maps</i>. Third edition. Chicago, IL: The University of Chicago Press, 2018.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-0-226-43592-3&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=How%20to%20lie%20with%20maps&amp;rft.place=Chicago%2C%20IL&amp;rft.publisher=The%20University%20of%20Chicago%20Press&amp;rft.edition=Third%20edition&amp;rft.aufirst=Mark%20S.&amp;rft.aulast=Monmonier&amp;rft.au=Mark%20S.%20Monmonier&amp;rft.date=2018&amp;rft.tpages=231&amp;rft.isbn=978-0-226-43592-3"></span>
-  <div class="csl-entry">Peluso, Nancy Lee. “Whose Woods Are These? Counter-Mapping Forest Territories in Kalimantan, Indonesia.” <i>Antipode</i> 27, no. 4 (1995): 383–406. <a href="https://doi.org/10.1111/j.1467-8330.1995.tb00286.x">https://doi.org/10.1111/j.1467-8330.1995.tb00286.x</a>.</div>
+    <div class="csl-entry">Novick, Peter. <i>That Noble Dream the “Objectivity Question” and the American Historical Profession</i>. Ideas in Context. Cambridge [England: Cambridge University Press, 1988.</div>
+  <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-1-139-88178-4&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=That%20noble%20dream%20the%20%22objectivity%20question%22%20and%20the%20American%20historical%20profession&amp;rft.place=Cambridge%20%5BEngland&amp;rft.publisher=Cambridge%20University%20Press&amp;rft.series=Ideas%20in%20context&amp;rft.aufirst=Peter&amp;rft.aulast=Novick&amp;rft.au=Peter%20Novick&amp;rft.date=1988&amp;rft.tpages=666&amp;rft.isbn=978-1-139-88178-4&amp;rft.language=eng"></span>
+<div class="csl-entry">Peluso, Nancy Lee. “Whose Woods Are These? Counter-Mapping Forest Territories in Kalimantan, Indonesia.” <i>Antipode</i> 27, no. 4 (1995): 383–406. <a href="https://doi.org/10.1111/j.1467-8330.1995.tb00286.x">https://doi.org/10.1111/j.1467-8330.1995.tb00286.x</a>.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=info%3Adoi%2F10.1111%2Fj.1467-8330.1995.tb00286.x&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.genre=article&amp;rft.atitle=Whose%20Woods%20Are%20These%3F%20Counter-Mapping%20Forest%20Territories%20in%20Kalimantan%2C%20Indonesia&amp;rft.jtitle=Antipode&amp;rft.volume=27&amp;rft.issue=4&amp;rft.aufirst=Nancy%20Lee&amp;rft.aulast=Peluso&amp;rft.au=Nancy%20Lee%20Peluso&amp;rft.date=1995&amp;rft.pages=383-406&amp;rft.spage=383&amp;rft.epage=406&amp;rft.issn=1467-8330&amp;rft.language=en"></span>
   <div class="csl-entry">Rueck, Daniel. “‘I Do Not Know the Boundaries&nbsp;of This Land, but I Know the Land Which I&nbsp;Worked’: Historical GIS and Mohawk Land.” In <i>Historical GIS Research in Canada</i>, edited by Marcel Fortin and Jennifer Bonnell. Canadian History and Environment Series 2. Calgary: University of Calgary Press, 2014. <a href="http://dspace.ucalgary.ca/bitstream/1880/49926/1/UofCPress_HistoricalGIS_2014.pdf">http://dspace.ucalgary.ca/bitstream/1880/49926/1/UofCPress_HistoricalGIS_2014.pdf</a>.</div>
   <span class="Z3988" title="url_ver=Z39.88-2004&amp;ctx_ver=Z39.88-2004&amp;rfr_id=info%3Asid%2Fzotero.org%3A2&amp;rft_id=urn%3Aisbn%3A978-1-55238-708-5%20978-1-55238-756-6%20978-1-55238-744-3%20978-1-55238-750-4%20978-1-55238-751-1&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=bookitem&amp;rft.atitle='I%20do%20not%20know%20the%20boundaries%C2%A0of%20this%20land%2C%20but%20I%20know%20the%20land%20which%20I%C2%A0worked'%3A%20Historical%20GIS%20and%20Mohawk%20Land.&amp;rft.place=Calgary&amp;rft.publisher=University%20of%20Calgary%20Press&amp;rft.series=Canadian%20history%20and%20environment%20series&amp;rft.aufirst=Daniel&amp;rft.aulast=Rueck&amp;rft.au=Marcel%20Fortin&amp;rft.au=Jennifer%20Bonnell&amp;rft.au=Daniel%20Rueck&amp;rft.date=2014&amp;rft.isbn=978-1-55238-708-5%20978-1-55238-756-6%20978-1-55238-744-3%20978-1-55238-750-4%20978-1-55238-751-1"></span>
