@@ -8,7 +8,7 @@
 # Set up the title slide.
 # keeping this here for a moment in case I want to use some of the vars
 # #+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p>This could be the file name in the <code>src</code> attribute of an <code>img</code> element for a QR code: %q
-#+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p>License: <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0<img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
 
 #+OPTIONS: reveal_fragmentinurl t
 # bibliography
