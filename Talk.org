@@ -1,5 +1,5 @@
 # Local IspellDict: en
-# SPDX-License-Identifier: GPL-3.0-or-later
+# # SPDX-License-Identifier: GPL-3.0-or-later
 # Copyright (C) 2021 Matt Price 
 #+TITLE: DH: Maps, Truth, and Data
 #+STARTUP: customtime
@@ -8,7 +8,7 @@
 # Set up the title slide.
 # keeping this here for a moment in case I want to use some of the vars
 # #+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p>This could be the file name in the <code>src</code> attribute of an <code>img</code> element for a QR code: %q
-#+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
+#+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a> (source <a href="https://raw.githubusercontent.com/titaniumbones/utsc-talk/main/Talk.org">here</a>)</p><p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
 
 #+OPTIONS: reveal_fragmentinurl t reveal_height 1080 reveal_widt 1920
 # bibliography
