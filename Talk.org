@@ -191,7 +191,7 @@ https://images.squarespace-cdn.com/content/v1/5a317986aeb6255dd87994e4/151882453
 # #+ATTR_REVEAL: :frag (appear)
 #+end_slideblock
 
-** [SKIP] A map that is a metaphor (or at lest metonymy)
+** [SKIP] A map that is a metaphor (or at least metonymy)
 :PROPERTIES:
 :reveal_extra_attr: class="twoc"
 :CUSTOM_ID: humboldt-chimborozo
