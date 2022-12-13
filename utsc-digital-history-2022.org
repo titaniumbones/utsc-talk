@@ -95,7 +95,7 @@ Before the mid-twentieth century, no one asked those kinds of questions.  The wo
 #+ATTR_REVEAL: :frag appear :frag_idx 2
 |  Latitude |  Longitude |  Time |       Date | Sound | Made By    | Direction |
 |-----------+------------+-------+------------+-------+------------+-----------|
-| 10.429911 | -84.007792 | 10:04 | 2023-03-13 | Knock | Woodpecker | 240       |
+| 10.429911 | -84.007792 | 10:04 | 2023-03-13 | Knock | Woodpecker |       240 |
 
 #+begin_notes
 As we embark on today's journey into the world of data, it will be useful to hold three related concepts in our heads. And I'll ask you to think through these concepts with a little parable.  
@@ -107,7 +107,7 @@ Imagine you're standing at the foot of a great tree in a Central American rainfo
   So if we go back to the rainforest, maybe you have a notebook with a set of templates in it.  You discard some of the information -- maybe you leave bhind all the feel of the air, the sight of the trees, the smell of the rotting leaves -- and you turn what's left into a set of columns in a spreadsheet.  Maybe one like this:
 |  Latitude |  Longitude |  Time |       Date | Sound | Made By    | Direction |
 |-----------+------------+-------+------------+-------+------------+-----------|
-| 10.429911 | -84.007792 | 10:04 | 2023-03-13 | Knock | Woodpecker | 240       |
+| 10.429911 | -84.007792 | 10:04 | 2023-03-13 | Knock | Woodpecker |       240 |
     This is *not* the experience of the rainforest! Instead,
 
 - this is *data*, the main subject of our conversation today.  It's not at all the same things as "information".  It's something that information *can become* when it is manipulated, shaped, and chopped into pieces.  "Data" is a *transformation* of information into a structure. We take the formless complexity of sensation -- and give it a form (here, a table).  So, data is something we make.  And, whenever we make data, we make a trade.  We *lose* some of the underlying complexity of what we're representing, and we *gain* the ability to compare things with one another. And what we hope is that we can make ...
@@ -313,7 +313,7 @@ Although we rarely pay attention to it, metadata is at the centre of knowledge i
 :END:
 
 #+begin_slideblock
-- A Project: https://github.co/DigitalHistory/scarborough-history
+- A Project: https://github.com/DigitalHistory/scarborough-history
 - A Language: Markdown
 - A Metadata Format: YAML
 #+end_slideblock
