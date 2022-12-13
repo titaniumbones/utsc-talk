@@ -1,254 +1,625 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- 2022-12-12 Mon 22:21 -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Some fun</title>
-<meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
-  .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
-  .tag    { background-color: #eee; font-family: monospace;
-            padding: 2px; font-size: 80%; font-weight: normal; }
-  .timestamp { color: #bebebe; }
-  .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
-  .underline { text-decoration: underline; }
-  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
-  p.verse { margin-left: 3%; }
-  pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
-    padding: 8pt;
-    font-family: monospace;
-    overflow: auto;
-    margin: 1.2em;
-  }
-  pre.src {
-    position: relative;
-    overflow: auto;
-  }
-  pre.src:before {
-    display: none;
-    position: absolute;
-    top: -8px;
-    right: 12px;
-    padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
-  }
-  pre.src:hover:before { display: inline; margin-top: 14px;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
-  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
-
-  table { border-collapse:collapse; }
-  caption.t-above { caption-side: top; }
-  caption.t-bottom { caption-side: bottom; }
-  td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
-  dt { font-weight: bold; }
-  .footpara { display: inline; }
-  .footdef  { margin-bottom: 1em; }
-  .figure { padding: 1em; }
-  .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
-  .inlinetask {
-    padding: 10px;
-    border: 2px solid gray;
-    margin: 10px;
-    background: #ffffcc;
-  }
-  #org-div-home-and-up
-   { text-align: right; font-size: 70%; white-space: nowrap; }
-  textarea { overflow-x: auto; }
-  .linenr { font-size: smaller }
-  .code-highlighted { background-color: #ffff00; }
-  .org-info-js_info-navigation { border-style: none; }
-  #org-info-js_console-label
-    { font-size: 10px; font-weight: bold; white-space: nowrap; }
-  .org-info-js_search-highlight
-    { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { }
+<meta charset="utf-8"/>
+<title>Data, Metadata, and History</title>
+<meta name="author" content="Matt Price"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
 </style>
+<link rel="stylesheet" href="./reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="./reveal.js/dist/theme/matt.css" id="theme"/>
+
+<link rel="stylesheet" href="https://unpkg.com/tippy.js@6/tippy.js/themes/light.css'"/>
+<link rel="stylesheet" href="./reveal.js/plugin/highlight/zenburn.css"/>
+<link rel="stylesheet" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/>
+<style>
+/* Position computations of klipse get confused by reveal.js's scaling.
+   Hence, scaling should be disabled with this code.  Fix height of code area
+   with scrollbar (use overflow instead of overflow-y to restore CodeMirror
+   setting afterwards): */
+.reveal section pre { max-height: 70vh; height: auto; overflow: auto; }
+/* Reset some reveal.js and oer-reveal settings: */
+.reveal section pre .CodeMirror pre { font-size: 2.0em; box-shadow: none; width: auto; padding: 0.4em; display: block; overflow: visible; }
+/* Enlarge cursor: */
+.CodeMirror-cursor { border-left: 3px solid black; }
+</style>
+<script>
+    window.klipse_settings = {
+        selector: '.language-klipse',
+        selector_eval_html: '.language-klipse-html',
+        selector_eval_js: '.language-klipse-javascript',
+        selector_eval_js: '.language-klipse-js',
+        selector_eval_php: '.language-klipse-php',
+        selector_eval_python_client: '.language-klipse-python',
+        selector_eval_ruby: '.language-klipse-ruby',
+        selector_eval_scheme: '.language-klipse-scheme',
+        selector_sql: '.language-klipse-sql'
+    };
+</script>
 </head>
 <body>
-<article id="content" class="content">
-<header>
-<h1 class="title">Some fun</h1>
-<p class="subtitle" role="doc-subtitle">A teaching talk @UTSC HCS</p>
-</header><div class="slideblock" id="org6db2440">
-<ul class="org-ul">
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide">
+<h1>Data, Metadata, and History</h1>
+<h2>A teaching talk @UTSC HCS</h2>
+<h3> Matt Price</h3>
+<p>View online: <a href="https://utsc-talk.hackinghistory.ca/data-metadata-history.html">https://utsc-talk.hackinghistory.ca/data-metadata-history.html</a>
+  (source <a href="https://github.com/titaniumbones/utsc-talk/blob/main/utsc-digital-history-2022.org">here</a>)
+</p>
+<p></p>
+<hr/>
+<blockquote>
+  <p>
+    Where is the wisdom we have lost in knowledge?
+  </p>
+
+  <p>
+    Where is the knowledge we have lost in information?
+    (<a href="#slide-bibliography">Eliot 2014</a>)
+  </p>
+</blockquote>
+
+<hr/>
+<p><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img src="https://img.shields.io/badge/License-CC BY--NC--SA 4.0-lightgrey.svg"/></a>
+
+
+</section>
+<section>
+<section id="slide-lost">
+<h2 id="lost"></h2>
+<blockquote>
+<p>
+Where is the wisdom we have lost in knowledge?
+</p>
+
+<p>
+Where is the knowledge we have lost in information?
+(<a href="#slide-bibliography">Eliot 2014</a>)
+</p>
+</blockquote>
+
+
+<aside class="notes">
+<p>
+In today's presentation I am going to try as hard as I can not to rush; but we've got quite a lot of ground to cover, so my apologies if I do go a little quickly. There are easter eggs and tangents scattered through my talk; in a real class, I'd explore them, but today I will just leave them for you to pick up or discard.  In a real class all this material would be fleshed out more, and we'd spend quite a bit more time doing practical work, but I very much hope we still have an opportunity to enjoy ourselves a little. 
+</p>
+
+<p>
+Today we will learn about the <b>history</b> of <b>metadata</b>, and also a tiny bit about the <b>metadata</b> of <b>history</b>.  And we'll write some real code that makes a real website.  But we should start at the beginning. 
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-nothing" data-background="black">
+<h2 id="nothing"></h2>
+<aside class="notes">
+<p>
+At first, of course, there was nothing.  No space, no time, no matter, no energy.  Just nothing.
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-big-bang" data-background="./images/bigbang-image.png">
+<h2 id="big-bang"></h2>
+<aside class="notes">
+<p>
+(<a href="#slide-bibliography">“The Big Bang – Planck Satellite” n.d.</a>) 
+and then, suddenly, there was everything.  Space, expanding frantically in all directions.  Time, dividing past from future.  Energy, of course.  Strange matter everywhere, writhing and appearring and disappearing and reappearing.  
+</p>
+
+<p>
+and also&#x2026;  and also, was there perhaps information? εν αρχη ην ο λογος, says the Book of John.  Is information a feature of the universe? or is it a category of human experience?  Do galaxies emit information? Did dinosaur brains process data? Or did we make information when we built systems of knowledge?
+</p>
+
+<p>
+Before the mid-twentieth century, no one asked those kinds of questions.  The word "information" entered the English language in the 14th century, and  for quite a long time usually meant something like "informing". But around 1950, a group of scientists develped a <b>mathematical</b> theory of information, which treated it as a fundamental natural quantity, existing in the world, independently of human beings.  The world we inhabit today, the one mediated by digital devices of all kinds &#x2013; that world would have been literlly unthinkable without the new "information theory". 
+(<a href="#slide-bibliography">“Information, N.” n.d.</a>)  
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-Three%20Concepts%20from%20the%20Rain%20Forest">
+<h2 id="Three%20Concepts%20from%20the%20Rain%20Forest">Three Concepts from the Rain Forest</h2>
+<form><ul>
+<li data-fragment-index="1" class="fragment appear"><b>information:</b> independent of us. property of communicative exchanges. independent of human action</li>
+<li data-fragment-index="3" class="fragment appear"><b>data:</b> something we <b>make</b>. processed information, in a form that can be manipulated algorithmically
+<form><ul class="fragment appear">
+<li><b>metadata:</b> data about information</li>
+
+</ul></form></li>
+<li data-fragment-index="4" class="fragment appear"><b>knowledge:</b> something we <b>have</b>. a property or state of the mind</li>
+<li data-fragment-index="5" class="fragment appear"><b>understanding:</b> something <b>harder to define</b></li>
+
+</ul></form>
+<br>
+<br>
+<hr>
+<table data-fragment-index="2" class="fragment appear">
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Latitude</th>
+<th scope="col" class="org-right">Longitude</th>
+<th scope="col" class="org-right">Time</th>
+<th scope="col" class="org-right">Date</th>
+<th scope="col" class="org-left">Sound</th>
+<th scope="col" class="org-left">Made By</th>
+<th scope="col" class="org-right">Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">10.429911</td>
+<td class="org-right">-84.007792</td>
+<td class="org-right">10:04</td>
+<td class="org-right">2023-03-13</td>
+<td class="org-left">Knock</td>
+<td class="org-left">Woodpecker</td>
+<td class="org-right">240</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes">
+<p>
+As we embark on today's journey into the world of data, it will be useful to hold three related concepts in our heads. And I'll ask you to think through these concepts with a little parable.  
+</p>
+
+<p>
+Imagine you're standing at the foot of a great tree in a Central American rainforest.  A warm, humid wind presses on your skin.  The sounds of insects flying and crawling surrounds you, interspersed with the calls of howler monkeys and parrots. You take in the brown of the soil, the variegated greens of ferns and understory, the complex patterns of lichen on the trunk of a strangler fig. There's a rich, musky smell.  This panoply of sensory input &#x2013; this is <b>information transfer</b>, from the world into your skin, your ears, your eyes, your nose. 
+</p>
+
+<form><ul>
+<li><p>
+<b>information</b>, then, is something that exists out in the world.  It's independent of us, but we have the ability to perceive, measure, and process it.  Now, you may say to yourself, this is not my beautiful concept.  This is not my humanistic ontology. Tht's ok &#x2013; you surely have excellent epistemological reasons for disagreeing, but I'm asking you to suspend them for thirty minutes. 
+</p>
+
+<p>
+So if we go back to the rainforest, maybe you have a notebook with a set of templates in it.  You discard some of the information &#x2013; maybe you leave bhind all the feel of the air, the sight of the trees, the smell of the rotting leaves &#x2013; and you turn what's left into a set of columns in a spreadsheet.  Maybe one like this:
+</p></li>
+
+</ul></form>
+<table>
+
+
+<colgroup>
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-right">
+
+<col  class="org-left">
+
+<col  class="org-left">
+
+<col  class="org-right">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">Latitude</th>
+<th scope="col" class="org-right">Longitude</th>
+<th scope="col" class="org-right">Time</th>
+<th scope="col" class="org-right">Date</th>
+<th scope="col" class="org-left">Sound</th>
+<th scope="col" class="org-left">Made By</th>
+<th scope="col" class="org-right">Direction</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">10.429911</td>
+<td class="org-right">-84.007792</td>
+<td class="org-right">10:04</td>
+<td class="org-right">2023-03-13</td>
+<td class="org-left">Knock</td>
+<td class="org-left">Woodpecker</td>
+<td class="org-right">240</td>
+</tr>
+</tbody>
+</table>
+<p>
+This is <b>not</b> the experience of the rainforest! Instead,
+</p>
+
+<form><ul>
+<li>this is <b>data</b>, the main subject of our conversation today.  It's not at all the same things as "information".  It's something that information <b>can become</b> when it is manipulated, shaped, and chopped into pieces.  "Data" is a <b>transformation</b> of information into a structure. We take the formless complexity of sensation &#x2013; and give it a form (here, a table).  So, data is something we make.  And, whenever we make data, we make a trade.  We <b>lose</b> some of the underlying complexity of what we're representing, and we <b>gain</b> the ability to compare things with one another. And what we hope is that we can make &#x2026;</li>
+
+</ul></form>
+
+
+<form><ul>
+<li><b>knowledge</b>.  Knowledge is something <b>we have</b>.  It's not information, and it's not data.  We acquire knowledge through a variety of different means, and there are many kinds of knowledge.  In this case, we can take our observations of forest sounds, maybe combine them with observations made by other people, and perhaps turn them into a census of animals in the forest.</li>
+<li>Oh shoot ,did I say three things? actually, hold on, there's a fourth: <b>understanding</b>.  Hold this one in the back of your minds for a bit, because, while it's very difficult to define, <b>understanding</b> is what we usually strive for when we learn about history. And what is required, actually, to "understand" the rain forest?  (jot down you answer!)</li>
+
+</ul></form>
+
+<p>
+In the meantime, let'sgo back to exploring data.  In particular, we will be talking about something called [hit next] <b>metadata</b>: special pieces of data that we attach to other pieces of information.  And to think about it, let's hop back in time again &#x2013; maybe not 14 billion years ago, but perhaps a couple of thousand years&#x2026;
+</p>
+
+</aside>
+
+</section>
+</section>
+<section>
+<section id="slide-Alexandria" data-background="https://upload.wikimedia.org/wikipedia/commons/6/67/Incendie_Alexandrie_by_Hermann_Goll_1876.jpg" class=head-highlight>
+<h2 id="Alexandria">Alexandria</h2>
+<aside class="notes">
+<p>
+Let us consider the Library of Alexandria, represented here in in a woodcut from 1876. The most famous site of learning in the Ancient Mediterranean; fabled storehouse of tens, perhaps hundreds of thousands of scrolls. Burned, we all, by barbaric soldiers willing to sacrifice knowledge to the god of war. Julius Caesar pursuing his enemies with fire.
+</p>
+
+<p>
+Have you ever read a scroll? 
+</p>
+
+<p>
+Let's just say you have. 
+</p>
+
+<p>
+Now, having perhaps held that one scroll in your hand; have you ever browsed a library of tens of thousands of scrolls? Casually walked through the stacks and flipped through the texts of Euclid, Plato, Aristotle, Ptolemy? Of course you haven't! Of course you couldn't have, not just because such places no longer exist, but because it's not possible to casually browse a library of scrolls.  You can't just open them at random to see what they contain. 
+</p>
+
+<p>
+Let us stop for a moment and consider what it means for a scroll even to exist.  Socrates was not a writer; though we feel pretty confident he existed, he never left us a trace of his thought in written form. Nor was Aristotle, in all likelihood. The books we call "Aristotelian" were lecture notes copied down by an eager student and left behind in a cool, dark cave on the Greek peninsula when Alexander's empire collapsed.  Later scholars had to reach a collective decision: these pieces of parchment are Aristotle's <i>Poetics</i>; this is his <i>Politics</i>; this his <i>Physics</i>; oh, and we found this one on top of the <i>Physics</i> &#x2013; we should call it <i>Metaphysics</i>.  
+</p>
+
+<p>
+And then, decade after decade, these same scholars took on apprentices, and enslaved scribes and it was those poor sods who copied the texts out, over and over again, so that the very same words could be found in the library of the Roman Emperor, or of the great philosophers of the day, or of the lofty librarians of Alexandria itself.  For the book to even exist, it needed a <b>name</b>, and it needed an <b>author</b>.  In this sense, metadata is as old as writing itself.  
+</p>
+
+<p>
+In a massive library like Alexandria's, though, new problems of "meta" information arose.  A diligent, long-lived scholar dedicated to the practice of reading and gifted with unfailing vision might read perhaps 5000 books in a lifetime; but the Library of Alexandria held 10 or even 80 times so many volumes.  And even the most accomplished scholar could hardly remember the precise placement of tens of thousands of books.
+</p>
+
+<p>
+It was in this context that the Hellenistic poet Καλλίμαχος (210-40 BCE ish) composed the <i>Pinakes</i> &#x2013; often called the first sytematic library catalogue. It divided the collection into six subjects, and listed the locations of each scroll, along with the scroll's title, author, and sundry other information. In a libeary so vast, a system of metadata was required, to segment and control the sea of information
+</p>
+
+<p>
+At least we're told he did.  But we're told many things. We're told, for instance, that the Library died violently, in a blaze  that raged through the city 300 years after Callimachus' death.  His ghost, no doubt, would have stood atop the highest tower and rolled in agony as the flames licked at the pages of his index and collection itself was consumed the primal element of fire. 
+</p>
+
+<p>
+We're told this.  I <b>just told you this</b>.  
+</p>
+
+<p>
+And yet, that fire almost certainly did not happen.  This story: of the library; of the catalog; of their destruction in war &#x2013; this is another kind of "meta"data &#x2013; a myth we tell ourselves about the nature of knowledge itself. Its truth is not empirical, but lies instead beyond the particularities of individual events in history.  The story of Alexandria teaches us what our minds desperately beg us to forget:  that all that is made shall perish; all that is known must some day vanish; humanity itself will, in time, sink beneath the tides, and one day this fragile blue marble will freeze in the depths of space with no living thing upon it to tell the story of its destruction.
+</p>
+
+<p>
+And yet.  Life swims against the current of entropy. We leave scratchmarks on pieces of paper, islands of order in a sea of chaos. And though they are all destined for destruction, nonetheless for their brief decades or centuries or millenia, the institutions of learning build structures of knowledge that can endure precisely because they are <b>organized</b> &#x2013; bound into systems through the dull tasks of cataloguing and classifying. Metadata is culture itself.  
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-Commonplacing" class="twoc">
+<h2 id="Commonplacing">Commonplacing</h2>
+<div class="slideblock" id="org6da559d">
+
+<figure id="orgf08c812">
+<img src="./images/lock-commonplace-entry.png" alt="lock-commonplace-entry.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Entries in John Locke's Commonplace Book, ca. 1660 (via <a href="#slide-bibliography">Stolberg 2014</a>)</figcaption>
+</figure>
+
+</div>
+
+<div class="slideblock" id="orgc193a25">
+
+<figure id="org2a00371">
+<img src="./images/locke-commonplace-index.png" alt="locke-commonplace-index.png">
+
+<figcaption><span class="figure-number">Figure 2: </span>Index of John Locke's Commonplace Book, ca. 1660  (via <a href="#slide-bibliography">Stolberg 2014</a>)</figcaption>
+</figure>
+
+</div>
+
+<aside class="notes">
+<p>
+More than a millenium and half after Kallimachus, the scholars of the renaissance and the early modern period faced the same problem &#x2013; the problem of organizing knowlege &#x2013; in a different form. Libraries are sites of collective action; they bring scholars together in great groups to craft a cathedral of knowledge, which they then preserve through the centuries. 
+</p>
+
+<p>
+But they are built around books; aroud writing; and writing has exercised its own profound influence on the philosophical imagination.  
+</p>
+
+<p>
+So, for instance, the philosopher John Locke taught in the 17th century that the mind itself is a book, a blank slate, upon which the world writes itself.  The world writes in no particular order; it gives us milk and nursery rhymes and colors and sounds, and it is left to us to organize them, to bring the sights and sounds and sensations of touch into <b>correspondence</b> with each other, so that we can form ideas: ideas of objects in the world, and perhaps from there also more abstract ideas &#x2013; categories of objects, and more complex thoughts of causality, law, and ultimately the Nature of God and the Universe.  
+</p>
+
+<p>
+<del>Every man and even, Locke reluctantly admitted, every woman,</del> Anyone could piece together simple ideas; but only a disciplined and organized mind could assemble complex, abstract thoughts in the manner that philosophy required. And so Locke, like the Renaissance scholars by whom he was so deeply influenced, described a system by which the mind itself could be set in order.  
+</p>
+
+<p>
+A "commonplace book" was a kind of catalogue of experience, but, especially, a catalogue of the thoughts that arose when <b>reading</b>. The truth is eternal; but thought  is fleeting, arriving and disappearing faster than the winged feet of Mercury. A commonplace book set those thoughts down in ink, and placed them in a grid of concepts, so that they could e recalled and put to use in the formation of more complex thoughts: in forming a conception of the mind itself, for instance; or of the foundation of politics; 
+</p>
+
+<p>
+The mose important feature for us to focus on right now that Locke's note-taking was a <b>system</b>:  each individual note was a single observation or insight developed while reading.  It was identified by a single metadata dimension: the name of the note. Locke then set down the page number of the entry in the index row that represented the firt two letters of the first word in the note's title. IIndividual bits of information could be organized into an ordered knowledge of the world through the use of the index.  
+</p>
+
+<p>
+To form ideas of philosophical rigour, thought had to be captured by the system; categorized; assigned a label. That is, thought needed <b>metadata</b> before it could become knowledge.  
+</p>
+
+<p>
+And from this imperative grew all manner of systems for <b>indexing</b> knowwledge &#x2013; of which Locke's "Commonplace Book" was only one example. 
+</p>
+
+<p>
+Let us now take this history, the history of indexing, in two directions: the cultivation of individual and collective knowledge. 
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-On%20Notes">
+<h2 id="On%20Notes">On Notes</h2>
+
+<figure id="org9946268">
+<img src="./images/NoteCard-samplecard.png" alt="NoteCard-samplecard.png"> 
+
+<figcaption><span class="figure-number">Figure 1: </span>(via <a href="#slide-bibliography">“The Note Card System” n.d.</a>)</figcaption>
+</figure>
+<aside class="notes">
+<p>
+First, consider the practice of note-taking.  Your teachers in high school perhaps taught you to take notes on cards like these.  Certainly mine did. In Grade 10 Honors English I woke up every Wednesday morning at 5:00AM in terror, knowing that Mr. Maloney would require each of us to display the stack of card swe had assembled for the year's Research Paper.  To my left, Andy Fleischman had a stack 4 inches high.  To my right, things were even worse &#x2013; there was Stephanie Stone, whose notes were so thick they couldn't be contained to a single pile but had to be stacked in a grid pattern.  My measly centimeter and halff somehow never seemed to grow any taller, though every week I would resolve with bitter determination to do better next time.  
+</p>
+
+<p>
+I did not know at the time that my failure &#x2013; eventually resulting in a deeply humiliating grade from which I never really recovered &#x2013; went beyond one English course. It was a failure to carry on a tradition  of assimilating the wisdom of the past and synthesizing it into brand new knowledge.  Without a system of notes, my mind scattered. Myootnotes were a joke. I had no one to argue against, because all my sources were a jumble, a remembered phrase here and there for which I would search desperately, wasting hour after precious hour. 
+</p>
+
+<p>
+It was this failure more than anything that taught me the importance of notes. 
+</p>
+
+<p>
+Notes exist for the same reason that Locke's commonplace book did &#x2013; to give shape to thought, to provide the impoverished substrate on which the miserable shoots of knowledge and argument might, with luck, take root. 
+</p>
+
+<p>
+When we read, we process the thoughts of others; we synthesize, we summarize, we categorize.  Our notes are <i>metadata</i> &#x2013; they tell us how we might string together bits of thought and text from our sources and use them to create something new.  
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-Cards%20for%20Libraries">
+<h2 id="Cards%20for%20Libraries">Cards for Libraries</h2>
+
+<figure id="orge089724">
+<img src="./images/callnums.png" alt="callnums.png">
+
+<figcaption><span class="figure-number">Figure 1: </span>Library Card Catalog Entry (<a href="#slide-bibliography">Pomerantz 2015</a>)</figcaption>
+</figure>
+<aside class="notes">
+<p>
+But we have another direction to trace:  the emergence of metadata in systems for collective action.  For well over a century, the library card catalogue was the dominant framework for managing <b>collective</b> information system. Developed in the 19th century, card catalogs contained multiple entries for each item in a library collection, usually organized by Author, Title, and subject heading. Each time you executed a search, you would do so using that metadata dimension.
+</p>
+
+<p>
+But library systems operated under different constraints from those that shaped the commonplace book or the personal note-taking system. Any visitor to a library had to be able to use them &#x2013; so, to start with, they required uniform spelling.  That is, the catalog was part of a broad effort to standardize orthographic practice across sometimes vast geographical areas &#x2013; consider, for instance, the global extnet of the French and British empires in the ninteenth centuries. Subject headings themselves were standardized across library systems &#x2013; metadata had its own system of metadata.  Meta-metadata, and meta-meta-metadata.  
+</p>
+
+<p>
+[SKIP!] In the Americas, two great systems of classification emerged. Here we see the first of these &#x2013; the Dewey Decimal. Those of you who grew up using the Toronto Public Library will recognize the Dewey call numbers.  But if you've been using your University library (and I hope you have!), you know that's not the system we use. Instead, we use the American Library of Congress classification. 
+</p>
+
+<p>
+[SKIP!]Each of these seeks to be a universal classification of all possible areas of knowledge. Every book that is published in the United States is given a unique LC number &#x2013; that is, it is assigned a place in the galaxy of knowledge, form which it may never stray.  So the humble card catalog evnetually becomes something bigger &#x2013; a interlocking set of categories, clamping down every thought and argument in a grid of possible knowledges.   
+</p>
+
+<p>
+Like every structure &#x2013; every description! &#x2013;  cataloguing systems both <b>empower</b> and <b>constrain</b> their users.  You can to Robarts library and, even though there are millions of oboksthere, you can (1) find the book you want, and (2) with luck, also locate other sources you hadn't even heard of. 
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-digital-data" class="twobytwo">
+<h2 id="digital-data">Digital Metadata</h2>
+<div class="slideblock" id="org06b30a6">
+
+<figure id="orge65095a">
+<img src="./images/callnums.png" alt="callnums.png">
+
+</figure>
+
+</div>
+
+<div class="slideblock" id="orgc2a68ad">
+<div class="org-src-container">
+
+<pre><code class="SQL" >SELECT * FROM Books, Surname, First name FROM Authors \
+WHERE Books.Title IS "All About Lovebirds"
+</code></pre>
+</div>
+
+</div>
+
+
+<div class="slideblock" id="org0a30c69">
+
+<figure id="org8122732">
+<img src="./images/author-table.png" alt="author-table.png">
+
+</figure>
+
+</div>
+
+<div class="slideblock" id="orgd2f7e39">
+
+<figure id="orgd9634cd">
+<img src="./images/book-table.png" alt="book-table.png">
+
+</figure>
+
+</div>
+
+
+<aside class="notes">
+<p>
+Of course, we no longer use card catalogs in this form.  Instead, all of our research is mediated by digital infrastructure.  Starting about 40 years ago, librarians began transferring metadata from individual paper cards to large institutional databases.  Eventually these moved online, and now you access the library catalog from a browser.  
+</p>
+
+<p>
+Internally, each item in the collection is represented as a <b>metadata collection</b>, sometimes in multiple records linked together.  here's one way you might construct a database.
+</p>
+
+<p>
+[compare]
+</p>
+
+<p>
+One incredible idfference betwen a card catalog and a digital query is the ability to search multiple axes of metadata at once: title, author, subject, publication year, etc.  
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-Metadata%20in%20The%20Wild">
+<h2 id="Metadata%20in%20The%20Wild">Metadata in The Wild</h2>
+<pre><code class="language-klipse-html" >
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta name="citation_pii" content="S1574071406020185" /&gt;
+&lt;meta name="citation_issn" content="1574-0714" /&gt;
+&lt;meta name="citation_volume" content="2" /&gt;
+&lt;meta name="citation_lastpage" content="1269" /&gt;
+&lt;meta name="citation_publisher" content="Elsevier" /&gt;
+&lt;meta name="citation_firstpage" content="1201" /&gt;
+&lt;meta name="citation_inbook_title" content="Handbook of the Economics of Giving, Altruism and Reciprocity" /&gt;
+&lt;meta name="citation_type" content="CHP" /&gt;
+&lt;meta name="citation_chapter_type" content="edited-volume" /&gt;
+&lt;meta name="citation_doi" content="10.1016/S1574-0714(06)02018-5" /&gt;
+&lt;meta name="dc.identifier" content="10.1016/S1574-0714(06)02018-5" /&gt;
+&lt;meta name="citation_article_type" content="Review article" /&gt;
+&lt;meta property=og:description content="Philanthropy is one of the enduring areas of economic research. Why would people work hard only to give their earnings away? The paper explores the th…" /&gt;
+&lt;meta property=og:image content="https://ars-els-cdn-com.myaccess.library.utoronto.ca/content/image/1-s2.0-S1574071406X02002-cov150h.gif" /&gt;
+&lt;meta name="citation_title" content="Chapter 18 Philanthropy" /&gt;
+&lt;meta property=og:title content="Chapter 18 Philanthropy" /&gt;
+&lt;meta name="citation_publication_date" content="2006/01/01" /&gt;
+&lt;meta name="citation_online_date" content="2006/10/17" /&gt;
+&lt;meta name="robots" content="INDEX,FOLLOW,NOARCHIVE,NOODP,NOYDIR" /&gt;
+&lt;title&gt;Chapter 18 Philanthropy - ScienceDirect&lt;/title&gt;
+&lt;link rel="canonical" href="https://www-sciencedirect-com.myaccess.library.utoronto.ca/science/article/abs/pii/S1574071406020185" /&gt;
+&lt;meta property="og:type" content="article" /&gt;
+&lt;meta name="viewport" content="initial-scale=1" /&gt;
+&lt;meta name="SDTech" content="Proudly brought to you by the SD Technology team in London, Dayton, and Amsterdam" /&gt;
+</code></pre>
+<aside class="notes">
+<p>
+When card catalogs were first invented, scholarly writing was primarily found in libraries. Now, we live in a much more complex publishing landscape, in which vast archives of information float through the ether.  We access this information through our browser's search bar &#x2013; which means, almost always, through a search engine.  And the search engine finds us stuff &#x2013; how? By using metadata, like what we see here.  
+</p>
+
+<p>
+Although we rarely pay attention to it, metadata is at the centre of knowledge in the contemporary world. Metadata is the system of knowledge production, often invisible to us, but which guides our thoughts and gives shape to the research process and also even to the kindso f thinking we can do.  systems of classification and abstraction <b>make the world around us</b>, in our individual minds but also in our collective practice.  This was true before the digital age; but it has become even more true as our reliance on computation requires us to formalize our systems and submit them to symbolic (that is, mathematical) manipulation. 
+</p>
+
+</aside>
+</section>
+</section>
+<section>
+<section id="slide-Some%20fun" class="twobytwo">
+<h2 id="Some%20fun">Some fun</h2>
+<div class="slideblock" id="org4af02a6">
+<form><ul>
 <li>A Project: <a href="https://github.co/DigitalHistory/scarborough-history">https://github.co/DigitalHistory/scarborough-history</a></li>
 <li>A Language: Markdown</li>
 <li>A Metadata Format: YAML</li>
-</ul>
+
+</ul></form>
 
 </div>
 
-<div class="slideblock" id="org4b07ccb">
+<div class="slideblock" id="orgd8ef363">
 <p>
 <b>Github</b>
 </p>
-<ul class="org-ul">
+<form><ul>
 <li>Code-sharing website w/ built-in editor</li>
 <li><b>SHARED ID</b>: <code>dhutsc</code></li>
 <li><b>TEMP PASSWORD</b>: <code>DigitalHistory2022</code></li>
-</ul>
+<li>Follow that link!</li>
+
+</ul></form>
 
 </div>
 
-<div class="slideblock" id="orga27dfcf">
+<div class="slideblock" id="org47bcc33">
 <p>
 <b>Markdown</b>
 </p>
-<ul class="org-ul">
+<form><ul>
 <li>lightweight "markup language"</li>
 <li><a href="https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax">Cheatsheet/Syntax Guide</a></li>
-<li><b>Links</b>: <code>[visible text](https://hiddenaddres)</code></li>
-</ul>
+<li><b>Links</b>: <code>[visible text](https://hiddenaddress)</code></li>
+
+</ul></form>
 
 </div>
 
-<div class="slideblock" id="orgf1c9265">
+<div class="slideblock" id="orgce09c6a">
 <p>
 <b>YAML</b>
 </p>
-<ul class="org-ul">
+<form><ul>
 <li>metadata format</li>
-</ul>
+
+</ul></form>
 <div class="org-src-container">
-<pre class="src src-yaml"><span style="color: #a0522d;">property</span>: value
-<span style="color: #a0522d;">complexproperty</span>:
+
+<pre><code class="yaml" >property: value
+complexproperty:
 - listitem1
 - listitem2
-</pre>
+</code></pre>
 </div>
 
 </div>
 
 
 
-<div class="notes" id="org3fd83de">
+<aside class="notes">
 <p>
 This means that, in any digital history project, metadata has to be one of the key elements that we attend to. It organizes what people see; it organizes how they come to see it; it forms the backbone of the reader's experience.
 </p>
@@ -257,16 +628,118 @@ This means that, in any digital history project, metadata has to be one of the k
 For the rest of our time together, I'm going to drop you in the middle of an imaginary research project and ask you to contribute as best you can.  At the end, I'll show you a little bit of what you've been working on.
 </p>
 
-</div>
-</article>
-<section id="postamble" class="status">
-<p class="date">Created: 2022-12-12 Mon 22:21</p>
-<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</aside>
 </section>
-<script>window.klipse_settings = {selector_eval_html: '.src-html',
-                             selector_eval_js: '.src-js',
-                             selector_eval_python_client: '.src-python',
-                             selector_eval_scheme: '.src-scheme',
-                             selector: '.src-clojure',
-                             selector_eval_ruby: '.src-ruby'};</script><script src="https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script><link rel="stylesheet" type="text/css" href="https://storage.googleapis.com/app.klipse.tech/css/codemirror.css"/></body>
+</section>
+<section>
+<section id="slide-bibliography">
+<h2 id="bibliography">Bibliography</h2>
+<style>.csl-entry{text-indent: -1.5em; margin-left: 1.5em;}</style><div class="csl-bib-body">
+  <div class="csl-entry"><a id="citeproc_bib_item_1"></a>Eliot, T. S. 2014. <i>The Rock</i>. Houghton Mifflin Harcourt.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_2"></a>“Information, N.” n.d. <i>Oed Online</i>. Oxford University Press. Accessed December 12, 2022. <a href="http://www.oed.com/view/Entry/95568">http://www.oed.com/view/Entry/95568</a>.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_3"></a>Pomerantz, Jeffrey. 2015. <i>Metadata</i>. The Mit Press Essential Knowledge Series. Cambridge, MA ; The MIT Press.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_4"></a>Stolberg, Michael. 2014. “John Locke’s ‘New Method of Making Common-Place-Books’: Tradition, Innovation and Epistemic Effects.” <i>Early Science and Medicine</i> 19 (5): 448–70. <a href="http://www.jstor.org/stable/24269399">http://www.jstor.org/stable/24269399</a>.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_5"></a>“The Big Bang – Planck Satellite.” n.d. Accessed December 12, 2022. <a href="https://plancksatellite.org.uk/science/timeline/bigbang/">https://plancksatellite.org.uk/science/timeline/bigbang/</a>.</div>
+  <div class="csl-entry"><a id="citeproc_bib_item_6"></a>“The Note Card System.” n.d. <i>Gallaudet University</i>. Accessed March 2, 2022. <a href="https://www.gallaudet.edu/tutorial-and-instructional-programs/english-center/the-process-and-type-of-writing/pre-writing-writing-and-revising/the-note-card-system/">https://www.gallaudet.edu/tutorial-and-instructional-programs/english-center/the-process-and-type-of-writing/pre-writing-writing-and-revising/the-note-card-system/</a>.</div>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/dist/reveal.js"></script>
+<script src="./reveal.js/plugin/markdown/markdown.js"></script>
+<script src="./reveal.js/plugin/highlight/highlight.js"></script>
+<script src="./reveal.js/plugin/zoom/zoom.js"></script>
+<script src="./reveal.js/plugin/notes/notes.js"></script>
+<script src="https://s.electerious.com/basicLightbox/dist/basicLightbox.min.js"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+async function revealLightbox ()  {
+while(!window.hasOwnProperty('Reveal') || !window.Reveal.hasOwnProperty('addKeyBinding'))
+  await new Promise(resolve => setTimeout(resolve, 100));
+Reveal.addKeyBinding({keyCode: 27,
+                      key: 'ESC',
+                      description: 'Close lightbox or toggle overlay'},
+                     ()=> {
+                       if (this.Reveal.isLightboxed) {
+                         Reveal.currentLightbox.close()
+                       } else if( this.Reveal.closeOverlay() === false ) {
+                         this.Reveal.overview.toggle();
+                       }
+                       event.preventDefault && event.preventDefault();
+                     })
+
+
+document.querySelectorAll('figure>img').forEach(
+  (fig)=> {
+    fig.onclick=() => {
+      Reveal.isLightboxed = true
+      Reveal.currentLightbox = basicLightbox
+        .create(fig.parentElement.outerHTML,
+                {onClose: (instance) => Reveal.isLightboxed = null});
+      Reveal.currentLightbox.show()
+      }
+   })
+}
+revealLightbox()
+
+tippy('[data-template]', {
+  content(reference) {
+    const id = reference.getAttribute('data-template');
+    console.log(id)
+    const template = document.getElementById(id).parentElement;
+    console.log(template);
+    return template.innerHTML;
+  },
+  allowHTML: true,
+  interactive: true,
+  theme: 'light'
+})
+  </script>
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: true,
+center: false,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+mouseWheel: false,
+fragmentInURL: true,
+hashOneBasedIndex: false,
+pdfSeparateFragments: true,
+overview: true,
+width: "100%",
+height: "100%",
+margin: 0.10,
+minScale: 1.00,
+maxScale: 1.00,
+
+transition: 'convex',
+transitionSpeed: 'default',
+
+// Plugins with reveal.js 4.x
+plugins: [ RevealMarkdown, RevealHighlight, RevealZoom, RevealNotes ],
+
+// Optional libraries used to extend reveal.js
+dependencies: [
+{src: './reveal.js/plugin/klipse_reveal.js'}]
+
+});
+</script>
+<script src="https://storage.googleapis.com/app.klipse.tech/plugin_prod/js/klipse_plugin.min.js"></script>
+<script>
+/* Recompute layout upon changes by klipse.  Code fragment from
+   asciidoctor-revealjs-klipse by Timothy Pratley under GPLv3:
+   https://github.com/timothypratley/asciidoctor-revealjs-klipse/blob/master/docs/docinfo-footer.html */
+Reveal.addEventListener( 'slidechanged', function( event ) {
+    window.dispatchEvent( new Event('resize') );
+} );
+</script>
+</body>
 </html>

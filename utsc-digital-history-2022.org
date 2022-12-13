@@ -328,7 +328,7 @@ Although we rarely pay attention to it, metadata is at the centre of knowledge i
 *Markdown*
 - lightweight "markup language"
 - [[https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax][Cheatsheet/Syntax Guide]]
-- *Links*: ~[visible text](https://hiddenaddres)~
+- *Links*: ~[visible text](https://hiddenaddress)~
 #+end_slideblock
 
 #+begin_slideblock
