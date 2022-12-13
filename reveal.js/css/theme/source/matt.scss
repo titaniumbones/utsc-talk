@@ -1,0 +1,516 @@
+// -*- scss-compile-at-save: t; scss-output-directory: "../../../dist/theme/" -*-*
+/*
+* Solarized Light theme for reveal.js.
+ * Author: Achim Staebler
+ */
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+@import url(./fonts/league-gothic/league-gothic.css);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+
+
+/**
+ * Solarized colors by Ethan Schoonover
+ */
+html * {
+	color-profile: sRGB;
+	rendering-intent: auto;
+}
+
+// Solarized colors
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+
+// Override theme settings (see ../template/settings.scss)
+$headingLineHeight: 1.1;
+$headingLetterSpacing: normal;
+$headingTextTransform: none;
+// $headingTextShadow: none;
+// $headingFontWeight: normal;
+// $heading1TextShadow: $headingTextShadow;
+
+// $heading1Size: 3.22em;
+// $heading2Size: 2.00em;
+// $heading3Size: 1.55em;
+// $heading4Size: 1.00em;
+
+$mainColor: $base00;
+$headingColor: $base01;
+$headingTextShadow: none;
+$backgroundColor: $base3;
+$reverseTextColor: $backgroundColor;
+$linkColor: $blue;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: $magenta;
+$urgentColor: $red;
+// Background generator
+// @mixin bodyBackground() {
+// 	@include radial-gradient( rgba($base3,1), rgba(lighten($base3, 20%),1) );
+// }
+
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+
+// fix hideous bullets
+.reveal ul ul {
+    list-style-type: circle;
+}
+
+
+
+// add styling for todo's
+.todo.ACTION {
+    color: #a11a1a;
+}
+
+// deal with some klipse stuff
+pre.klipse {
+    display: grid;
+    grid-template-areas: "code result";
+
+    div.klipse-snippet {
+        grid-template-area: "code";
+    }
+    div.klipse-result {
+        grid-template-area: "result"
+    }
+    div.klipse-separator, div.klipse-container {
+        line-height: 0px;
+        display: none;
+    }
+    
+}
+@media (max-width: 800px) {
+    pre.klipse {
+        grid-template-areas: "code" "result";
+    }
+}
+
+.reveal code {
+    // background-color: white;
+    padding: 6px;
+    //border: solid red 1px;
+    border-radius: 3px;
+}
+
+.reveal li>code {
+    background-color: white;
+    border-radius: 3px;
+    border: 1px black solid;
+    padding: 1px;
+}
+
+// klipse quick fix, maybe change later
+
+.reveal pre .CodeMirror {
+    font-size: 0.55rem;
+}
+
+/*********************************************
+ * SLIDE NUMBER
+ *********************************************/
+.reveal .slide-number {
+    /* color: #268bd2; */
+}
+
+/* incorporate local.css from org-reveal */
+.reveal p {
+    text-align: left;
+}
+.speaker-controls-notes .value {line-height:1.0;font-size:1.0em !important;}
+
+.paired {
+    float:left !important;
+    width:50% !important;
+    box-sizing: border-box;
+    
+}
+
+blockquote.paired {
+    float:left;
+    max-width:47%;
+}
+ul.paired {
+    float:left !important ;
+    max-width:47% !important;
+}
+
+span.figure-number {
+    display:none;
+}
+
+.reveal p {
+    text-align: left;
+}
+.speaker-controls-notes .value {line-height:1.0;font-size:1.0em !important;}
+
+
+/* added from loca.css */
+.reveal p {
+    text-align: left;
+}
+.speaker-controls-notes .value {line-height:1.0;font-size:1.0em !important;}
+
+.paired {
+    float:left !important;
+    max-width:50% !important;
+    box-sizing: border-box;
+    
+}
+
+span.figure-number {
+    display:none;
+}
+
+.half {
+    height: 50vh;
+    display: block;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+p.date {
+    display:none;
+}
+
+
+// box-sizing
+* {
+    box-sizing: border-box;
+}
+
+// LAYOUTS!!! this is the important thing I want to add
+
+@function block-back ($color, $n) {
+    $output: adjust-hue($color, $n*2);
+    $output: darken($output, $n*2);
+    @return $output ;
+}
+
+
+// SASS list to hold grid areas
+$content-areas: (a, b, c, d);
+
+// common attributes for all of these layouts
+section.twoc, section.splitc, section.threec, section.twobytwo {
+    display: grid !important;
+    grid-gap: 2px;
+    grid-template-columns: 50% 50%; 
+    grid-template-rows: 10vh 85vh;
+    box-sizing: border-box;
+    min-height: 80vh;
+    max-height: 100vh;
+
+    
+    // overflow: scroll;
+    padding: 10px;
+    h1, h2, h3, h4, h5 {
+        grid-area: head;
+    }
+
+    
+
+    .slideblock, .slideblock_stack {
+        border: 2px solid $base03;
+        padding:10px;
+        overflow: auto;
+        min-height: 0;
+        /* fix some issues inherited from upstream */
+        ol, dl, ul {
+            display: block;
+            line-height:1.2;
+            font-size: 0.9em;
+        }
+        p {
+            max-height: 100%;
+        }
+        
+        /* figure { */
+        /*     min-height: 0px; */
+        /*     max-width: 100%; */
+        /*     max-height: 100%; */
+        /*     img { */
+        /*         object-fit: cover; */
+        /*         object-position: 50% 50%; */
+        /*     } */
+        /* } */
+        figure {
+            display: flex;
+            flex-direction: column;
+            width:100%;
+            height: 95%;
+            margin:auto;
+            font-size: 0.7em;
+            /* line-height: 0.5; */
+            font-style: italic;
+            figcaption {
+                /* display: table-caption; */
+                /* caption-side: bottom; */
+            }
+            img {
+                max-height: 80%;
+                object-fit: contain;
+                margin: 0px;
+            }
+        }
+
+        blockquote {
+            font-size: 0.9em;
+            width: 95%;
+        }
+    }
+
+    .slideblock_stack {
+      display: grid;
+      
+    
+}
+    .slideblock_stack > * {
+      grid-area: 1/1;
+      margin: auto;
+    }
+
+    @for $i from 1 through 4 {
+        .slideblock:nth-of-type(#{$i}), .paired:nth-of-type(#{$i}) {
+            background-color: block-back($backgroundColor, $i);
+            grid-area: nth($content-areas, $i);
+        }   
+    }
+
+}
+//  Simple Two Column Layout
+section.twoc {
+    grid-template-areas: "head head" "a b";
+    grid-template-rows: 10vh 1fr;
+}
+
+
+// Split Second Column Layout
+section.splitc {
+    grid-template-areas: "head head" "a b" "a c";
+    grid-template-rows: 10vh 40vh 40vh;
+    grid-template-columns: 50% 50%;
+    align-items: stretch;
+}
+
+// Simple 3 column layout
+section.threec {
+    grid-template-areas: "head head head" "a b c";
+    grid-template-rows: 10vh 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+// 2x2 grid
+section.twobytwo {
+    grid-template-areas: "head head" "a b" "c d";
+    grid-template-rows: 10vh 40vh 40vh; 
+    align-items: stretch;
+}
+
+
+span.urgent {
+    color: $urgentColor;
+    
+}
+
+figure {
+    display: table;
+    margin:auto;
+    font-size: 0.8em;
+    font-style: italic;
+    figcaption {
+        display: table-caption;
+        caption-side: bottom;
+    }
+}
+
+
+// figure {
+//     display: flex;
+//     max-height: 80%
+//     flex-direction: column;
+//     margin: 0;
+//     img {
+//         max-width: 100%;
+//     }
+
+//     figcaption {
+//         align-self: flex-start;
+//         text-align: center;
+//         font-size: 22px;
+//         font-style: italic;
+//         line-height: 1.5;
+//         color: #777;
+//         // padding-right: 35px;
+//         /*adjust this to control how far it should be from egde*/
+//     }
+// }
+
+// csl bibliography hacks
+
+.csl-bib-body {
+
+    overflow-y: auto;
+    max-height: 80vh;
+    .csl-entry {
+        text-align: left;
+        font-size: 0.8em;
+        
+    }
+}
+
+// bibliography hack
+#slide-bibliography {
+    overflow-y: auto;
+    max-height: 90vh;
+
+    .csl-bib-body {
+        margin-left: 1em;
+        text-indent: -1em;
+        text-align: left;
+        font-size: 0.8em;
+    }
+}
+
+
+// allow for dark slides
+.section .reverse-color {
+    // background-color: $base03;
+    color: $reverseTextColor;
+}
+
+
+// basiclightbox
+// Vars ---------------------------------------------------------------- //
+$basicLightbox__background: rgba(0, 0, 0, .7) !default;
+$basicLightbox__zIndex: 1000 !default;
+$basicLightbox__duration: .4s !default;
+$basicLightbox__timing: ease !default;
+
+// basicLightbox ------------------------------------------------------- //
+.basicLightbox {
+
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background: $basicLightbox__background;
+	opacity: .01; // Start with .01 to avoid the repaint that happens from 0 to .01
+	transition: opacity $basicLightbox__duration $basicLightbox__timing;
+	z-index: $basicLightbox__zIndex;
+	will-change: opacity;
+        font-family: $mainFont;
+        font-size: $mainFontSize;
+	font-weight: normal;
+	color: #97afd1;
+
+	&--visible {
+		opacity: 1;
+	}
+
+	&__placeholder {
+		max-width: 100%;
+		transform: scale(.9);
+		transition: transform $basicLightbox__duration $basicLightbox__timing;
+		z-index: 1;
+		will-change: transform;
+
+		> img:first-child:last-child,
+		> video:first-child:last-child,
+		> iframe:first-child:last-child {
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			max-width: 95%;
+			max-height: 95%;
+		}
+
+		> video:first-child:last-child,
+		> iframe:first-child:last-child {
+			pointer-events: auto;
+		}
+
+		> img:first-child:last-child,
+		> video:first-child:last-child {
+			width: auto;
+			height: auto;
+		}
+	}
+
+	&--img &__placeholder,
+	&--video &__placeholder,
+	&--iframe &__placeholder {
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+	}
+
+	&--visible &__placeholder {
+		transform: scale(1);
+	}
+        figure>img {
+            min-width: 30vw;
+            max-width: 75vw;
+            max-height: 90vh;
+        }
+        figure>figcaption {
+            text-align: center;
+        }
+}
+
+/* dealing with recalcitrant title slide backgrounds */
+#sec-title-slide[data-background]  {
+    h1, h3 {
+        color: #d3e6f4;
+        mix-blend-mode: exclusion;
+    }
+}
+
+.reveal table th, .reveal table td {
+    border: 1px solid black;
+}
+.reveal table tbody tr:last-child th, .reveal table tbody tr:last-child td {
+    border-bottom: 1px solid black;
+}
+
+.reveal .present.head-highlight h2 {
+    background-color: rgba(155,55,55,0.6);
+    color: $base02;
+                      
+}
+/*  */
+
