@@ -27,6 +27,8 @@
 #+cite_export: csl "./chicago-author-date.csl"
 #+OPTIONS: reveal_single_file: nil
 #+REVEAL_TITLE_SLIDE: ./title.html
+# Define contents of speaker notes on title slide.
+#+REVEAL_TITLE_SLIDE_NOTES: ./title-slide-notes.org
 
 *  Data, Metadata, and History
 :PROPERTIES:
@@ -37,12 +39,12 @@
 :CUSTOM_ID: lost
 :END:
 
-#+begin_quote
-Where is the wisdom we have lost in knowledge?
+# #+begin_quote
+# Where is the wisdom we have lost in knowledge?
 
-Where is the knowledge we have lost in information?
-[cite:@EliotRock1934]
-#+end_quote
+# Where is the knowledge we have lost in information?
+# [cite:@EliotRock1934]
+# #+end_quote
 
 
 #+begin_notes
