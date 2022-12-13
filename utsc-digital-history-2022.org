@@ -1,0 +1,332 @@
+#+REVEAL_ROOT: ./reveal.js
+# Set up the title slide.
+# keeping this here for a moment in case I want to use some of the vars
+# #+REVEAL_TITLE_SLIDE: <h1>%t</h1><h2>%s</h2><h3>%A %a</h3><p>View online: <a href="%u">%u</a></p><p>This could be the file name in the <code>src</code> attribute of an <code>img</code> element for a QR code: %q
+#+OPTIONS: reveal_fragmentinurl t reveal_height 1080 reveal_widt 1920
+# bibliography
+#+LATEX_HEADER: \usepackage[backend=biber,style=alphabetic]{biblatex}
+#+LATEX_HEADER: \addbibresource{references.bib}
+
+# Configure individual pieces of information.
+#+Subtitle: A teaching talk @UTSC HCS
+# #+REVEAL_ACADEMIC_TITLE: Dr.
+#+REVEAL_TALK_URL: https://utsc-talk.hackinghistory.ca/data-metadata-history.html
+
+#+STARTUP: customtime
+#+OPTIONS: toc:nil
+#+SELECT_TAGS: export
+#+EXCLUDE_TAGS: noexport
+#+PROPERTY: header-args :results code
+# # #+HTML_CONTAINER: section
+#+OPTIONS: ':nil *:t -:t ::t <:t H:4 \n:nil arch:nil
+#+OPTIONS: author:nil c:nil creator:nil d:(not "LOGBOOK") date:nil
+#+OPTIONS: stat:t tags:t tasks:t tex:t timestamp:t toc:nil todo:t |:t
+#+STARTUP: customtime entitiespretty
+#+PROPERTY: header-args:plantuml  :noweb yes :eval no-export :results value file raw
+#+bibliography: ./maps-cartography.bib
+#+cite_export: csl "./chicago-author-date.csl"
+#+OPTIONS: reveal_single_file: nil
+#+REVEAL_TITLE_SLIDE: ./title.html
+
+*  Data, Metadata, and History
+:PROPERTIES:
+:EXPORT_FILE_NAME: data-metadata-history
+:END:
+** 
+:PROPERTIES:
+:CUSTOM_ID: lost
+:END:
+
+#+begin_quote
+Where is the wisdom we have lost in knowledge?
+
+Where is the knowledge we have lost in information?
+[cite:@EliotRock2014]
+#+end_quote
+
+
+#+begin_notes
+In today's presentation I am going to try as hard as I can not to rush; but we've got quite a lot of ground to cover, so my apologies if I do go a little quickly. There are easter eggs and tangents scattered through my talk; in a real class, I'd explore them, but today I will just leave them for you to pick up or discard.  In a real class all this material would be fleshed out more, and we'd spend quite a bit more time doing practical work, but I very much hope we still have an opportunity to enjoy ourselves a little. 
+
+Today we will learn about the *history* of *metadata*, and also a tiny bit about the *metadata* of *history*.  And we'll write some real code that makes a real website.  But we should start at the beginning. 
+#+end_notes
+** 
+:PROPERTIES:
+:reveal_background: black
+:custom_id: nothing
+:END:
+#+begin_notes
+At first, of course, there was nothing.  No space, no time, no matter, no energy.  Just nothing.
+
+
+#+end_notes
+** 
+:PROPERTIES:
+:reveal_background: ./images/bigbang-image.png 
+:custom_id: big-bang
+:END:
+
+#+begin_notes
+[cite:@BigBangPlanck] 
+and then, suddenly, there was everything.  Space, expanding frantically in all directions.  Time, dividing past from future.  Energy, of course.  Strange matter everywhere, writhing and appearring and disappearing and reappearing.  
+
+and also...  and also, was there perhaps information? εν αρχη ην ο λογος, says the Book of John.  Is information a feature of the universe? or is it a category of human experience?  Do galaxies emit information? Did dinosaur brains process data? Or did we make information when we built systems of knowledge?
+
+Before the mid-twentieth century, no one asked those kinds of questions.  The word "information" entered the English language in the 14th century, and  for quite a long time usually meant something like "informing". But around 1950, a group of scientists develped a *mathematical* theory of information, which treated it as a fundamental natural quantity, existing in the world, independently of human beings.  The world we inhabit today, the one mediated by digital devices of all kinds -- that world would have been literlly unthinkable without the new "information theory". 
+[cite:@information]  
+#+end_notes
+** Three Concepts from the Rain Forest
+:PROPERTIES:
+:END:
+#+ATTR_REVEAL: :frag (appear) :frag_idx (1 3 4 5)
+- *information:* independent of us. property of communicative exchanges. independent of human action
+- *data:* something we *make*. processed information, in a form that can be manipulated algorithmically
+  #+ATTR_REVEAL: :frag appear
+  - *metadata:* data about information
+- *knowledge:* something we *have*. a property or state of the mind
+- *understanding:* something *harder to define*
+#+BEGIN_EXPORT html
+<br>
+<br>
+#+END_EXPORT
+----- 
+#+ATTR_REVEAL: :frag appear :frag_idx 2
+|  Latitude |  Longitude |  Time |       Date | Sound | Made By    | Direction |
+|-----------+------------+-------+------------+-------+------------+-----------|
+| 10.429911 | -84.007792 | 10:04 | 2023-03-13 | Knock | Woodpecker | 240       |
+
+#+begin_notes
+As we embark on today's journey into the world of data, it will be useful to hold three related concepts in our heads. And I'll ask you to think through these concepts with a little parable.  
+ 
+Imagine you're standing at the foot of a great tree in a Central American rainforest.  A warm, humid wind presses on your skin.  The sounds of insects flying and crawling surrounds you, interspersed with the calls of howler monkeys and parrots. You take in the brown of the soil, the variegated greens of ferns and understory, the complex patterns of lichen on the trunk of a strangler fig. There's a rich, musky smell.  This panoply of sensory input -- this is *information transfer*, from the world into your skin, your ears, your eyes, your nose. 
+
+- *information*, then, is something that exists out in the world.  It's independent of us, but we have the ability to perceive, measure, and process it.  Now, you may say to yourself, this is not my beautiful concept.  This is not my humanistic ontology. Tht's ok -- you surely have excellent epistemological reasons for disagreeing, but I'm asking you to suspend them for thirty minutes. 
+   
+  So if we go back to the rainforest, maybe you have a notebook with a set of templates in it.  You discard some of the information -- maybe you leave bhind all the feel of the air, the sight of the trees, the smell of the rotting leaves -- and you turn what's left into a set of columns in a spreadsheet.  Maybe one like this:
+|  Latitude |  Longitude |  Time |       Date | Sound | Made By    | Direction |
+|-----------+------------+-------+------------+-------+------------+-----------|
+| 10.429911 | -84.007792 | 10:04 | 2023-03-13 | Knock | Woodpecker | 240       |
+    This is *not* the experience of the rainforest! Instead,
+
+- this is *data*, the main subject of our conversation today.  It's not at all the same things as "information".  It's something that information *can become* when it is manipulated, shaped, and chopped into pieces.  "Data" is a *transformation* of information into a structure. We take the formless complexity of sensation -- and give it a form (here, a table).  So, data is something we make.  And, whenever we make data, we make a trade.  We *lose* some of the underlying complexity of what we're representing, and we *gain* the ability to compare things with one another. And what we hope is that we can make ...
+
+  
+- *knowledge*.  Knowledge is something *we have*.  It's not information, and it's not data.  We acquire knowledge through a variety of different means, and there are many kinds of knowledge.  In this case, we can take our observations of forest sounds, maybe combine them with observations made by other people, and perhaps turn them into a census of animals in the forest.
+- Oh shoot ,did I say three things? actually, hold on, there's a fourth: *understanding*.  Hold this one in the back of your minds for a bit, because, while it's very difficult to define, *understanding* is what we usually strive for when we learn about history. And what is required, actually, to "understand" the rain forest?  (jot down you answer!)
+
+In the meantime, let'sgo back to exploring data.  In particular, we will be talking about something called [hit next] *metadata*: special pieces of data that we attach to other pieces of information.  And to think about it, let's hop back in time again -- maybe not 14 billion years ago, but perhaps a couple of thousand years...
+#+end_notes
+
+** Alexandria
+:PROPERTIES:
+:reveal_background: https://upload.wikimedia.org/wikipedia/commons/6/67/Incendie_Alexandrie_by_Hermann_Goll_1876.jpg
+:reveal_extra_attr: class=head-highlight
+:END:
+#+CAPTION: [cite:@GollfireAlexandriawoodcuts1876] 
+
+#+begin_notes
+Let us consider the Library of Alexandria, represented here in in a woodcut from 1876. The most famous site of learning in the Ancient Mediterranean; fabled storehouse of tens, perhaps hundreds of thousands of scrolls. Burned, we all, by barbaric soldiers willing to sacrifice knowledge to the god of war. Julius Caesar pursuing his enemies with fire.
+
+Have you ever read a scroll? 
+
+# Perhaps, like many of the boys in the town I grew up in, on the day of your Bar Mitzvah you ceremoniously lifted a section of the Torah from its resting place by the altar and read aloud in stuttering Hebrew a text you nearly understood, while your friends sat fidgeting in the synagogue, anxious for the party to start? 
+
+Let's just say you have. 
+
+Now, having perhaps held that one scroll in your hand; have you ever browsed a library of tens of thousands of scrolls? Casually walked through the stacks and flipped through the texts of Euclid, Plato, Aristotle, Ptolemy? Of course you haven't! Of course you couldn't have, not just because such places no longer exist, but because it's not possible to casually browse a library of scrolls.  You can't just open them at random to see what they contain. 
+
+Let us stop for a moment and consider what it means for a scroll even to exist.  Socrates was not a writer; though we feel pretty confident he existed, he never left us a trace of his thought in written form. Nor was Aristotle, in all likelihood. The books we call "Aristotelian" were lecture notes copied down by an eager student and left behind in a cool, dark cave on the Greek peninsula when Alexander's empire collapsed.  Later scholars had to reach a collective decision: these pieces of parchment are Aristotle's /Poetics/; this is his /Politics/; this his /Physics/; oh, and we found this one on top of the /Physics/ -- we should call it /Metaphysics/.  
+
+And then, decade after decade, these same scholars took on apprentices, and enslaved scribes and it was those poor sods who copied the texts out, over and over again, so that the very same words could be found in the library of the Roman Emperor, or of the great philosophers of the day, or of the lofty librarians of Alexandria itself.  For the book to even exist, it needed a *name*, and it needed an *author*.  In this sense, metadata is as old as writing itself.  
+
+In a massive library like Alexandria's, though, new problems of "meta" information arose.  A diligent, long-lived scholar dedicated to the practice of reading and gifted with unfailing vision might read perhaps 5000 books in a lifetime; but the Library of Alexandria held 10 or even 80 times so many volumes.  And even the most accomplished scholar could hardly remember the precise placement of tens of thousands of books.
+
+It was in this context that the Hellenistic poet Καλλίμαχος (210-40 BCE ish) composed the /Pinakes/ -- often called the first sytematic library catalogue. It divided the collection into six subjects, and listed the locations of each scroll, along with the scroll's title, author, and sundry other information. In a libeary so vast, a system of metadata was required, to segment and control the sea of information
+
+At least we're told he did.  But we're told many things. We're told, for instance, that the Library died violently, in a blaze  that raged through the city 300 years after Callimachus' death.  His ghost, no doubt, would have stood atop the highest tower and rolled in agony as the flames licked at the pages of his index and collection itself was consumed the primal element of fire. 
+
+We're told this.  I *just told you this*.  
+
+And yet, that fire almost certainly did not happen.  This story: of the library; of the catalog; of their destruction in war -- this is another kind of "meta"data -- a myth we tell ourselves about the nature of knowledge itself. Its truth is not empirical, but lies instead beyond the particularities of individual events in history.  The story of Alexandria teaches us what our minds desperately beg us to forget:  that all that is made shall perish; all that is known must some day vanish; humanity itself will, in time, sink beneath the tides, and one day this fragile blue marble will freeze in the depths of space with no living thing upon it to tell the story of its destruction.
+
+And yet.  Life swims against the current of entropy. We leave scratchmarks on pieces of paper, islands of order in a sea of chaos. And though they are all destined for destruction, nonetheless for their brief decades or centuries or millenia, the institutions of learning build structures of knowledge that can endure precisely because they are *organized* -- bound into systems through the dull tasks of cataloguing and classifying. Metadata is culture itself.  
+
+#+end_notes
+** Commonplacing
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Entries in John Locke's Commonplace Book, ca. 1660 [cite:via @StolbergJohnLockeNew2014]
+[[./images/lock-commonplace-entry.png]]
+#+end_slideblock
+
+#+begin_slideblock
+#+CAPTION: Index of John Locke's Commonplace Book, ca. 1660  [cite:via @StolbergJohnLockeNew2014]
+[[./images/locke-commonplace-index.png]]
+#+end_slideblock
+
+#+begin_notes
+More than a millenium and half after Kallimachus, the scholars of the renaissance and the early modern period faced the same problem -- the problem of organizing knowlege -- in a different form. Libraries are sites of collective action; they bring scholars together in great groups to craft a cathedral of knowledge, which they then preserve through the centuries. 
+
+But they are built around books; aroud writing; and writing has exercised its own profound influence on the philosophical imagination.  
+
+So, for instance, the philosopher John Locke taught in the 17th century that the mind itself is a book, a blank slate, upon which the world writes itself.  The world writes in no particular order; it gives us milk and nursery rhymes and colors and sounds, and it is left to us to organize them, to bring the sights and sounds and sensations of touch into *correspondence* with each other, so that we can form ideas: ideas of objects in the world, and perhaps from there also more abstract ideas -- categories of objects, and more complex thoughts of causality, law, and ultimately the Nature of God and the Universe.  
+
++Every man and even, Locke reluctantly admitted, every woman,+ Anyone could piece together simple ideas; but only a disciplined and organized mind could assemble complex, abstract thoughts in the manner that philosophy required. And so Locke, like the Renaissance scholars by whom he was so deeply influenced, described a system by which the mind itself could be set in order.  
+
+A "commonplace book" was a kind of catalogue of experience, but, especially, a catalogue of the thoughts that arose when *reading*. The truth is eternal; but thought  is fleeting, arriving and disappearing faster than the winged feet of Mercury. A commonplace book set those thoughts down in ink, and placed them in a grid of concepts, so that they could e recalled and put to use in the formation of more complex thoughts: in forming a conception of the mind itself, for instance; or of the foundation of politics; 
+
+# or, not least relevant for us here in Canada, of the nature of property and exactly why it w that the Englishman is justified in seizing the lands of "savages" in the New World. 
+
+The mose important feature for us to focus on right now that Locke's note-taking was a *system*:  each individual note was a single observation or insight developed while reading.  It was identified by a single metadata dimension: the name of the note. Locke then set down the page number of the entry in the index row that represented the firt two letters of the first word in the note's title. IIndividual bits of information could be organized into an ordered knowledge of the world through the use of the index.  
+
+To form ideas of philosophical rigour, thought had to be captured by the system; categorized; assigned a label. That is, thought needed *metadata* before it could become knowledge.  
+
+And from this imperative grew all manner of systems for *indexing* knowwledge -- of which Locke's "Commonplace Book" was only one example. 
+
+Let us now take this history, the history of indexing, in two directions: the cultivation of individual and collective knowledge. 
+#+end_notes
+** On Notes
+#+CAPTION: [cite:via @NoteCardSystem]
+[[./images/NoteCard-samplecard.png]] 
+#+begin_notes
+First, consider the practice of note-taking.  Your teachers in high school perhaps taught you to take notes on cards like these.  Certainly mine did. In Grade 10 Honors English I woke up every Wednesday morning at 5:00AM in terror, knowing that Mr. Maloney would require each of us to display the stack of card swe had assembled for the year's Research Paper.  To my left, Andy Fleischman had a stack 4 inches high.  To my right, things were even worse -- there was Stephanie Stone, whose notes were so thick they couldn't be contained to a single pile but had to be stacked in a grid pattern.  My measly centimeter and halff somehow never seemed to grow any taller, though every week I would resolve with bitter determination to do better next time.  
+
+I did not know at the time that my failure -- eventually resulting in a deeply humiliating grade from which I never really recovered -- went beyond one English course. It was a failure to carry on a tradition  of assimilating the wisdom of the past and synthesizing it into brand new knowledge.  Without a system of notes, my mind scattered. Myootnotes were a joke. I had no one to argue against, because all my sources were a jumble, a remembered phrase here and there for which I would search desperately, wasting hour after precious hour. 
+
+It was this failure more than anything that taught me the importance of notes. 
+
+# Notes can be easy to ignore. Most of our notes are not meant for posterity; they are, in this way, different from the notes of a classicist annotating an ancient work of philosophy.  
+
+Notes exist for the same reason that Locke's commonplace book did -- to give shape to thought, to provide the impoverished substrate on which the miserable shoots of knowledge and argument might, with luck, take root. 
+
+When we read, we process the thoughts of others; we synthesize, we summarize, we categorize.  Our notes are /metadata/ -- they tell us how we might string together bits of thought and text from our sources and use them to create something new.  
+#+end_notes
+** COMMENT Zettelkasten
+:PROPERTIES:
+:reveal_extra_attr: class="twoc"
+:END:
+#+begin_slideblock
+#+CAPTION: Luhmann's /Zettelkasten/ [cite:via @LuhmannZettelkastenMy2021]
+https://systems-thinking.de/wp-content/uploads/2021/01/Lihmann-Zettelkasten.jpg
+#+end_slideblock
+
+#+begin_slideblock
+#+CAPTION: Anatomy of a note [cite:via @ClearExplanationZettelkastenknowledge2019]
+https://upload.wikimedia.org/wikipedia/commons/1/1a/Zettelkasten_paper_schematic.png 
+#+end_slideblock
+
+#+begin_notes
+Perhaps the most elaborate version of this idea was found in the system of the mid-century German sociologist Niklas Luhmann, the author of more than 70 books and over 400 scholarly articles. When he died in 1998, he left behind about 90,000 index cards, all linked to each other through a complex system of cross references and tags.  These serve as inspiration for most of the more advanced digital note-taking systems that are now available (ROAM, logseq, etc)
+#+end_notes
+** Cards for Libraries
+#+CAPTION: Library Card Catalog Entry [cite:@PomerantzMetadata2015]
+[[./images/callnums.png]]
+#+begin_notes
+But we have another direction to trace:  the emergence of metadata in systems for collective action.  For well over a century, the library card catalogue was the dominant framework for managing *collective* information system. Developed in the 19th century, card catalogs contained multiple entries for each item in a library collection, usually organized by Author, Title, and subject heading. Each time you executed a search, you would do so using that metadata dimension.
+
+But library systems operated under different constraints from those that shaped the commonplace book or the personal note-taking system. Any visitor to a library had to be able to use them -- so, to start with, they required uniform spelling.  That is, the catalog was part of a broad effort to standardize orthographic practice across sometimes vast geographical areas -- consider, for instance, the global extnet of the French and British empires in the ninteenth centuries. Subject headings themselves were standardized across library systems -- metadata had its own system of metadata.  Meta-metadata, and meta-meta-metadata.  
+
+[SKIP!] In the Americas, two great systems of classification emerged. Here we see the first of these -- the Dewey Decimal. Those of you who grew up using the Toronto Public Library will recognize the Dewey call numbers.  But if you've been using your University library (and I hope you have!), you know that's not the system we use. Instead, we use the American Library of Congress classification. 
+
+[SKIP!]Each of these seeks to be a universal classification of all possible areas of knowledge. Every book that is published in the United States is given a unique LC number -- that is, it is assigned a place in the galaxy of knowledge, form which it may never stray.  So the humble card catalog evnetually becomes something bigger -- a interlocking set of categories, clamping down every thought and argument in a grid of possible knowledges.   
+
+Like every structure -- every description! --  cataloguing systems both *empower* and *constrain* their users.  You can to Robarts library and, even though there are millions of oboksthere, you can (1) find the book you want, and (2) with luck, also locate other sources you hadn't even heard of. 
+#+end_notes
+** Digital Metadata
+:PROPERTIES:
+:CUSTOM_ID: digital-data
+:reveal_extra_attr: class="twobytwo"
+:END:
+#+begin_slideblock
+[[./images/callnums.png]]
+#+end_slideblock
+
+#+begin_slideblock
+#+begin_src SQL
+SELECT * FROM Books, Surname, First name FROM Authors \
+WHERE Books.Title IS "All About Lovebirds"
+#+end_src
+
+#+end_slideblock
+
+
+#+begin_slideblock
+[[./images/author-table.png]]
+#+end_slideblock
+
+#+begin_slideblock
+[[./images/book-table.png]]
+#+end_slideblock
+
+
+#+begin_notes
+Of course, we no longer use card catalogs in this form.  Instead, all of our research is mediated by digital infrastructure.  Starting about 40 years ago, librarians began transferring metadata from individual paper cards to large institutional databases.  Eventually these moved online, and now you access the library catalog from a browser.  
+
+Internally, each item in the collection is represented as a *metadata collection*, sometimes in multiple records linked together.  here's one way you might construct a database.
+
+[compare]
+
+One incredible idfference betwen a card catalog and a digital query is the ability to search multiple axes of metadata at once: title, author, subject, publication year, etc.  
+
+#+end_notes
+** Metadata in The Wild
+#+begin_src html
+<html lang="en">
+<head>
+<meta name="citation_pii" content="S1574071406020185" />
+<meta name="citation_issn" content="1574-0714" />
+<meta name="citation_volume" content="2" />
+<meta name="citation_lastpage" content="1269" />
+<meta name="citation_publisher" content="Elsevier" />
+<meta name="citation_firstpage" content="1201" />
+<meta name="citation_inbook_title" content="Handbook of the Economics of Giving, Altruism and Reciprocity" />
+<meta name="citation_type" content="CHP" />
+<meta name="citation_chapter_type" content="edited-volume" />
+<meta name="citation_doi" content="10.1016/S1574-0714(06)02018-5" />
+<meta name="dc.identifier" content="10.1016/S1574-0714(06)02018-5" />
+<meta name="citation_article_type" content="Review article" />
+<meta property=og:description content="Philanthropy is one of the enduring areas of economic research. Why would people work hard only to give their earnings away? The paper explores the th…" />
+<meta property=og:image content="https://ars-els-cdn-com.myaccess.library.utoronto.ca/content/image/1-s2.0-S1574071406X02002-cov150h.gif" />
+<meta name="citation_title" content="Chapter 18 Philanthropy" />
+<meta property=og:title content="Chapter 18 Philanthropy" />
+<meta name="citation_publication_date" content="2006/01/01" />
+<meta name="citation_online_date" content="2006/10/17" />
+<meta name="robots" content="INDEX,FOLLOW,NOARCHIVE,NOODP,NOYDIR" />
+<title>Chapter 18 Philanthropy - ScienceDirect</title>
+<link rel="canonical" href="https://www-sciencedirect-com.myaccess.library.utoronto.ca/science/article/abs/pii/S1574071406020185" />
+<meta property="og:type" content="article" />
+<meta name="viewport" content="initial-scale=1" />
+<meta name="SDTech" content="Proudly brought to you by the SD Technology team in London, Dayton, and Amsterdam" />
+#+end_src
+#+begin_notes
+When card catalogs were first invented, scholarly writing was primarily found in libraries. Now, we live in a much more complex publishing landscape, in which vast archives of information float through the ether.  We access this information through our browser's search bar -- which means, almost always, through a search engine.  And the search engine finds us stuff -- how? By using metadata, like what we see here.  
+
+Although we rarely pay attention to it, metadata is at the centre of knowledge in the contemporary world. Metadata is the system of knowledge production, often invisible to us, but which guides our thoughts and gives shape to the research process and also even to the kindso f thinking we can do.  systems of classification and abstraction *make the world around us*, in our individual minds but also in our collective practice.  This was true before the digital age; but it has become even more true as our reliance on computation requires us to formalize our systems and submit them to symbolic (that is, mathematical) manipulation. 
+#+end_notes
+** Some fun
+
+
+#+begin_notes
+This means that, in any digital history project, metadata has to be one of the key elements that we attend to. It organizes what people see; it organizes how they come to see it; it forms the backbone of the reader's experience.
+
+For the rest of our time together, I'm going to drop you in the middle of an imaginary research project and ask you to contribute as best you can.  At the end, I'll show you a little bit of what you've been working on.
+
+
+#+end_notes
+** COMMENT History of data organization (note-taking, etc)
+- locke, commonplacing
+- avalanche of numbers
+- thinking, remembering, and technologies for both
+- library catalogues
+- telephone books
+- standardization
+[cite:@TakeNote2012;@BlairNoteTakingArt2004;@BochNoteTakingLearning2005;@SollNoteTakingData2010; YeoLooseNotesCapacious2010; YeoNotebooksEnglishvirtuosi2014; BennettNoteTakingData2010]
+** COMMENT What work does metadata do today?
+- the SEO war
+** Bibliography
+:PROPERTIES:
+:CUSTOM_ID: bibliography
+:END:
+#+print_bibliography:
