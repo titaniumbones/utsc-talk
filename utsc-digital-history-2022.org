@@ -306,6 +306,42 @@ When card catalogs were first invented, scholarly writing was primarily found in
 Although we rarely pay attention to it, metadata is at the centre of knowledge in the contemporary world. Metadata is the system of knowledge production, often invisible to us, but which guides our thoughts and gives shape to the research process and also even to the kindso f thinking we can do.  systems of classification and abstraction *make the world around us*, in our individual minds but also in our collective practice.  This was true before the digital age; but it has become even more true as our reliance on computation requires us to formalize our systems and submit them to symbolic (that is, mathematical) manipulation. 
 #+end_notes
 ** Some fun
+:PROPERTIES:
+:reveal_extra_attr: class="twobytwo"
+:END:
+
+#+begin_slideblock
+- A Project: https://github.co/DigitalHistory/scarborough-history
+- A Language: Markdown
+- A Metadata Format: YAML
+#+end_slideblock
+
+#+begin_slideblock
+*Github*
+- Code-sharing website w/ built-in editor
+- *SHARED ID*: ~dhutsc~
+- *TEMP PASSWORD*: ~DigitalHistory2022~
+- Follow that link! 
+#+end_slideblock
+
+#+begin_slideblock
+*Markdown*
+- lightweight "markup language"
+- [[https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax][Cheatsheet/Syntax Guide]]
+- *Links*: ~[visible text](https://hiddenaddres)~
+#+end_slideblock
+
+#+begin_slideblock
+*YAML*
+- metadata format
+#+begin_src yaml
+property: value
+complexproperty:
+- listitem1
+- listitem2
+#+end_src
+#+end_slideblock
+
 
 
 #+begin_notes
