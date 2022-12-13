@@ -10,7 +10,7 @@
 # Configure individual pieces of information.
 #+Subtitle: A teaching talk @UTSC HCS
 # #+REVEAL_ACADEMIC_TITLE: Dr.
-#+REVEAL_TALK_URL: https://utsc-talk.hackinghistory.ca/data-metadata-history.html
+#+REVEAL_TALK_URL: https://utsc-talk.hackinghistory.ca/
 
 #+STARTUP: customtime
 #+OPTIONS: toc:nil
@@ -41,7 +41,7 @@
 Where is the wisdom we have lost in knowledge?
 
 Where is the knowledge we have lost in information?
-[cite:@EliotRock2014]
+[cite:@EliotRock1934]
 #+end_quote
 
 
